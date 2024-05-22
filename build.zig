@@ -10,7 +10,7 @@ pub fn build(b: *std.Build) void {
         });
     } else {
         _ = b.addModule("zigwin32", .{
-            .root_source_file = .{ .path = "win32.zig" },
+            .root_source_file = b.path("win32.zig"),
         });
     }
 }
