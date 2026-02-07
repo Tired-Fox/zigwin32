@@ -1739,15 +1739,15 @@ pub const EVENT_PROPERTY_INFO = extern struct {
             OutType: u16,
             CustomSchemaOffset: u32,
         };
-        pub const _nonStructType = extern struct {
-            InType: u16,
-            OutType: u16,
-            MapNameOffset: u32,
-        };
         pub const _structType = extern struct {
             StructStartIndex: u16,
             NumOfStructMembers: u16,
             padding: u32,
+        };
+        pub const _nonStructType = extern struct {
+            InType: u16,
+            OutType: u16,
+            MapNameOffset: u32,
         };
         nonStructType: _nonStructType,
         structType: _structType,

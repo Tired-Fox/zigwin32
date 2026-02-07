@@ -12939,10 +12939,20 @@ pub const SSVARIANT = extern struct {
     dwReserved1: u32,
     dwReserved2: u32,
     Anonymous: extern union {
+        pub const _BLOBType = extern struct {
+            dbobj: DBOBJECT,
+            pUnk: ?*IUnknown,
+        };
         pub const _UnknownType = extern struct {
             dwActualLength: u32,
             rgMetadata: [16]u8,
             pUnknownData: ?*u8,
+        };
+        pub const _BinaryVal = extern struct {
+            sActualLength: i16,
+            sMaxLength: i16,
+            prgbBinaryVal: ?*u8,
+            dwReserved: u32,
         };
         pub const _CharVal = extern struct {
             sActualLength: i16,
@@ -12952,10 +12962,6 @@ pub const SSVARIANT = extern struct {
             dwReserved: u32,
             pwchReserved: ?PWSTR,
         };
-        pub const _BLOBType = extern struct {
-            dbobj: DBOBJECT,
-            pUnk: ?*IUnknown,
-        };
         pub const _NCharVal = extern struct {
             sActualLength: i16,
             sMaxLength: i16,
@@ -12963,12 +12969,6 @@ pub const SSVARIANT = extern struct {
             rgbReserved: [5]u8,
             dwReserved: u32,
             pwchReserved: ?PWSTR,
-        };
-        pub const _BinaryVal = extern struct {
-            sActualLength: i16,
-            sMaxLength: i16,
-            prgbBinaryVal: ?*u8,
-            dwReserved: u32,
         };
         bTinyIntVal: u8,
         sShortIntVal: i16,
