@@ -2485,7 +2485,7 @@ pub const IImageList = extern union {
             pBMapSm: ?*isize,
             pBMapLg: ?*isize,
             nStartLoc: i32,
-            cMask: u32,
+            cMask: COLORREF,
         ) callconv(.winapi) HRESULT,
     };
     vtable: *const VTable,
@@ -2493,7 +2493,7 @@ pub const IImageList = extern union {
     pub fn ImageListSetIcon(self: *const IImageList, pIcon: ?*isize, nLoc: i32) callconv(.@"inline") HRESULT {
         return self.vtable.ImageListSetIcon(self, pIcon, nLoc);
     }
-    pub fn ImageListSetStrip(self: *const IImageList, pBMapSm: ?*isize, pBMapLg: ?*isize, nStartLoc: i32, cMask: u32) callconv(.@"inline") HRESULT {
+    pub fn ImageListSetStrip(self: *const IImageList, pBMapSm: ?*isize, pBMapLg: ?*isize, nStartLoc: i32, cMask: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.ImageListSetStrip(self, pBMapSm, pBMapLg, nStartLoc, cMask);
     }
 };
@@ -2897,7 +2897,7 @@ pub const IToolbar = extern union {
             hbmp: ?HBITMAP,
             cxSize: i32,
             cySize: i32,
-            crMask: u32,
+            crMask: COLORREF,
         ) callconv(.winapi) HRESULT,
         AddButtons: *const fn(
             self: *const IToolbar,
@@ -2928,7 +2928,7 @@ pub const IToolbar = extern union {
     };
     vtable: *const VTable,
     IUnknown: IUnknown,
-    pub fn AddBitmap(self: *const IToolbar, nImages: i32, hbmp: ?HBITMAP, cxSize: i32, cySize: i32, crMask: u32) callconv(.@"inline") HRESULT {
+    pub fn AddBitmap(self: *const IToolbar, nImages: i32, hbmp: ?HBITMAP, cxSize: i32, cySize: i32, crMask: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.AddBitmap(self, nImages, hbmp, cxSize, cySize, crMask);
     }
     pub fn AddButtons(self: *const IToolbar, nButtons: i32, lpButtons: ?*MMCBUTTON) callconv(.@"inline") HRESULT {
@@ -3018,7 +3018,7 @@ pub const ISnapinAbout = extern union {
             hSmallImage: ?*?HBITMAP,
             hSmallImageOpen: ?*?HBITMAP,
             hLargeImage: ?*?HBITMAP,
-            cMask: ?*u32,
+            cMask: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
     };
     vtable: *const VTable,
@@ -3035,7 +3035,7 @@ pub const ISnapinAbout = extern union {
     pub fn GetSnapinImage(self: *const ISnapinAbout, hAppIcon: ?*?HICON) callconv(.@"inline") HRESULT {
         return self.vtable.GetSnapinImage(self, hAppIcon);
     }
-    pub fn GetStaticFolderImage(self: *const ISnapinAbout, hSmallImage: ?*?HBITMAP, hSmallImageOpen: ?*?HBITMAP, hLargeImage: ?*?HBITMAP, cMask: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetStaticFolderImage(self: *const ISnapinAbout, hSmallImage: ?*?HBITMAP, hSmallImageOpen: ?*?HBITMAP, hLargeImage: ?*?HBITMAP, cMask: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetStaticFolderImage(self, hSmallImage, hSmallImageOpen, hLargeImage, cMask);
     }
 };
@@ -3931,11 +3931,12 @@ pub const IResultData2 = extern union {
 // Section: Unicode Aliases (0)
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
-// Section: Imports (17)
+// Section: Imports (18)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BOOL = @import("../foundation.zig").BOOL;
 const BSTR = @import("../foundation.zig").BSTR;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const HBITMAP = @import("../graphics/gdi.zig").HBITMAP;
 const HICON = @import("../ui/windows_and_messaging.zig").HICON;
 const HPALETTE = @import("../graphics/gdi.zig").HPALETTE;

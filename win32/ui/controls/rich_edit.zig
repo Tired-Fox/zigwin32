@@ -1045,12 +1045,12 @@ pub const TABLECELLPARMS = extern struct {
     dyBrdrTop: i16,
     dxBrdrRight: i16,
     dyBrdrBottom: i16,
-    crBrdrLeft: u32,
-    crBrdrTop: u32,
-    crBrdrRight: u32,
-    crBrdrBottom: u32,
-    crBackPat: u32,
-    crForePat: u32,
+    crBrdrLeft: COLORREF,
+    crBrdrTop: COLORREF,
+    crBrdrRight: COLORREF,
+    crBrdrBottom: COLORREF,
+    crBackPat: COLORREF,
+    crForePat: COLORREF,
 };
 
 pub const AutoCorrectProc = *const fn(
@@ -1088,7 +1088,7 @@ pub const CHARFORMATA = extern struct {
     dwEffects: CFE_EFFECTS,
     yHeight: i32,
     yOffset: i32,
-    crTextColor: u32,
+    crTextColor: COLORREF,
     bCharSet: u8,
     bPitchAndFamily: u8,
     szFaceName: [32]CHAR,
@@ -1100,7 +1100,7 @@ pub const CHARFORMATW = extern struct {
     dwEffects: CFE_EFFECTS,
     yHeight: i32,
     yOffset: i32,
-    crTextColor: u32,
+    crTextColor: COLORREF,
     bCharSet: u8,
     bPitchAndFamily: u8,
     szFaceName: [32]u16,
@@ -1110,7 +1110,7 @@ pub const CHARFORMAT2W = extern struct {
     Base: CHARFORMATW,
     wWeight: u16,
     sSpacing: i16,
-    crBackColor: u32,
+    crBackColor: COLORREF,
     lcid: u32,
     Anonymous: extern union {
         dwReserved: u32,
@@ -1128,7 +1128,7 @@ pub const CHARFORMAT2A = extern struct {
     Base: CHARFORMATA,
     wWeight: u16,
     sSpacing: i16,
-    crBackColor: u32,
+    crBackColor: COLORREF,
     lcid: u32,
     Anonymous: extern union {
         dwReserved: u32,
@@ -1328,8 +1328,8 @@ pub const PUNCTUATION = extern struct {
 };
 
 pub const COMPCOLOR = extern struct {
-    crText: u32,
-    crBackground: u32,
+    crText: COLORREF,
+    crBackground: COLORREF,
     dwEffects: u32,
 };
 
@@ -1788,7 +1788,7 @@ pub const ITextHost = extern union {
         TxGetSysColor: *const fn(
             self: *const ITextHost,
             nIndex: i32,
-        ) callconv(.winapi) u32,
+        ) callconv(.winapi) COLORREF,
         TxGetBackStyle: *const fn(
             self: *const ITextHost,
             pstyle: ?*TXTBACKSTYLE,
@@ -1920,7 +1920,7 @@ pub const ITextHost = extern union {
     pub fn TxGetParaFormat(self: *const ITextHost, ppPF: ?*const ?*PARAFORMAT) callconv(.@"inline") HRESULT {
         return self.vtable.TxGetParaFormat(self, ppPF);
     }
-    pub fn TxGetSysColor(self: *const ITextHost, nIndex: i32) callconv(.@"inline") u32 {
+    pub fn TxGetSysColor(self: *const ITextHost, nIndex: i32) callconv(.@"inline") COLORREF {
         return self.vtable.TxGetSysColor(self, nIndex);
     }
     pub fn TxGetBackStyle(self: *const ITextHost, pstyle: ?*TXTBACKSTYLE) callconv(.@"inline") HRESULT {
@@ -6897,12 +6897,12 @@ pub const ITextDocument2Old = extern union {
         SetEffectColor: *const fn(
             self: *const ITextDocument2Old,
             Index: i32,
-            cr: u32,
+            cr: COLORREF,
         ) callconv(.winapi) HRESULT,
         GetEffectColor: *const fn(
             self: *const ITextDocument2Old,
             Index: i32,
-            pcr: ?*u32,
+            pcr: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
         GetCaretType: *const fn(
             self: *const ITextDocument2Old,
@@ -7006,10 +7006,10 @@ pub const ITextDocument2Old = extern union {
     pub fn AttachMsgFilter(self: *const ITextDocument2Old, pFilter: ?*IUnknown) callconv(.@"inline") HRESULT {
         return self.vtable.AttachMsgFilter(self, pFilter);
     }
-    pub fn SetEffectColor(self: *const ITextDocument2Old, Index: i32, cr: u32) callconv(.@"inline") HRESULT {
+    pub fn SetEffectColor(self: *const ITextDocument2Old, Index: i32, cr: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetEffectColor(self, Index, cr);
     }
-    pub fn GetEffectColor(self: *const ITextDocument2Old, Index: i32, pcr: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetEffectColor(self: *const ITextDocument2Old, Index: i32, pcr: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetEffectColor(self, Index, pcr);
     }
     pub fn GetCaretType(self: *const ITextDocument2Old, pCaretType: ?*i32) callconv(.@"inline") HRESULT {
@@ -7121,12 +7121,13 @@ pub const FINDTEXTEX = switch (@import("../../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (43)
+// Section: Imports (44)
 //--------------------------------------------------------------------------------
 const Guid = @import("../../zig.zig").Guid;
 const BOOL = @import("../../foundation.zig").BOOL;
 const BSTR = @import("../../foundation.zig").BSTR;
 const CHAR = @import("../../foundation.zig").CHAR;
+const COLORREF = @import("../../foundation.zig").COLORREF;
 const DVASPECT = @import("../../system/com.zig").DVASPECT;
 const DVTARGETDEVICE = @import("../../system/com.zig").DVTARGETDEVICE;
 const ENABLE_SCROLL_BAR_ARROWS = @import("../../ui/controls.zig").ENABLE_SCROLL_BAR_ARROWS;

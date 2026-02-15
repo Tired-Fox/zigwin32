@@ -1479,7 +1479,7 @@ pub extern "icm32" fn CMCreateProfile(
 
 pub extern "icm32" fn CMTranslateRGB(
     hcmTransform: isize,
-    ColorRef: u32,
+    ColorRef: COLORREF,
     lpColorRef: ?*u32,
     dwFlags: u32,
 ) callconv(.winapi) BOOL;
@@ -1813,7 +1813,7 @@ pub const WcsOpenColorProfile = switch (@import("../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (18)
+// Section: Imports (19)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BOOL = @import("../foundation.zig").BOOL;
@@ -1821,6 +1821,7 @@ const BSTR = @import("../foundation.zig").BSTR;
 const CHAR = @import("../foundation.zig").CHAR;
 const CIEXYZ = @import("../graphics/gdi.zig").CIEXYZ;
 const CIEXYZTRIPLE = @import("../graphics/gdi.zig").CIEXYZTRIPLE;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const DLGPROC = @import("../ui/windows_and_messaging.zig").DLGPROC;
 const EMR = @import("../graphics/gdi.zig").EMR;
 const HDC = @import("../graphics/gdi.zig").HDC;

@@ -4760,7 +4760,7 @@ pub const IPreviewHandlerVisuals = extern union {
         base: IUnknown.VTable,
         SetBackgroundColor: *const fn(
             self: *const IPreviewHandlerVisuals,
-            color: u32,
+            color: COLORREF,
         ) callconv(.winapi) HRESULT,
         SetFont: *const fn(
             self: *const IPreviewHandlerVisuals,
@@ -4768,18 +4768,18 @@ pub const IPreviewHandlerVisuals = extern union {
         ) callconv(.winapi) HRESULT,
         SetTextColor: *const fn(
             self: *const IPreviewHandlerVisuals,
-            color: u32,
+            color: COLORREF,
         ) callconv(.winapi) HRESULT,
     };
     vtable: *const VTable,
     IUnknown: IUnknown,
-    pub fn SetBackgroundColor(self: *const IPreviewHandlerVisuals, color: u32) callconv(.@"inline") HRESULT {
+    pub fn SetBackgroundColor(self: *const IPreviewHandlerVisuals, color: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetBackgroundColor(self, color);
     }
     pub fn SetFont(self: *const IPreviewHandlerVisuals, plf: ?*const LOGFONTW) callconv(.@"inline") HRESULT {
         return self.vtable.SetFont(self, plf);
     }
-    pub fn SetTextColor(self: *const IPreviewHandlerVisuals, color: u32) callconv(.@"inline") HRESULT {
+    pub fn SetTextColor(self: *const IPreviewHandlerVisuals, color: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetTextColor(self, color);
     }
 };
@@ -6456,7 +6456,7 @@ pub const SHDRAGIMAGE = extern struct {
     sizeDragImage: SIZE,
     ptOffset: POINT,
     hbmpDragImage: ?HBITMAP,
-    crColorKey: u32,
+    crColorKey: COLORREF,
 };
 
 // TODO: this type is limited to platform 'windows5.0'
@@ -7513,7 +7513,7 @@ pub const DESKBANDINFO = extern struct {
     ptActual: POINTL,
     wszTitle: [256]u16,
     dwModeFlags: u32,
-    crBkgnd: u32,
+    crBkgnd: COLORREF,
 };
 
 pub const DESKBANDCID = enum(i32) {
@@ -11877,11 +11877,11 @@ pub const IDesktopWallpaper = extern union {
         ) callconv(.winapi) HRESULT,
         SetBackgroundColor: *const fn(
             self: *const IDesktopWallpaper,
-            color: u32,
+            color: COLORREF,
         ) callconv(.winapi) HRESULT,
         GetBackgroundColor: *const fn(
             self: *const IDesktopWallpaper,
-            color: ?*u32,
+            color: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
         SetPosition: *const fn(
             self: *const IDesktopWallpaper,
@@ -11940,10 +11940,10 @@ pub const IDesktopWallpaper = extern union {
     pub fn GetMonitorRECT(self: *const IDesktopWallpaper, monitorID: ?[*:0]const u16, displayRect: ?*RECT) callconv(.@"inline") HRESULT {
         return self.vtable.GetMonitorRECT(self, monitorID, displayRect);
     }
-    pub fn SetBackgroundColor(self: *const IDesktopWallpaper, color: u32) callconv(.@"inline") HRESULT {
+    pub fn SetBackgroundColor(self: *const IDesktopWallpaper, color: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetBackgroundColor(self, color);
     }
-    pub fn GetBackgroundColor(self: *const IDesktopWallpaper, color: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetBackgroundColor(self: *const IDesktopWallpaper, color: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetBackgroundColor(self, color);
     }
     pub fn SetPosition(self: *const IDesktopWallpaper, position: DESKTOP_WALLPAPER_POSITION) callconv(.@"inline") HRESULT {
@@ -13774,12 +13774,12 @@ pub const IVisualProperties = extern union {
         SetColor: *const fn(
             self: *const IVisualProperties,
             vpcf: VPCOLORFLAGS,
-            cr: u32,
+            cr: COLORREF,
         ) callconv(.winapi) HRESULT,
         GetColor: *const fn(
             self: *const IVisualProperties,
             vpcf: VPCOLORFLAGS,
-            pcr: ?*u32,
+            pcr: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
         SetItemHeight: *const fn(
             self: *const IVisualProperties,
@@ -13809,10 +13809,10 @@ pub const IVisualProperties = extern union {
     pub fn SetWatermark(self: *const IVisualProperties, hbmp: ?HBITMAP, vpwf: VPWATERMARKFLAGS) callconv(.@"inline") HRESULT {
         return self.vtable.SetWatermark(self, hbmp, vpwf);
     }
-    pub fn SetColor(self: *const IVisualProperties, vpcf: VPCOLORFLAGS, cr: u32) callconv(.@"inline") HRESULT {
+    pub fn SetColor(self: *const IVisualProperties, vpcf: VPCOLORFLAGS, cr: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetColor(self, vpcf, cr);
     }
-    pub fn GetColor(self: *const IVisualProperties, vpcf: VPCOLORFLAGS, pcr: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetColor(self: *const IVisualProperties, vpcf: VPCOLORFLAGS, pcr: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetColor(self, vpcf, pcr);
     }
     pub fn SetItemHeight(self: *const IVisualProperties, cyItemInPixels: i32) callconv(.@"inline") HRESULT {
@@ -15168,8 +15168,8 @@ pub const INameSpaceTreeControlCustomDraw = extern union {
             hdc: ?HDC,
             prc: ?*RECT,
             pnstccdItem: ?*NSTCCUSTOMDRAW,
-            pclrText: ?*u32,
-            pclrTextBk: ?*u32,
+            pclrText: ?*COLORREF,
+            pclrTextBk: ?*COLORREF,
             plres: ?*LRESULT,
         ) callconv(.winapi) HRESULT,
         ItemPostPaint: *const fn(
@@ -15187,7 +15187,7 @@ pub const INameSpaceTreeControlCustomDraw = extern union {
     pub fn PostPaint(self: *const INameSpaceTreeControlCustomDraw, hdc: ?HDC, prc: ?*RECT) callconv(.@"inline") HRESULT {
         return self.vtable.PostPaint(self, hdc, prc);
     }
-    pub fn ItemPrePaint(self: *const INameSpaceTreeControlCustomDraw, hdc: ?HDC, prc: ?*RECT, pnstccdItem: ?*NSTCCUSTOMDRAW, pclrText: ?*u32, pclrTextBk: ?*u32, plres: ?*LRESULT) callconv(.@"inline") HRESULT {
+    pub fn ItemPrePaint(self: *const INameSpaceTreeControlCustomDraw, hdc: ?HDC, prc: ?*RECT, pnstccdItem: ?*NSTCCUSTOMDRAW, pclrText: ?*COLORREF, pclrTextBk: ?*COLORREF, plres: ?*LRESULT) callconv(.@"inline") HRESULT {
         return self.vtable.ItemPrePaint(self, hdc, prc, pnstccdItem, pclrText, pclrTextBk, plres);
     }
     pub fn ItemPostPaint(self: *const INameSpaceTreeControlCustomDraw, hdc: ?HDC, prc: ?*RECT, pnstccdItem: ?*NSTCCUSTOMDRAW) callconv(.@"inline") HRESULT {
@@ -19519,7 +19519,7 @@ pub const NT_CONSOLE_PROPS = extern struct {
     uHistoryBufferSize: u32 align(1),
     uNumberOfHistoryBuffers: u32 align(1),
     bHistoryNoDup: BOOL align(1),
-    ColorTable: [16]u32 align(1),
+    ColorTable: [16]COLORREF align(1),
 };
 
 pub const NT_FE_CONSOLE_PROPS = extern struct {
@@ -21230,9 +21230,9 @@ pub const BANDINFOSFB = extern struct {
     dwMask: u32,
     dwStateMask: u32,
     dwState: u32,
-    crBkgnd: u32,
-    crBtnLt: u32,
-    crBtnDk: u32,
+    crBkgnd: COLORREF,
+    crBtnLt: COLORREF,
+    crBtnDk: COLORREF,
     wViewMode: u16,
     wAlign: u16,
     psf: ?*IShellFolder,
@@ -33043,7 +33043,7 @@ pub extern "shlwapi" fn SHCreateShellPalette(
 
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "shlwapi" fn ColorRGBToHLS(
-    clrRGB: u32,
+    clrRGB: COLORREF,
     pwHue: ?*u16,
     pwLuminance: ?*u16,
     pwSaturation: ?*u16,
@@ -33054,14 +33054,14 @@ pub extern "shlwapi" fn ColorHLSToRGB(
     wHue: u16,
     wLuminance: u16,
     wSaturation: u16,
-) callconv(.winapi) u32;
+) callconv(.winapi) COLORREF;
 
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "shlwapi" fn ColorAdjustLuma(
-    clrRGB: u32,
+    clrRGB: COLORREF,
     n: i32,
     fScale: BOOL,
-) callconv(.winapi) u32;
+) callconv(.winapi) COLORREF;
 
 // TODO: this type is limited to platform 'windows5.1.2600'
 pub extern "shlwapi" fn IsInternetESCEnabled(
@@ -34901,7 +34901,7 @@ pub const SHStripMneumonic = switch (@import("../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (108)
+// Section: Imports (109)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BOOL = @import("../foundation.zig").BOOL;
@@ -34909,6 +34909,7 @@ const BOOLEAN = @import("../foundation.zig").BOOLEAN;
 const BSTR = @import("../foundation.zig").BSTR;
 const BYTE_BLOB = @import("../system/com.zig").BYTE_BLOB;
 const CHAR = @import("../foundation.zig").CHAR;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const COMDLG_FILTERSPEC = @import("../ui/shell/common.zig").COMDLG_FILTERSPEC;
 const COORD = @import("../system/console.zig").COORD;
 const CREATESTRUCTW = @import("../ui/windows_and_messaging.zig").CREATESTRUCTW;

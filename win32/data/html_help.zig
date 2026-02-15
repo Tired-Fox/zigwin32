@@ -327,8 +327,8 @@ pub const HH_POPUP = extern struct {
     idString: u32,
     pszText: ?*i8,
     pt: POINT,
-    clrForeground: u32,
-    clrBackground: u32,
+    clrForeground: COLORREF,
+    clrBackground: COLORREF,
     rcMargins: RECT,
     pszFont: ?*i8,
 };
@@ -1227,10 +1227,11 @@ pub const IITResultSet = extern union {
 // Section: Unicode Aliases (0)
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
-// Section: Imports (16)
+// Section: Imports (17)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BOOL = @import("../foundation.zig").BOOL;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const HINSTANCE = @import("../foundation.zig").HINSTANCE;
 const HRESULT = @import("../foundation.zig").HRESULT;
 const HWND = @import("../foundation.zig").HWND;

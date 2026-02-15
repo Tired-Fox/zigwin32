@@ -5591,7 +5591,7 @@ pub const TF_DA_COLOR = extern struct {
     type: TF_DA_COLORTYPE,
     Anonymous: extern union {
         nIndex: i32,
-        cr: u32,
+        cr: COLORREF,
     },
 };
 
@@ -7995,11 +7995,12 @@ pub extern "msctfmonitor" fn UninitLocalMsCtfMonitor(
 // Section: Unicode Aliases (0)
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
-// Section: Imports (23)
+// Section: Imports (24)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BOOL = @import("../foundation.zig").BOOL;
 const BSTR = @import("../foundation.zig").BSTR;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const FORMATETC = @import("../system/com.zig").FORMATETC;
 const HANDLE = @import("../foundation.zig").HANDLE;
 const HBITMAP = @import("../graphics/gdi.zig").HBITMAP;

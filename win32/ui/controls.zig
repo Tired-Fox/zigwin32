@@ -2043,7 +2043,7 @@ pub const EM_GETIMESTATUS = @as(u32, 217);
 pub const EM_ENABLEFEATURE = @as(u32, 218);
 
 //--------------------------------------------------------------------------------
-// Section: Types (553)
+// Section: Types (555)
 //--------------------------------------------------------------------------------
 pub const THEME_PROPERTY_SYMBOL_ID = enum(u32) {
     RESERVEDLOW = 0,
@@ -2561,6 +2561,49 @@ pub const TMT_SCALEDBACKGROUND = THEME_PROPERTY_SYMBOL_ID.SCALEDBACKGROUND;
 pub const TMT_ATLASIMAGE = THEME_PROPERTY_SYMBOL_ID.ATLASIMAGE;
 pub const TMT_ATLASINPUTIMAGE = THEME_PROPERTY_SYMBOL_ID.ATLASINPUTIMAGE;
 pub const TMT_ATLASRECT = THEME_PROPERTY_SYMBOL_ID.ATLASRECT;
+
+pub const SET_THEME_APP_PROPERTIES_FLAGS = packed struct(u32) {
+    ALLOW_NONCLIENT: u1 = 0,
+    ALLOW_CONTROLS: u1 = 0,
+    ALLOW_WEBCONTENT: u1 = 0,
+    _3: u1 = 0,
+    _4: u1 = 0,
+    _5: u1 = 0,
+    _6: u1 = 0,
+    _7: u1 = 0,
+    _8: u1 = 0,
+    _9: u1 = 0,
+    _10: u1 = 0,
+    _11: u1 = 0,
+    _12: u1 = 0,
+    _13: u1 = 0,
+    _14: u1 = 0,
+    _15: u1 = 0,
+    _16: u1 = 0,
+    _17: u1 = 0,
+    _18: u1 = 0,
+    _19: u1 = 0,
+    _20: u1 = 0,
+    _21: u1 = 0,
+    _22: u1 = 0,
+    _23: u1 = 0,
+    _24: u1 = 0,
+    _25: u1 = 0,
+    _26: u1 = 0,
+    _27: u1 = 0,
+    _28: u1 = 0,
+    _29: u1 = 0,
+    _30: u1 = 0,
+    _31: u1 = 0,
+};
+pub const ALLOW_NONCLIENT = SET_THEME_APP_PROPERTIES_FLAGS{ .ALLOW_NONCLIENT = 1 };
+pub const ALLOW_CONTROLS = SET_THEME_APP_PROPERTIES_FLAGS{ .ALLOW_CONTROLS = 1 };
+pub const ALLOW_WEBCONTENT = SET_THEME_APP_PROPERTIES_FLAGS{ .ALLOW_WEBCONTENT = 1 };
+pub const VALIDBITS = SET_THEME_APP_PROPERTIES_FLAGS{
+    .ALLOW_NONCLIENT = 1,
+    .ALLOW_CONTROLS = 1,
+    .ALLOW_WEBCONTENT = 1,
+};
 
 pub const DRAGLISTINFO_NOTIFICATION_FLAGS = enum(u32) {
     BEGINDRAG = 1157,
@@ -3937,6 +3980,70 @@ pub const ILC_PERITEMMIRROR = IMAGELIST_CREATION_FLAGS{ .PERITEMMIRROR = 1 };
 pub const ILC_ORIGINALSIZE = IMAGELIST_CREATION_FLAGS{ .ORIGINALSIZE = 1 };
 pub const ILC_HIGHQUALITYSCALE = IMAGELIST_CREATION_FLAGS{ .HIGHQUALITYSCALE = 1 };
 
+pub const DTTOPTS_FLAGS = packed struct(u32) {
+    TEXTCOLOR: u1 = 0,
+    BORDERCOLOR: u1 = 0,
+    SHADOWCOLOR: u1 = 0,
+    SHADOWTYPE: u1 = 0,
+    SHADOWOFFSET: u1 = 0,
+    BORDERSIZE: u1 = 0,
+    FONTPROP: u1 = 0,
+    COLORPROP: u1 = 0,
+    STATEID: u1 = 0,
+    CALCRECT: u1 = 0,
+    APPLYOVERLAY: u1 = 0,
+    GLOWSIZE: u1 = 0,
+    CALLBACK: u1 = 0,
+    COMPOSITED: u1 = 0,
+    _14: u1 = 0,
+    _15: u1 = 0,
+    _16: u1 = 0,
+    _17: u1 = 0,
+    _18: u1 = 0,
+    _19: u1 = 0,
+    _20: u1 = 0,
+    _21: u1 = 0,
+    _22: u1 = 0,
+    _23: u1 = 0,
+    _24: u1 = 0,
+    _25: u1 = 0,
+    _26: u1 = 0,
+    _27: u1 = 0,
+    _28: u1 = 0,
+    _29: u1 = 0,
+    _30: u1 = 0,
+    _31: u1 = 0,
+};
+pub const DTT_TEXTCOLOR = DTTOPTS_FLAGS{ .TEXTCOLOR = 1 };
+pub const DTT_BORDERCOLOR = DTTOPTS_FLAGS{ .BORDERCOLOR = 1 };
+pub const DTT_SHADOWCOLOR = DTTOPTS_FLAGS{ .SHADOWCOLOR = 1 };
+pub const DTT_SHADOWTYPE = DTTOPTS_FLAGS{ .SHADOWTYPE = 1 };
+pub const DTT_SHADOWOFFSET = DTTOPTS_FLAGS{ .SHADOWOFFSET = 1 };
+pub const DTT_BORDERSIZE = DTTOPTS_FLAGS{ .BORDERSIZE = 1 };
+pub const DTT_FONTPROP = DTTOPTS_FLAGS{ .FONTPROP = 1 };
+pub const DTT_COLORPROP = DTTOPTS_FLAGS{ .COLORPROP = 1 };
+pub const DTT_STATEID = DTTOPTS_FLAGS{ .STATEID = 1 };
+pub const DTT_CALCRECT = DTTOPTS_FLAGS{ .CALCRECT = 1 };
+pub const DTT_APPLYOVERLAY = DTTOPTS_FLAGS{ .APPLYOVERLAY = 1 };
+pub const DTT_GLOWSIZE = DTTOPTS_FLAGS{ .GLOWSIZE = 1 };
+pub const DTT_CALLBACK = DTTOPTS_FLAGS{ .CALLBACK = 1 };
+pub const DTT_COMPOSITED = DTTOPTS_FLAGS{ .COMPOSITED = 1 };
+pub const DTT_VALIDBITS = DTTOPTS_FLAGS{
+    .TEXTCOLOR = 1,
+    .BORDERCOLOR = 1,
+    .SHADOWCOLOR = 1,
+    .SHADOWTYPE = 1,
+    .SHADOWOFFSET = 1,
+    .BORDERSIZE = 1,
+    .FONTPROP = 1,
+    .COLORPROP = 1,
+    .STATEID = 1,
+    .CALCRECT = 1,
+    .APPLYOVERLAY = 1,
+    .GLOWSIZE = 1,
+    .COMPOSITED = 1,
+};
+
 // TODO: this type has a FreeFunc 'DestroyPropertySheetPage', what can Zig do with this information?
 // TODO: this type has an InvalidHandleValue of '0', what can Zig do with this information?
 pub const HPROPSHEETPAGE = *opaque{};
@@ -4279,8 +4386,8 @@ pub const INITCOMMONCONTROLSEX = extern struct {
 
 pub const COLORSCHEME = extern struct {
     dwSize: u32,
-    clrBtnHighlight: u32,
-    clrBtnShadow: u32,
+    clrBtnHighlight: COLORREF,
+    clrBtnShadow: COLORREF,
 };
 
 pub const NMTOOLTIPSCREATED = extern struct {
@@ -4361,13 +4468,13 @@ pub const IMAGELISTDRAWPARAMS = extern struct {
     cy: i32,
     xBitmap: i32,
     yBitmap: i32,
-    rgbBk: u32,
-    rgbFg: u32,
+    rgbBk: COLORREF,
+    rgbFg: COLORREF,
     fStyle: u32,
     dwRop: u32,
     fState: u32,
     Frame: u32,
-    crEffect: u32,
+    crEffect: COLORREF,
 };
 
 pub const IMAGEINFO = extern struct {
@@ -4471,8 +4578,8 @@ pub const NMHDFILTERBTNCLICK = extern struct {
 
 
 pub const COLORMAP = extern struct {
-    from: u32,
-    to: u32,
+    from: COLORREF,
+    to: COLORREF,
 };
 
 pub const NMTBCUSTOMDRAW = extern struct {
@@ -4480,12 +4587,12 @@ pub const NMTBCUSTOMDRAW = extern struct {
     hbrMonoDither: ?HBRUSH,
     hbrLines: ?HBRUSH,
     hpenLines: ?HPEN,
-    clrText: u32,
-    clrMark: u32,
-    clrTextHighlight: u32,
-    clrBtnFace: u32,
-    clrBtnHighlight: u32,
-    clrHighlightHotTrack: u32,
+    clrText: COLORREF,
+    clrMark: COLORREF,
+    clrTextHighlight: COLORREF,
+    clrBtnFace: COLORREF,
+    clrBtnHighlight: COLORREF,
+    clrHighlightHotTrack: COLORREF,
     rcText: RECT,
     nStringBkMode: i32,
     nHLStringBkMode: i32,
@@ -4651,8 +4758,8 @@ pub const REBARBANDINFOA = extern struct {
     cbSize: u32,
     fMask: u32,
     fStyle: u32,
-    clrFore: u32,
-    clrBack: u32,
+    clrFore: COLORREF,
+    clrBack: COLORREF,
     lpText: ?PSTR,
     cch: u32,
     iImage: i32,
@@ -4676,8 +4783,8 @@ pub const REBARBANDINFOW = extern struct {
     cbSize: u32,
     fMask: u32,
     fStyle: u32,
-    clrFore: u32,
-    clrBack: u32,
+    clrFore: COLORREF,
+    clrBack: COLORREF,
     lpText: ?PWSTR,
     cch: u32,
     iImage: i32,
@@ -5005,12 +5112,12 @@ pub const LVGROUPMETRICS = extern struct {
     Top: u32,
     Right: u32,
     Bottom: u32,
-    crLeft: u32,
-    crTop: u32,
-    crRight: u32,
-    crBottom: u32,
-    crHeader: u32,
-    crFooter: u32,
+    crLeft: COLORREF,
+    crTop: COLORREF,
+    crRight: COLORREF,
+    crBottom: COLORREF,
+    crHeader: COLORREF,
+    crFooter: COLORREF,
 };
 
 pub const PFNLVGROUPCOMPARE = *const fn(
@@ -5103,11 +5210,11 @@ pub const NMITEMACTIVATE = extern struct {
 
 pub const NMLVCUSTOMDRAW = extern struct {
     nmcd: NMCUSTOMDRAW,
-    clrText: u32,
-    clrTextBk: u32,
+    clrText: COLORREF,
+    clrTextBk: COLORREF,
     iSubItem: i32,
     dwItemType: NMLVCUSTOMDRAW_ITEM_TYPE,
-    clrFace: u32,
+    clrFace: COLORREF,
     iIconEffect: i32,
     iIconPhase: i32,
     iPartId: i32,
@@ -5357,8 +5464,8 @@ pub const NMTVKEYDOWN = extern struct {
 
 pub const NMTVCUSTOMDRAW = extern struct {
     nmcd: NMCUSTOMDRAW,
-    clrText: u32,
-    clrTextBk: u32,
+    clrText: COLORREF,
+    clrTextBk: COLORREF,
     iLevel: i32,
 };
 
@@ -5976,7 +6083,7 @@ pub const IImageList = extern union {
         AddMasked: *const fn(
             self: *const IImageList,
             hbmImage: ?HBITMAP,
-            crMask: u32,
+            crMask: COLORREF,
             pi: ?*i32,
         ) callconv(.winapi) HRESULT,
         Draw: *const fn(
@@ -6045,12 +6152,12 @@ pub const IImageList = extern union {
         ) callconv(.winapi) HRESULT,
         SetBkColor: *const fn(
             self: *const IImageList,
-            clrBk: u32,
-            pclr: ?*u32,
+            clrBk: COLORREF,
+            pclr: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
         GetBkColor: *const fn(
             self: *const IImageList,
-            pclr: ?*u32,
+            pclr: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
         BeginDrag: *const fn(
             self: *const IImageList,
@@ -6119,7 +6226,7 @@ pub const IImageList = extern union {
     pub fn Replace(self: *const IImageList, i: i32, hbmImage: ?HBITMAP, hbmMask: ?HBITMAP) callconv(.@"inline") HRESULT {
         return self.vtable.Replace(self, i, hbmImage, hbmMask);
     }
-    pub fn AddMasked(self: *const IImageList, hbmImage: ?HBITMAP, crMask: u32, pi: ?*i32) callconv(.@"inline") HRESULT {
+    pub fn AddMasked(self: *const IImageList, hbmImage: ?HBITMAP, crMask: COLORREF, pi: ?*i32) callconv(.@"inline") HRESULT {
         return self.vtable.AddMasked(self, hbmImage, crMask, pi);
     }
     pub fn Draw(self: *const IImageList, pimldp: ?*IMAGELISTDRAWPARAMS) callconv(.@"inline") HRESULT {
@@ -6158,10 +6265,10 @@ pub const IImageList = extern union {
     pub fn SetImageCount(self: *const IImageList, uNewCount: u32) callconv(.@"inline") HRESULT {
         return self.vtable.SetImageCount(self, uNewCount);
     }
-    pub fn SetBkColor(self: *const IImageList, clrBk: u32, pclr: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn SetBkColor(self: *const IImageList, clrBk: COLORREF, pclr: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetBkColor(self, clrBk, pclr);
     }
-    pub fn GetBkColor(self: *const IImageList, pclr: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetBkColor(self: *const IImageList, pclr: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetBkColor(self, pclr);
     }
     pub fn BeginDrag(self: *const IImageList, iTrack: i32, dxHotspot: i32, dyHotspot: i32) callconv(.@"inline") HRESULT {
@@ -6515,10 +6622,10 @@ pub const DTT_CALLBACK_PROC = *const fn(
 
 pub const DTTOPTS = extern struct {
     dwSize: u32,
-    dwFlags: u32,
-    crText: u32,
-    crBorder: u32,
-    crShadow: u32,
+    dwFlags: DTTOPTS_FLAGS,
+    crText: COLORREF,
+    crBorder: COLORREF,
+    crShadow: COLORREF,
     iTextShadowType: i32,
     ptShadowOffset: POINT,
     iBorderSize: i32,
@@ -9792,13 +9899,13 @@ pub extern "comctl32" fn ImageList_ReplaceIcon(
 // TODO: this type is limited to platform 'windows6.0.6000'
 pub extern "comctl32" fn ImageList_SetBkColor(
     himl: ?HIMAGELIST,
-    clrBk: u32,
-) callconv(.winapi) u32;
+    clrBk: COLORREF,
+) callconv(.winapi) COLORREF;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
 pub extern "comctl32" fn ImageList_GetBkColor(
     himl: ?HIMAGELIST,
-) callconv(.winapi) u32;
+) callconv(.winapi) COLORREF;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
 pub extern "comctl32" fn ImageList_SetOverlayImage(
@@ -9829,7 +9936,7 @@ pub extern "comctl32" fn ImageList_Replace(
 pub extern "comctl32" fn ImageList_AddMasked(
     himl: ?HIMAGELIST,
     hbmImage: ?HBITMAP,
-    crMask: u32,
+    crMask: COLORREF,
 ) callconv(.winapi) i32;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
@@ -9841,8 +9948,8 @@ pub extern "comctl32" fn ImageList_DrawEx(
     y: i32,
     dx: i32,
     dy: i32,
-    rgbBk: u32,
-    rgbFg: u32,
+    rgbBk: COLORREF,
+    rgbFg: COLORREF,
     fStyle: IMAGE_LIST_DRAW_STYLE,
 ) callconv(.winapi) BOOL;
 
@@ -9870,7 +9977,7 @@ pub extern "comctl32" fn ImageList_LoadImageA(
     lpbmp: ?[*:0]const u8,
     cx: i32,
     cGrow: i32,
-    crMask: u32,
+    crMask: COLORREF,
     uType: u32,
     uFlags: IMAGE_FLAGS,
 ) callconv(.winapi) ?HIMAGELIST;
@@ -9881,7 +9988,7 @@ pub extern "comctl32" fn ImageList_LoadImageW(
     lpbmp: ?[*:0]const u16,
     cx: i32,
     cGrow: i32,
-    crMask: u32,
+    crMask: COLORREF,
     uType: u32,
     uFlags: IMAGE_FLAGS,
 ) callconv(.winapi) ?HIMAGELIST;
@@ -10482,8 +10589,8 @@ pub extern "comctl32" fn DrawShadowText(
     cch: u32,
     prc: ?*RECT,
     dwFlags: u32,
-    crText: u32,
-    crShadow: u32,
+    crText: COLORREF,
+    crShadow: COLORREF,
     ixOffset: i32,
     iyOffset: i32,
 ) callconv(.winapi) i32;
@@ -10718,8 +10825,8 @@ pub extern "uxtheme" fn GetThemeColor(
     hTheme: isize,
     iPartId: i32,
     iStateId: i32,
-    iPropId: i32,
-    pColor: ?*u32,
+    iPropId: THEME_PROPERTY_SYMBOL_ID,
+    pColor: ?*COLORREF,
 ) callconv(.winapi) HRESULT;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
@@ -10756,7 +10863,7 @@ pub extern "uxtheme" fn GetThemeInt(
     hTheme: isize,
     iPartId: i32,
     iStateId: i32,
-    iPropId: i32,
+    iPropId: THEME_PROPERTY_SYMBOL_ID,
     piVal: ?*i32,
 ) callconv(.winapi) HRESULT;
 
@@ -10765,7 +10872,7 @@ pub extern "uxtheme" fn GetThemeEnumValue(
     hTheme: isize,
     iPartId: i32,
     iStateId: i32,
-    iPropId: i32,
+    iPropId: THEME_PROPERTY_SYMBOL_ID,
     piVal: ?*i32,
 ) callconv(.winapi) HRESULT;
 
@@ -10774,7 +10881,7 @@ pub extern "uxtheme" fn GetThemePosition(
     hTheme: isize,
     iPartId: i32,
     iStateId: i32,
-    iPropId: i32,
+    iPropId: THEME_PROPERTY_SYMBOL_ID,
     pPoint: ?*POINT,
 ) callconv(.winapi) HRESULT;
 
@@ -10803,7 +10910,7 @@ pub extern "uxtheme" fn GetThemeMargins(
     hdc: ?HDC,
     iPartId: i32,
     iStateId: i32,
-    iPropId: i32,
+    iPropId: THEME_PROPERTY_SYMBOL_ID,
     prc: ?*RECT,
     pMargins: ?*MARGINS,
 ) callconv(.winapi) HRESULT;
@@ -10813,7 +10920,7 @@ pub extern "uxtheme" fn GetThemeIntList(
     hTheme: isize,
     iPartId: i32,
     iStateId: i32,
-    iPropId: i32,
+    iPropId: THEME_PROPERTY_SYMBOL_ID,
     pIntList: ?*INTLIST,
 ) callconv(.winapi) HRESULT;
 
@@ -10838,7 +10945,7 @@ pub extern "uxtheme" fn GetThemeFilename(
     hTheme: isize,
     iPartId: i32,
     iStateId: i32,
-    iPropId: i32,
+    iPropId: THEME_PROPERTY_SYMBOL_ID,
     pszThemeFileName: [*:0]u16,
     cchMaxBuffChars: i32,
 ) callconv(.winapi) HRESULT;
@@ -10847,7 +10954,7 @@ pub extern "uxtheme" fn GetThemeFilename(
 pub extern "uxtheme" fn GetThemeSysColor(
     hTheme: isize,
     iColorId: i32,
-) callconv(.winapi) u32;
+) callconv(.winapi) COLORREF;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
 pub extern "uxtheme" fn GetThemeSysColorBrush(
@@ -10858,7 +10965,7 @@ pub extern "uxtheme" fn GetThemeSysColorBrush(
 // TODO: this type is limited to platform 'windows6.0.6000'
 pub extern "uxtheme" fn GetThemeSysBool(
     hTheme: isize,
-    iBoolId: i32,
+    iBoolId: THEME_PROPERTY_SYMBOL_ID,
 ) callconv(.winapi) BOOL;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
@@ -10885,7 +10992,7 @@ pub extern "uxtheme" fn GetThemeSysString(
 // TODO: this type is limited to platform 'windows6.0.6000'
 pub extern "uxtheme" fn GetThemeSysInt(
     hTheme: isize,
-    iIntId: i32,
+    iIntId: THEME_PROPERTY_SYMBOL_ID,
     piValue: ?*i32,
 ) callconv(.winapi) HRESULT;
 
@@ -10915,11 +11022,11 @@ pub extern "uxtheme" fn IsThemeDialogTextureEnabled(
 
 // TODO: this type is limited to platform 'windows6.0.6000'
 pub extern "uxtheme" fn GetThemeAppProperties(
-) callconv(.winapi) u32;
+) callconv(.winapi) SET_THEME_APP_PROPERTIES_FLAGS;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
 pub extern "uxtheme" fn SetThemeAppProperties(
-    dwFlags: u32,
+    dwFlags: SET_THEME_APP_PROPERTIES_FLAGS,
 ) callconv(.winapi) void;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
@@ -11703,12 +11810,13 @@ pub const DlgDirSelectComboBoxEx = switch (@import("../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (42)
+// Section: Imports (43)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BLENDFUNCTION = @import("../graphics/gdi.zig").BLENDFUNCTION;
 const BOOL = @import("../foundation.zig").BOOL;
 const CHAR = @import("../foundation.zig").CHAR;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const DLGPROC = @import("../ui/windows_and_messaging.zig").DLGPROC;
 const DLGTEMPLATE = @import("../ui/windows_and_messaging.zig").DLGTEMPLATE;
 const HANDLE = @import("../foundation.zig").HANDLE;

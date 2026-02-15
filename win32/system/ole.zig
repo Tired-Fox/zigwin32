@@ -9455,7 +9455,7 @@ pub extern "oleaut32" fn OleCreatePropertyFrameIndirect(
 pub extern "oleaut32" fn OleTranslateColor(
     clr: u32,
     hpal: ?HPALETTE,
-    lpcolorref: ?*u32,
+    lpcolorref: ?*COLORREF,
 ) callconv(.winapi) HRESULT;
 
 // TODO: this type is limited to platform 'windows5.0'
@@ -9856,7 +9856,7 @@ pub const OleUIUpdateLinks = switch (@import("../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (88)
+// Section: Imports (89)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BOOL = @import("../foundation.zig").BOOL;
@@ -9864,6 +9864,7 @@ const BSTR = @import("../foundation.zig").BSTR;
 const BYTE_SIZEDARR = @import("../system/com.zig").BYTE_SIZEDARR;
 const CALLCONV = @import("../system/com.zig").CALLCONV;
 const CHAR = @import("../foundation.zig").CHAR;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const CUSTDATA = @import("../system/com.zig").CUSTDATA;
 const CY = @import("../system/com.zig").CY;
 const DECIMAL = @import("../foundation.zig").DECIMAL;

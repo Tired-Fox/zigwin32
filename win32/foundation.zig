@@ -6530,7 +6530,7 @@ pub const _WIN32_WINNT_MAXVER = @as(u32, 2560);
 pub const WINVER_MAXVER = @as(u32, 2560);
 
 //--------------------------------------------------------------------------------
-// Section: Types (45)
+// Section: Types (46)
 //--------------------------------------------------------------------------------
 pub const WIN32_ERROR = enum(u32) {
     NO_ERROR = 0,
@@ -16368,6 +16368,8 @@ pub const PSTR = [*:0]u8;
 pub const PWSTR = [*:0]u16;
 
 pub const WPARAM = usize;
+
+pub const COLORREF = u32;
 
 // TODO: this type has an InvalidHandleValue of '0', what can Zig do with this information?
 pub const HRSRC = *opaque{};

@@ -2548,8 +2548,8 @@ pub const CK_RGB = COLORKEY_TYPE.RGB;
 pub const COLORKEY = extern struct {
     KeyType: u32,
     PaletteIndex: u32,
-    LowColorValue: u32,
-    HighColorValue: u32,
+    LowColorValue: COLORREF,
+    HighColorValue: COLORREF,
 };
 
 pub const ADVISE_TYPE = packed struct(u32) {
@@ -7237,7 +7237,7 @@ pub const IVMRSurfaceAllocatorNotify = extern union {
         ) callconv(.winapi) HRESULT,
         SetBorderColor: *const fn(
             self: *const IVMRSurfaceAllocatorNotify,
-            clrBorder: u32,
+            clrBorder: COLORREF,
         ) callconv(.winapi) HRESULT,
     };
     vtable: *const VTable,
@@ -7257,7 +7257,7 @@ pub const IVMRSurfaceAllocatorNotify = extern union {
     pub fn NotifyEvent(self: *const IVMRSurfaceAllocatorNotify, EventCode: i32, Param1: isize, Param2: isize) callconv(.@"inline") HRESULT {
         return self.vtable.NotifyEvent(self, EventCode, Param1, Param2);
     }
-    pub fn SetBorderColor(self: *const IVMRSurfaceAllocatorNotify, clrBorder: u32) callconv(.@"inline") HRESULT {
+    pub fn SetBorderColor(self: *const IVMRSurfaceAllocatorNotify, clrBorder: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetBorderColor(self, clrBorder);
     }
 };
@@ -7328,19 +7328,19 @@ pub const IVMRWindowlessControl = extern union {
         ) callconv(.winapi) HRESULT,
         SetBorderColor: *const fn(
             self: *const IVMRWindowlessControl,
-            Clr: u32,
+            Clr: COLORREF,
         ) callconv(.winapi) HRESULT,
         GetBorderColor: *const fn(
             self: *const IVMRWindowlessControl,
-            lpClr: ?*u32,
+            lpClr: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
         SetColorKey: *const fn(
             self: *const IVMRWindowlessControl,
-            Clr: u32,
+            Clr: COLORREF,
         ) callconv(.winapi) HRESULT,
         GetColorKey: *const fn(
             self: *const IVMRWindowlessControl,
-            lpClr: ?*u32,
+            lpClr: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
     };
     vtable: *const VTable,
@@ -7378,16 +7378,16 @@ pub const IVMRWindowlessControl = extern union {
     pub fn GetCurrentImage(self: *const IVMRWindowlessControl, lpDib: ?*?*u8) callconv(.@"inline") HRESULT {
         return self.vtable.GetCurrentImage(self, lpDib);
     }
-    pub fn SetBorderColor(self: *const IVMRWindowlessControl, Clr: u32) callconv(.@"inline") HRESULT {
+    pub fn SetBorderColor(self: *const IVMRWindowlessControl, Clr: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetBorderColor(self, Clr);
     }
-    pub fn GetBorderColor(self: *const IVMRWindowlessControl, lpClr: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetBorderColor(self: *const IVMRWindowlessControl, lpClr: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetBorderColor(self, lpClr);
     }
-    pub fn SetColorKey(self: *const IVMRWindowlessControl, Clr: u32) callconv(.@"inline") HRESULT {
+    pub fn SetColorKey(self: *const IVMRWindowlessControl, Clr: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetColorKey(self, Clr);
     }
-    pub fn GetColorKey(self: *const IVMRWindowlessControl, lpClr: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetColorKey(self: *const IVMRWindowlessControl, lpClr: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetColorKey(self, lpClr);
     }
 };
@@ -7478,11 +7478,11 @@ pub const IVMRMixerControl = extern union {
         ) callconv(.winapi) HRESULT,
         SetBackgroundClr: *const fn(
             self: *const IVMRMixerControl,
-            ClrBkg: u32,
+            ClrBkg: COLORREF,
         ) callconv(.winapi) HRESULT,
         GetBackgroundClr: *const fn(
             self: *const IVMRMixerControl,
-            lpClrBkg: ?*u32,
+            lpClrBkg: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
         SetMixingPrefs: *const fn(
             self: *const IVMRMixerControl,
@@ -7513,10 +7513,10 @@ pub const IVMRMixerControl = extern union {
     pub fn GetOutputRect(self: *const IVMRMixerControl, dwStreamID: u32, pRect: ?*NORMALIZEDRECT) callconv(.@"inline") HRESULT {
         return self.vtable.GetOutputRect(self, dwStreamID, pRect);
     }
-    pub fn SetBackgroundClr(self: *const IVMRMixerControl, ClrBkg: u32) callconv(.@"inline") HRESULT {
+    pub fn SetBackgroundClr(self: *const IVMRMixerControl, ClrBkg: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetBackgroundClr(self, ClrBkg);
     }
-    pub fn GetBackgroundClr(self: *const IVMRMixerControl, lpClrBkg: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetBackgroundClr(self: *const IVMRMixerControl, lpClrBkg: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetBackgroundClr(self, lpClrBkg);
     }
     pub fn SetMixingPrefs(self: *const IVMRMixerControl, dwMixerPrefs: u32) callconv(.@"inline") HRESULT {
@@ -7843,7 +7843,7 @@ pub const VMRALPHABITMAP = extern struct {
     rSrc: RECT,
     rDest: NORMALIZEDRECT,
     fAlpha: f32,
-    clrSrcKey: u32,
+    clrSrcKey: COLORREF,
 };
 
 // TODO: this type is limited to platform 'windows5.1.2600'
@@ -19477,11 +19477,11 @@ pub const IVMRWindowlessControl9 = extern union {
         ) callconv(.winapi) HRESULT,
         SetBorderColor: *const fn(
             self: *const IVMRWindowlessControl9,
-            Clr: u32,
+            Clr: COLORREF,
         ) callconv(.winapi) HRESULT,
         GetBorderColor: *const fn(
             self: *const IVMRWindowlessControl9,
-            lpClr: ?*u32,
+            lpClr: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
     };
     vtable: *const VTable,
@@ -19519,10 +19519,10 @@ pub const IVMRWindowlessControl9 = extern union {
     pub fn GetCurrentImage(self: *const IVMRWindowlessControl9, lpDib: ?*?*u8) callconv(.@"inline") HRESULT {
         return self.vtable.GetCurrentImage(self, lpDib);
     }
-    pub fn SetBorderColor(self: *const IVMRWindowlessControl9, Clr: u32) callconv(.@"inline") HRESULT {
+    pub fn SetBorderColor(self: *const IVMRWindowlessControl9, Clr: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetBorderColor(self, Clr);
     }
-    pub fn GetBorderColor(self: *const IVMRWindowlessControl9, lpClr: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetBorderColor(self: *const IVMRWindowlessControl9, lpClr: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetBorderColor(self, lpClr);
     }
 };
@@ -19646,11 +19646,11 @@ pub const IVMRMixerControl9 = extern union {
         ) callconv(.winapi) HRESULT,
         SetBackgroundClr: *const fn(
             self: *const IVMRMixerControl9,
-            ClrBkg: u32,
+            ClrBkg: COLORREF,
         ) callconv(.winapi) HRESULT,
         GetBackgroundClr: *const fn(
             self: *const IVMRMixerControl9,
-            lpClrBkg: ?*u32,
+            lpClrBkg: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
         SetMixingPrefs: *const fn(
             self: *const IVMRMixerControl9,
@@ -19696,10 +19696,10 @@ pub const IVMRMixerControl9 = extern union {
     pub fn GetOutputRect(self: *const IVMRMixerControl9, dwStreamID: u32, pRect: ?*VMR9NormalizedRect) callconv(.@"inline") HRESULT {
         return self.vtable.GetOutputRect(self, dwStreamID, pRect);
     }
-    pub fn SetBackgroundClr(self: *const IVMRMixerControl9, ClrBkg: u32) callconv(.@"inline") HRESULT {
+    pub fn SetBackgroundClr(self: *const IVMRMixerControl9, ClrBkg: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetBackgroundClr(self, ClrBkg);
     }
-    pub fn GetBackgroundClr(self: *const IVMRMixerControl9, lpClrBkg: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetBackgroundClr(self: *const IVMRMixerControl9, lpClrBkg: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetBackgroundClr(self, lpClrBkg);
     }
     pub fn SetMixingPrefs(self: *const IVMRMixerControl9, dwMixerPrefs: u32) callconv(.@"inline") HRESULT {
@@ -19726,7 +19726,7 @@ pub const VMR9AlphaBitmap = extern struct {
     rSrc: RECT,
     rDest: VMR9NormalizedRect,
     fAlpha: f32,
-    clrSrcKey: u32,
+    clrSrcKey: COLORREF,
     dwFilterMode: u32,
 };
 
@@ -42209,7 +42209,7 @@ pub const AMGetErrorText = switch (@import("../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (82)
+// Section: Imports (83)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const AM_MEDIA_TYPE = @import("../media/media_foundation.zig").AM_MEDIA_TYPE;
@@ -42220,6 +42220,7 @@ const BOOLEAN = @import("../foundation.zig").BOOLEAN;
 const BSTR = @import("../foundation.zig").BSTR;
 const CAUUID = @import("../system/ole.zig").CAUUID;
 const CHAR = @import("../foundation.zig").CHAR;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const D3DFORMAT = @import("../graphics/direct3d9.zig").D3DFORMAT;
 const D3DPOOL = @import("../graphics/direct3d9.zig").D3DPOOL;
 const DDCAPS_DX7 = @import("../graphics/direct_draw.zig").DDCAPS_DX7;

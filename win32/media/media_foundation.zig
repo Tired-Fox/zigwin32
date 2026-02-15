@@ -21897,7 +21897,7 @@ pub const IMFCapturePreviewSink = extern union {
             self: *const IMFCapturePreviewSink,
             pSrc: ?*const MFVideoNormalizedRect,
             pDst: ?*const RECT,
-            pBorderClr: ?*const u32,
+            pBorderClr: ?*const COLORREF,
         ) callconv(.winapi) HRESULT,
         SetSampleCallback: *const fn(
             self: *const IMFCapturePreviewSink,
@@ -21936,7 +21936,7 @@ pub const IMFCapturePreviewSink = extern union {
     pub fn SetRenderSurface(self: *const IMFCapturePreviewSink, pSurface: ?*IUnknown) callconv(.@"inline") HRESULT {
         return self.vtable.SetRenderSurface(self, pSurface);
     }
-    pub fn UpdateVideo(self: *const IMFCapturePreviewSink, pSrc: ?*const MFVideoNormalizedRect, pDst: ?*const RECT, pBorderClr: ?*const u32) callconv(.@"inline") HRESULT {
+    pub fn UpdateVideo(self: *const IMFCapturePreviewSink, pSrc: ?*const MFVideoNormalizedRect, pDst: ?*const RECT, pBorderClr: ?*const COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.UpdateVideo(self, pSrc, pDst, pBorderClr);
     }
     pub fn SetSampleCallback(self: *const IMFCapturePreviewSink, dwStreamSinkIndex: u32, pCallback: ?*IMFCaptureEngineOnSampleCallback) callconv(.@"inline") HRESULT {
@@ -26556,11 +26556,11 @@ pub const IMFVideoDisplayControl = extern union {
         ) callconv(.winapi) HRESULT,
         SetBorderColor: *const fn(
             self: *const IMFVideoDisplayControl,
-            Clr: u32,
+            Clr: COLORREF,
         ) callconv(.winapi) HRESULT,
         GetBorderColor: *const fn(
             self: *const IMFVideoDisplayControl,
-            pClr: ?*u32,
+            pClr: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
         SetRenderingPrefs: *const fn(
             self: *const IMFVideoDisplayControl,
@@ -26611,10 +26611,10 @@ pub const IMFVideoDisplayControl = extern union {
     pub fn GetCurrentImage(self: *const IMFVideoDisplayControl, pBih: ?*BITMAPINFOHEADER, pDib: [*]?*u8, pcbDib: ?*u32, pTimeStamp: ?*i64) callconv(.@"inline") HRESULT {
         return self.vtable.GetCurrentImage(self, pBih, pDib, pcbDib, pTimeStamp);
     }
-    pub fn SetBorderColor(self: *const IMFVideoDisplayControl, Clr: u32) callconv(.@"inline") HRESULT {
+    pub fn SetBorderColor(self: *const IMFVideoDisplayControl, Clr: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetBorderColor(self, Clr);
     }
-    pub fn GetBorderColor(self: *const IMFVideoDisplayControl, pClr: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetBorderColor(self: *const IMFVideoDisplayControl, pClr: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetBorderColor(self, pClr);
     }
     pub fn SetRenderingPrefs(self: *const IMFVideoDisplayControl, dwRenderFlags: u32) callconv(.@"inline") HRESULT {
@@ -27157,11 +27157,11 @@ pub const IMFPMediaPlayer = extern union {
         ) callconv(.winapi) HRESULT,
         SetBorderColor: *const fn(
             self: *const IMFPMediaPlayer,
-            Clr: u32,
+            Clr: COLORREF,
         ) callconv(.winapi) HRESULT,
         GetBorderColor: *const fn(
             self: *const IMFPMediaPlayer,
-            pClr: ?*u32,
+            pClr: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
         InsertEffect: *const fn(
             self: *const IMFPMediaPlayer,
@@ -27271,10 +27271,10 @@ pub const IMFPMediaPlayer = extern union {
     pub fn UpdateVideo(self: *const IMFPMediaPlayer) callconv(.@"inline") HRESULT {
         return self.vtable.UpdateVideo(self);
     }
-    pub fn SetBorderColor(self: *const IMFPMediaPlayer, Clr: u32) callconv(.@"inline") HRESULT {
+    pub fn SetBorderColor(self: *const IMFPMediaPlayer, Clr: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetBorderColor(self, Clr);
     }
-    pub fn GetBorderColor(self: *const IMFPMediaPlayer, pClr: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetBorderColor(self: *const IMFPMediaPlayer, pClr: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetBorderColor(self, pClr);
     }
     pub fn InsertEffect(self: *const IMFPMediaPlayer, pEffect: ?*IUnknown, fOptional: BOOL) callconv(.@"inline") HRESULT {
@@ -27874,11 +27874,11 @@ pub const IMFVideoProcessor = extern union {
         ) callconv(.winapi) HRESULT,
         GetBackgroundColor: *const fn(
             self: *const IMFVideoProcessor,
-            lpClrBkg: ?*u32,
+            lpClrBkg: ?*COLORREF,
         ) callconv(.winapi) HRESULT,
         SetBackgroundColor: *const fn(
             self: *const IMFVideoProcessor,
-            ClrBkg: u32,
+            ClrBkg: COLORREF,
         ) callconv(.winapi) HRESULT,
     };
     vtable: *const VTable,
@@ -27913,17 +27913,17 @@ pub const IMFVideoProcessor = extern union {
     pub fn SetFilteringValue(self: *const IMFVideoProcessor, dwProperty: u32, pValue: ?*DXVA2_Fixed32) callconv(.@"inline") HRESULT {
         return self.vtable.SetFilteringValue(self, dwProperty, pValue);
     }
-    pub fn GetBackgroundColor(self: *const IMFVideoProcessor, lpClrBkg: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetBackgroundColor(self: *const IMFVideoProcessor, lpClrBkg: ?*COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.GetBackgroundColor(self, lpClrBkg);
     }
-    pub fn SetBackgroundColor(self: *const IMFVideoProcessor, ClrBkg: u32) callconv(.@"inline") HRESULT {
+    pub fn SetBackgroundColor(self: *const IMFVideoProcessor, ClrBkg: COLORREF) callconv(.@"inline") HRESULT {
         return self.vtable.SetBackgroundColor(self, ClrBkg);
     }
 };
 
 pub const MFVideoAlphaBitmapParams = extern struct {
     dwFlags: u32,
-    clrSrcKey: u32,
+    clrSrcKey: COLORREF,
     rcSrc: RECT,
     nrcDest: MFVideoNormalizedRect,
     fAlpha: f32,
@@ -30228,13 +30228,14 @@ pub extern "opmxbox" fn OPMXboxGetHDCPStatusAndType(
 // Section: Unicode Aliases (0)
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
-// Section: Imports (61)
+// Section: Imports (62)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const AudioObjectType = @import("../media/audio.zig").AudioObjectType;
 const BITMAPINFOHEADER = @import("../graphics/gdi.zig").BITMAPINFOHEADER;
 const BOOL = @import("../foundation.zig").BOOL;
 const BSTR = @import("../foundation.zig").BSTR;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const D3D12_COMMAND_LIST_SUPPORT_FLAGS = @import("../graphics/direct3d12.zig").D3D12_COMMAND_LIST_SUPPORT_FLAGS;
 const D3D12_DISCARD_REGION = @import("../graphics/direct3d12.zig").D3D12_DISCARD_REGION;
 const D3D12_PREDICATION_OP = @import("../graphics/direct3d12.zig").D3D12_PREDICATION_OP;

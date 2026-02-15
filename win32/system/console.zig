@@ -261,7 +261,7 @@ pub const CONSOLE_SCREEN_BUFFER_INFOEX = extern struct {
     dwMaximumWindowSize: COORD,
     wPopupAttributes: u16,
     bFullscreenSupported: BOOL,
-    ColorTable: [16]u32,
+    ColorTable: [16]COLORREF,
 };
 
 pub const CONSOLE_FONT_INFOEX = extern struct {
@@ -991,10 +991,11 @@ pub const GetConsoleCommandHistory = switch (@import("../zig.zig").unicode_mode)
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (8)
+// Section: Imports (9)
 //--------------------------------------------------------------------------------
 const BOOL = @import("../foundation.zig").BOOL;
 const CHAR = @import("../foundation.zig").CHAR;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const HANDLE = @import("../foundation.zig").HANDLE;
 const HRESULT = @import("../foundation.zig").HRESULT;
 const HWND = @import("../foundation.zig").HWND;

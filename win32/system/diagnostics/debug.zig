@@ -43226,7 +43226,7 @@ pub extern "kernel32" fn FormatMessageA(
     lpSource: ?*const anyopaque,
     dwMessageId: u32,
     dwLanguageId: u32,
-    lpBuffer: [*:0]u8,
+    lpBuffer: ?PSTR,
     nSize: u32,
     Arguments: ?*?*i8,
 ) callconv(.winapi) u32;
@@ -43237,7 +43237,7 @@ pub extern "kernel32" fn FormatMessageW(
     lpSource: ?*const anyopaque,
     dwMessageId: u32,
     dwLanguageId: u32,
-    lpBuffer: [*:0]u16,
+    lpBuffer: ?PWSTR,
     nSize: u32,
     Arguments: ?*?*i8,
 ) callconv(.winapi) u32;

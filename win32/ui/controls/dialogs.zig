@@ -963,8 +963,8 @@ pub const CHOOSECOLORA = switch(@import("../../zig.zig").arch) {
         lStructSize: u32,
         hwndOwner: ?HWND,
         hInstance: ?HWND,
-        rgbResult: u32,
-        lpCustColors: ?*u32,
+        rgbResult: COLORREF,
+        lpCustColors: ?*COLORREF,
         Flags: u32,
         lCustData: LPARAM,
         lpfnHook: ?LPCCHOOKPROC,
@@ -974,8 +974,8 @@ pub const CHOOSECOLORA = switch(@import("../../zig.zig").arch) {
         lStructSize: u32 align(1),
         hwndOwner: ?HWND align(1),
         hInstance: ?HWND align(1),
-        rgbResult: u32 align(1),
-        lpCustColors: ?*u32 align(1),
+        rgbResult: COLORREF align(1),
+        lpCustColors: ?*COLORREF align(1),
         Flags: u32 align(1),
         lCustData: LPARAM align(1),
         lpfnHook: ?LPCCHOOKPROC align(1),
@@ -987,8 +987,8 @@ pub const CHOOSECOLORW = switch(@import("../../zig.zig").arch) {
         lStructSize: u32,
         hwndOwner: ?HWND,
         hInstance: ?HWND,
-        rgbResult: u32,
-        lpCustColors: ?*u32,
+        rgbResult: COLORREF,
+        lpCustColors: ?*COLORREF,
         Flags: u32,
         lCustData: LPARAM,
         lpfnHook: ?LPCCHOOKPROC,
@@ -998,8 +998,8 @@ pub const CHOOSECOLORW = switch(@import("../../zig.zig").arch) {
         lStructSize: u32 align(1),
         hwndOwner: ?HWND align(1),
         hInstance: ?HWND align(1),
-        rgbResult: u32 align(1),
-        lpCustColors: ?*u32 align(1),
+        rgbResult: COLORREF align(1),
+        lpCustColors: ?*COLORREF align(1),
         Flags: u32 align(1),
         lCustData: LPARAM align(1),
         lpfnHook: ?LPCCHOOKPROC align(1),
@@ -1070,7 +1070,7 @@ pub const CHOOSEFONTA = switch(@import("../../zig.zig").arch) {
         lpLogFont: ?*LOGFONTA,
         iPointSize: i32,
         Flags: CHOOSEFONT_FLAGS,
-        rgbColors: u32,
+        rgbColors: COLORREF,
         lCustData: LPARAM,
         lpfnHook: ?LPCFHOOKPROC,
         lpTemplateName: ?[*:0]const u8,
@@ -1088,7 +1088,7 @@ pub const CHOOSEFONTA = switch(@import("../../zig.zig").arch) {
         lpLogFont: ?*LOGFONTA align(1),
         iPointSize: i32 align(1),
         Flags: CHOOSEFONT_FLAGS align(1),
-        rgbColors: u32 align(1),
+        rgbColors: COLORREF align(1),
         lCustData: LPARAM align(1),
         lpfnHook: ?LPCFHOOKPROC align(1),
         lpTemplateName: ?[*:0]const u8 align(1),
@@ -1108,7 +1108,7 @@ pub const CHOOSEFONTW = switch(@import("../../zig.zig").arch) {
         lpLogFont: ?*LOGFONTW,
         iPointSize: i32,
         Flags: CHOOSEFONT_FLAGS,
-        rgbColors: u32,
+        rgbColors: COLORREF,
         lCustData: LPARAM,
         lpfnHook: ?LPCFHOOKPROC,
         lpTemplateName: ?[*:0]const u16,
@@ -1126,7 +1126,7 @@ pub const CHOOSEFONTW = switch(@import("../../zig.zig").arch) {
         lpLogFont: ?*LOGFONTW align(1),
         iPointSize: i32 align(1),
         Flags: CHOOSEFONT_FLAGS align(1),
-        rgbColors: u32 align(1),
+        rgbColors: COLORREF align(1),
         lCustData: LPARAM align(1),
         lpfnHook: ?LPCFHOOKPROC align(1),
         lpTemplateName: ?[*:0]const u16 align(1),
@@ -1661,10 +1661,11 @@ pub const PageSetupDlg = switch (@import("../../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (19)
+// Section: Imports (20)
 //--------------------------------------------------------------------------------
 const Guid = @import("../../zig.zig").Guid;
 const BOOL = @import("../../foundation.zig").BOOL;
+const COLORREF = @import("../../foundation.zig").COLORREF;
 const DEVMODEA = @import("../../graphics/gdi.zig").DEVMODEA;
 const HDC = @import("../../graphics/gdi.zig").HDC;
 const HINSTANCE = @import("../../foundation.zig").HINSTANCE;

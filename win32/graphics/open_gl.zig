@@ -854,7 +854,7 @@ pub const LAYERPLANEDESCRIPTOR = extern struct {
     cAuxBuffers: u8,
     iLayerPlane: u8,
     bReserved: u8,
-    crTransparent: u32,
+    crTransparent: COLORREF,
 };
 
 pub const PFNGLARRAYELEMENTEXTPROC = *const fn(
@@ -1200,7 +1200,7 @@ pub extern "opengl32" fn wglSetLayerPaletteEntries(
     param1: i32,
     param2: i32,
     param3: i32,
-    param4: ?*const u32,
+    param4: ?*const COLORREF,
 ) callconv(.winapi) i32;
 
 // TODO: this type is limited to platform 'windows5.0'
@@ -1209,7 +1209,7 @@ pub extern "opengl32" fn wglGetLayerPaletteEntries(
     param1: i32,
     param2: i32,
     param3: i32,
-    param4: ?*u32,
+    param4: ?*COLORREF,
 ) callconv(.winapi) i32;
 
 // TODO: this type is limited to platform 'windows5.0'
@@ -3361,9 +3361,10 @@ pub const wglUseFontOutlines = switch (@import("../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (7)
+// Section: Imports (8)
 //--------------------------------------------------------------------------------
 const BOOL = @import("../foundation.zig").BOOL;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const EMR = @import("../graphics/gdi.zig").EMR;
 const HDC = @import("../graphics/gdi.zig").HDC;
 const HENHMETAFILE = @import("../graphics/gdi.zig").HENHMETAFILE;

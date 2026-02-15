@@ -5367,7 +5367,7 @@ pub const UPDATELAYEREDWINDOWINFO = extern struct {
     psize: ?*const SIZE,
     hdcSrc: ?HDC,
     pptSrc: ?*const POINT,
-    crKey: u32,
+    crKey: COLORREF,
     pblend: ?*const BLENDFUNCTION,
     dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
     prcDirty: ?*const RECT,
@@ -6293,7 +6293,7 @@ pub extern "user32" fn UpdateLayeredWindow(
     psize: ?*SIZE,
     hdcSrc: ?HDC,
     pptSrc: ?*POINT,
-    crKey: u32,
+    crKey: COLORREF,
     pblend: ?*BLENDFUNCTION,
     dwFlags: UPDATE_LAYERED_WINDOW_FLAGS,
 ) callconv(.winapi) BOOL;
@@ -6306,7 +6306,7 @@ pub extern "user32" fn UpdateLayeredWindowIndirect(
 // TODO: this type is limited to platform 'windows5.1.2600'
 pub extern "user32" fn GetLayeredWindowAttributes(
     hwnd: ?HWND,
-    pcrKey: ?*u32,
+    pcrKey: ?*COLORREF,
     pbAlpha: ?*u8,
     pdwFlags: ?*LAYERED_WINDOW_ATTRIBUTES_FLAGS,
 ) callconv(.winapi) BOOL;
@@ -6314,7 +6314,7 @@ pub extern "user32" fn GetLayeredWindowAttributes(
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "user32" fn SetLayeredWindowAttributes(
     hwnd: ?HWND,
-    crKey: u32,
+    crKey: COLORREF,
     bAlpha: u8,
     dwFlags: LAYERED_WINDOW_ATTRIBUTES_FLAGS,
 ) callconv(.winapi) BOOL;
@@ -7655,7 +7655,7 @@ pub extern "user32" fn GetSysColor(
 pub extern "user32" fn SetSysColors(
     cElements: i32,
     lpaElements: [*]const i32,
-    lpaRgbValues: [*]const u32,
+    lpaRgbValues: [*]const COLORREF,
 ) callconv(.winapi) BOOL;
 
 pub extern "user32" fn GetWindowWord(
@@ -9461,12 +9461,13 @@ pub const GetAltTabInfo = switch (@import("../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (24)
+// Section: Imports (25)
 //--------------------------------------------------------------------------------
 const BLENDFUNCTION = @import("../graphics/gdi.zig").BLENDFUNCTION;
 const BOOL = @import("../foundation.zig").BOOL;
 const BOOLEAN = @import("../foundation.zig").BOOLEAN;
 const CHAR = @import("../foundation.zig").CHAR;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const HANDLE = @import("../foundation.zig").HANDLE;
 const HBITMAP = @import("../graphics/gdi.zig").HBITMAP;
 const HBRUSH = @import("../graphics/gdi.zig").HBRUSH;

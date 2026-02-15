@@ -500,7 +500,7 @@ pub const INKMETRIC = extern struct {
     iFontAscent: i32,
     iFontDescent: i32,
     dwFlags: u32,
-    color: u32,
+    color: COLORREF,
 };
 
 pub const InkSelectionConstants = enum(i32) {
@@ -9176,11 +9176,12 @@ pub extern "inkobjcore" fn LoadCachedAttributes(
 // Section: Unicode Aliases (0)
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
-// Section: Imports (18)
+// Section: Imports (19)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BOOL = @import("../foundation.zig").BOOL;
 const BSTR = @import("../foundation.zig").BSTR;
+const COLORREF = @import("../foundation.zig").COLORREF;
 const HANDLE_PTR = @import("../foundation.zig").HANDLE_PTR;
 const HRESULT = @import("../foundation.zig").HRESULT;
 const HWND = @import("../foundation.zig").HWND;
