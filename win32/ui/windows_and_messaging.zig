@@ -5201,7 +5201,7 @@ pub const MOUSEHOOKSTRUCT = extern struct {
 };
 
 pub const MOUSEHOOKSTRUCTEX = extern struct {
-    __AnonymousBase_winuser_L1166_C46: MOUSEHOOKSTRUCT,
+    Base: MOUSEHOOKSTRUCT,
     mouseData: MOUSEHOOKSTRUCTEX_MOUSE_DATA,
 };
 

@@ -1533,6 +1533,10 @@ pub const SYMBOLIC_LINK_FLAGS = packed struct(u32) {
 pub const SYMBOLIC_LINK_FLAG_DIRECTORY = SYMBOLIC_LINK_FLAGS{ .DIRECTORY = 1 };
 pub const SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE = SYMBOLIC_LINK_FLAGS{ .ALLOW_UNPRIVILEGED_CREATE = 1 };
 
+pub const FILE_DISPOSITION_INFO = extern struct {
+    DeleteFile: BOOLEAN,
+};
+
 // TODO: this type has a FreeFunc 'FindClose', what can Zig do with this information?
 // TODO: this type has an InvalidHandleValue of '0', what can Zig do with this information?
 pub const FindFileHandle = isize;
@@ -4684,10 +4688,6 @@ pub const FILE_COMPRESSION_INFO = extern struct {
 pub const FILE_ATTRIBUTE_TAG_INFO = extern struct {
     FileAttributes: u32,
     ReparseTag: u32,
-};
-
-pub const FILE_DISPOSITION_INFO = extern struct {
-    DeleteFileA: BOOLEAN,
 };
 
 pub const FILE_ID_BOTH_DIR_INFO = extern struct {

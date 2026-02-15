@@ -11905,7 +11905,7 @@ pub const IRowsetChangeExtInfo = extern union {
 
 pub const KAGREQDIAG = extern struct {
     ulDiagFlags: u32,
-    vt: u16,
+    vt: VARENUM,
     sDiagField: i16,
 };
 
@@ -13371,14 +13371,14 @@ pub const DBPROPINFO = switch(@import("../zig.zig").arch) {
         pwszDescription: ?PWSTR,
         dwPropertyID: u32,
         dwFlags: u32,
-        vtType: u16,
+        vtType: VARENUM,
         vValues: VARIANT,
     },
     .X86 => extern struct {
         pwszDescription: ?PWSTR align(2),
         dwPropertyID: u32 align(2),
         dwFlags: u32 align(2),
-        vtType: u16 align(2),
+        vtType: VARENUM align(2),
         vValues: VARIANT align(2),
     },
 };
@@ -15747,7 +15747,7 @@ pub const SQLLinkedCatalogs = switch (@import("../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (45)
+// Section: Imports (46)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BLOB = @import("../system/com.zig").BLOB;
@@ -15792,6 +15792,7 @@ const PSTR = @import("../foundation.zig").PSTR;
 const PWSTR = @import("../foundation.zig").PWSTR;
 const SYSTEMTIME = @import("../foundation.zig").SYSTEMTIME;
 const TRUSTEE_W = @import("../security/authorization.zig").TRUSTEE_W;
+const VARENUM = @import("../system/com.zig").VARENUM;
 const VARIANT = @import("../system/com.zig").VARIANT;
 const WORDREP_BREAK_TYPE = @import("../storage/index_server.zig").WORDREP_BREAK_TYPE;
 

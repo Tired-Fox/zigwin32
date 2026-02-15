@@ -624,7 +624,7 @@ pub const SID_GetCaller = Guid.initString("4717cc40-bcb9-11d0-9336-00a0c90dcaa9"
 pub const SID_ProvideRuntimeContext = Guid.initString("74a5040c-dd0c-48f0-ac85-194c3259180a");
 
 //--------------------------------------------------------------------------------
-// Section: Types (218)
+// Section: Types (217)
 //--------------------------------------------------------------------------------
 pub const UPDFCACHE_FLAGS = packed struct(u32) {
     NODATACACHE: u1 = 0,
@@ -805,113 +805,6 @@ pub const DROPEFFECT_COPY = DROPEFFECT{ .COPY = 1 };
 pub const DROPEFFECT_MOVE = DROPEFFECT{ .MOVE = 1 };
 pub const DROPEFFECT_LINK = DROPEFFECT{ .LINK = 1 };
 pub const DROPEFFECT_SCROLL = DROPEFFECT{ .SCROLL = 1 };
-
-pub const VARENUM = enum(i32) {
-    EMPTY = 0,
-    NULL = 1,
-    I2 = 2,
-    I4 = 3,
-    R4 = 4,
-    R8 = 5,
-    CY = 6,
-    DATE = 7,
-    BSTR = 8,
-    DISPATCH = 9,
-    ERROR = 10,
-    BOOL = 11,
-    VARIANT = 12,
-    UNKNOWN = 13,
-    DECIMAL = 14,
-    I1 = 16,
-    UI1 = 17,
-    UI2 = 18,
-    UI4 = 19,
-    I8 = 20,
-    UI8 = 21,
-    INT = 22,
-    UINT = 23,
-    VOID = 24,
-    HRESULT = 25,
-    PTR = 26,
-    SAFEARRAY = 27,
-    CARRAY = 28,
-    USERDEFINED = 29,
-    LPSTR = 30,
-    LPWSTR = 31,
-    RECORD = 36,
-    INT_PTR = 37,
-    UINT_PTR = 38,
-    FILETIME = 64,
-    BLOB = 65,
-    STREAM = 66,
-    STORAGE = 67,
-    STREAMED_OBJECT = 68,
-    STORED_OBJECT = 69,
-    BLOB_OBJECT = 70,
-    CF = 71,
-    CLSID = 72,
-    VERSIONED_STREAM = 73,
-    BSTR_BLOB = 4095,
-    VECTOR = 4096,
-    ARRAY = 8192,
-    BYREF = 16384,
-    RESERVED = 32768,
-    ILLEGAL = 65535,
-    pub const ILLEGALMASKED = .BSTR_BLOB;
-    pub const TYPEMASK = .BSTR_BLOB;
-};
-pub const VT_EMPTY = VARENUM.EMPTY;
-pub const VT_NULL = VARENUM.NULL;
-pub const VT_I2 = VARENUM.I2;
-pub const VT_I4 = VARENUM.I4;
-pub const VT_R4 = VARENUM.R4;
-pub const VT_R8 = VARENUM.R8;
-pub const VT_CY = VARENUM.CY;
-pub const VT_DATE = VARENUM.DATE;
-pub const VT_BSTR = VARENUM.BSTR;
-pub const VT_DISPATCH = VARENUM.DISPATCH;
-pub const VT_ERROR = VARENUM.ERROR;
-pub const VT_BOOL = VARENUM.BOOL;
-pub const VT_VARIANT = VARENUM.VARIANT;
-pub const VT_UNKNOWN = VARENUM.UNKNOWN;
-pub const VT_DECIMAL = VARENUM.DECIMAL;
-pub const VT_I1 = VARENUM.I1;
-pub const VT_UI1 = VARENUM.UI1;
-pub const VT_UI2 = VARENUM.UI2;
-pub const VT_UI4 = VARENUM.UI4;
-pub const VT_I8 = VARENUM.I8;
-pub const VT_UI8 = VARENUM.UI8;
-pub const VT_INT = VARENUM.INT;
-pub const VT_UINT = VARENUM.UINT;
-pub const VT_VOID = VARENUM.VOID;
-pub const VT_HRESULT = VARENUM.HRESULT;
-pub const VT_PTR = VARENUM.PTR;
-pub const VT_SAFEARRAY = VARENUM.SAFEARRAY;
-pub const VT_CARRAY = VARENUM.CARRAY;
-pub const VT_USERDEFINED = VARENUM.USERDEFINED;
-pub const VT_LPSTR = VARENUM.LPSTR;
-pub const VT_LPWSTR = VARENUM.LPWSTR;
-pub const VT_RECORD = VARENUM.RECORD;
-pub const VT_INT_PTR = VARENUM.INT_PTR;
-pub const VT_UINT_PTR = VARENUM.UINT_PTR;
-pub const VT_FILETIME = VARENUM.FILETIME;
-pub const VT_BLOB = VARENUM.BLOB;
-pub const VT_STREAM = VARENUM.STREAM;
-pub const VT_STORAGE = VARENUM.STORAGE;
-pub const VT_STREAMED_OBJECT = VARENUM.STREAMED_OBJECT;
-pub const VT_STORED_OBJECT = VARENUM.STORED_OBJECT;
-pub const VT_BLOB_OBJECT = VARENUM.BLOB_OBJECT;
-pub const VT_CF = VARENUM.CF;
-pub const VT_CLSID = VARENUM.CLSID;
-pub const VT_VERSIONED_STREAM = VARENUM.VERSIONED_STREAM;
-pub const VT_BSTR_BLOB = VARENUM.BSTR_BLOB;
-pub const VT_VECTOR = VARENUM.VECTOR;
-pub const VT_ARRAY = VARENUM.ARRAY;
-pub const VT_BYREF = VARENUM.BYREF;
-pub const VT_RESERVED = VARENUM.RESERVED;
-pub const VT_ILLEGAL = VARENUM.ILLEGAL;
-pub const VT_ILLEGALMASKED = VARENUM.BSTR_BLOB;
-pub const VT_TYPEMASK = VARENUM.BSTR_BLOB;
 
 pub const _wireSAFEARR_BSTR = extern struct {
     Size: u32,
@@ -3252,7 +3145,7 @@ pub const REGKIND_NONE = REGKIND.NONE;
 
 pub const PARAMDATA = extern struct {
     szName: ?PWSTR,
-    vt: u16,
+    vt: VARENUM,
 };
 
 pub const METHODDATA = extern struct {
@@ -3263,7 +3156,7 @@ pub const METHODDATA = extern struct {
     cc: CALLCONV,
     cArgs: u32,
     wFlags: u16,
-    vtReturn: u16,
+    vtReturn: VARENUM,
 };
 
 pub const INTERFACEDATA = extern struct {
@@ -6998,12 +6891,12 @@ pub const IVariantChangeType = extern union {
             pvarDst: ?*VARIANT,
             pvarSrc: ?*VARIANT,
             lcid: u32,
-            vtNew: u16,
+            vtNew: VARENUM,
         ) callconv(.winapi) HRESULT,
     };
     vtable: *const VTable,
     IUnknown: IUnknown,
-    pub fn ChangeType(self: *const IVariantChangeType, pvarDst: ?*VARIANT, pvarSrc: ?*VARIANT, lcid: u32, vtNew: u16) callconv(.@"inline") HRESULT {
+    pub fn ChangeType(self: *const IVariantChangeType, pvarDst: ?*VARIANT, pvarSrc: ?*VARIANT, lcid: u32, vtNew: VARENUM) callconv(.@"inline") HRESULT {
         return self.vtable.ChangeType(self, pvarDst, pvarSrc, lcid, vtNew);
     }
 };
@@ -7093,7 +6986,7 @@ pub extern "oleaut32" fn SafeArrayAllocDescriptor(
 ) callconv(.winapi) HRESULT;
 
 pub extern "oleaut32" fn SafeArrayAllocDescriptorEx(
-    vt: u16,
+    vt: VARENUM,
     cDims: u32,
     ppsaOut: ?*?*SAFEARRAY,
 ) callconv(.winapi) HRESULT;
@@ -7103,13 +6996,13 @@ pub extern "oleaut32" fn SafeArrayAllocData(
 ) callconv(.winapi) HRESULT;
 
 pub extern "oleaut32" fn SafeArrayCreate(
-    vt: u16,
+    vt: VARENUM,
     cDims: u32,
     rgsabound: ?*SAFEARRAYBOUND,
 ) callconv(.winapi) ?*SAFEARRAY;
 
 pub extern "oleaut32" fn SafeArrayCreateEx(
-    vt: u16,
+    vt: VARENUM,
     cDims: u32,
     rgsabound: ?*SAFEARRAYBOUND,
     pvExtra: ?*anyopaque,
@@ -7239,13 +7132,13 @@ pub extern "oleaut32" fn SafeArrayGetVartype(
 ) callconv(.winapi) HRESULT;
 
 pub extern "oleaut32" fn SafeArrayCreateVector(
-    vt: u16,
+    vt: VARENUM,
     lLbound: i32,
     cElements: u32,
 ) callconv(.winapi) ?*SAFEARRAY;
 
 pub extern "oleaut32" fn SafeArrayCreateVectorEx(
-    vt: u16,
+    vt: VARENUM,
     lLbound: i32,
     cElements: u32,
     pvExtra: ?*anyopaque,
@@ -7273,7 +7166,7 @@ pub extern "oleaut32" fn VariantChangeType(
     pvargDest: ?*VARIANT,
     pvarSrc: ?*const VARIANT,
     wFlags: u16,
-    vt: u16,
+    vt: VARENUM,
 ) callconv(.winapi) HRESULT;
 
 pub extern "oleaut32" fn VariantChangeTypeEx(
@@ -7281,7 +7174,7 @@ pub extern "oleaut32" fn VariantChangeTypeEx(
     pvarSrc: ?*const VARIANT,
     lcid: u32,
     wFlags: u16,
-    vt: u16,
+    vt: VARENUM,
 ) callconv(.winapi) HRESULT;
 
 pub extern "oleaut32" fn VectorFromBstr(
@@ -8954,7 +8847,7 @@ pub extern "oleaut32" fn CreateTypeLib2(
 pub extern "oleaut32" fn DispGetParam(
     pdispparams: ?*DISPPARAMS,
     position: u32,
-    vtTarg: u16,
+    vtTarg: VARENUM,
     pvarResult: ?*VARIANT,
     puArgErr: ?*u32,
 ) callconv(.winapi) HRESULT;
@@ -8994,7 +8887,7 @@ pub extern "oleaut32" fn DispCallFunc(
     pvInstance: ?*anyopaque,
     oVft: usize,
     cc: CALLCONV,
-    vtReturn: u16,
+    vtReturn: VARENUM,
     cActuals: u32,
     prgvt: [*:0]u16,
     prgpvarg: [*]?*VARIANT,
@@ -9963,7 +9856,7 @@ pub const OleUIUpdateLinks = switch (@import("../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (87)
+// Section: Imports (88)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BOOL = @import("../foundation.zig").BOOL;
@@ -10050,6 +9943,7 @@ const TEXTMETRICW = @import("../graphics/gdi.zig").TEXTMETRICW;
 const TYPEDESC = @import("../system/com.zig").TYPEDESC;
 const TYPEKIND = @import("../system/com.zig").TYPEKIND;
 const VARDESC = @import("../system/com.zig").VARDESC;
+const VARENUM = @import("../system/com.zig").VARENUM;
 const VARIANT = @import("../system/com.zig").VARIANT;
 const WPARAM = @import("../foundation.zig").WPARAM;
 

@@ -1107,7 +1107,7 @@ pub const CHARFORMATW = extern struct {
 };
 
 pub const CHARFORMAT2W = extern struct {
-    __AnonymousBase_richedit_L711_C23: CHARFORMATW,
+    Base: CHARFORMATW,
     wWeight: u16,
     sSpacing: i16,
     crBackColor: u32,
@@ -1125,7 +1125,7 @@ pub const CHARFORMAT2W = extern struct {
 };
 
 pub const CHARFORMAT2A = extern struct {
-    __AnonymousBase_richedit_L736_C23: CHARFORMATA,
+    Base: CHARFORMATA,
     wWeight: u16,
     sSpacing: i16,
     crBackColor: u32,
@@ -1217,7 +1217,7 @@ pub const PARAFORMAT = extern struct {
 };
 
 pub const PARAFORMAT2 = extern struct {
-    __AnonymousBase_richedit_L1149_C22: PARAFORMAT,
+    Base: PARAFORMAT,
     dySpaceBefore: i32,
     dySpaceAfter: i32,
     dyLineSpacing: i32,

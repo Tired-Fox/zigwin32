@@ -2287,7 +2287,7 @@ pub extern "propsys" fn PSPropertyBag_ReadType(
     propBag: ?*IPropertyBag,
     propName: ?[*:0]const u16,
     @"var": ?*VARIANT,
-    type: u16,
+    type: VARENUM,
 ) callconv(.winapi) HRESULT;
 
 // TODO: this type is limited to platform 'windows6.1'
@@ -3036,7 +3036,7 @@ pub extern "propsys" fn PropVariantChangeType(
     ppropvarDest: ?*PROPVARIANT,
     propvarSrc: ?*const PROPVARIANT,
     flags: PROPVAR_CHANGE_FLAGS,
-    vt: u16,
+    vt: VARENUM,
 ) callconv(.winapi) HRESULT;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
@@ -3626,7 +3626,7 @@ pub extern "shell32" fn SHGetPropertyStoreForWindow(
 // Section: Unicode Aliases (0)
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
-// Section: Imports (26)
+// Section: Imports (27)
 //--------------------------------------------------------------------------------
 const Guid = @import("../../zig.zig").Guid;
 const BOOL = @import("../../foundation.zig").BOOL;
@@ -3653,6 +3653,7 @@ const PSTR = @import("../../foundation.zig").PSTR;
 const PWSTR = @import("../../foundation.zig").PWSTR;
 const RECTL = @import("../../foundation.zig").RECTL;
 const STRRET = @import("../../ui/shell/common.zig").STRRET;
+const VARENUM = @import("../../system/com.zig").VARENUM;
 const VARIANT = @import("../../system/com.zig").VARIANT;
 
 test {

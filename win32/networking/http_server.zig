@@ -949,7 +949,7 @@ pub const HTTP_REQUEST_V1 = extern struct {
 };
 
 pub const HTTP_REQUEST_V2 = extern struct {
-    __AnonymousBase_http_L1861_C35: HTTP_REQUEST_V1,
+    Base: HTTP_REQUEST_V1,
     RequestInfoCount: u16,
     pRequestInfo: ?*HTTP_REQUEST_INFO,
 };
@@ -990,7 +990,7 @@ pub const HTTP_MULTIPLE_KNOWN_HEADERS = extern struct {
 };
 
 pub const HTTP_RESPONSE_V2 = extern struct {
-    __AnonymousBase_http_L2050_C36: HTTP_RESPONSE_V1,
+    Base: HTTP_RESPONSE_V1,
     ResponseInfoCount: u16,
     pResponseInfo: ?*HTTP_RESPONSE_INFO,
 };

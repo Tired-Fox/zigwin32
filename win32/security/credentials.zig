@@ -1405,7 +1405,7 @@ pub extern "winscard" fn SCardListReaderGroupsW(
 pub extern "winscard" fn SCardListReadersA(
     hContext: usize,
     mszGroups: ?[*:0]const u8,
-    mszReaders: ?PSTR,
+    mszReaders: ?[*:0]u8,
     pcchReaders: ?*u32,
 ) callconv(.winapi) i32;
 
@@ -1413,7 +1413,7 @@ pub extern "winscard" fn SCardListReadersA(
 pub extern "winscard" fn SCardListReadersW(
     hContext: usize,
     mszGroups: ?[*:0]const u16,
-    mszReaders: ?PWSTR,
+    mszReaders: ?[*:0]u16,
     pcchReaders: ?*u32,
 ) callconv(.winapi) i32;
 
@@ -1423,7 +1423,7 @@ pub extern "winscard" fn SCardListCardsA(
     pbAtr: ?*u8,
     rgquidInterfaces: ?[*]const Guid,
     cguidInterfaceCount: u32,
-    mszCards: ?PSTR,
+    mszCards: ?[*:0]u8,
     pcchCards: ?*u32,
 ) callconv(.winapi) i32;
 
@@ -1433,7 +1433,7 @@ pub extern "winscard" fn SCardListCardsW(
     pbAtr: ?*u8,
     rgquidInterfaces: ?[*]const Guid,
     cguidInterfaceCount: u32,
-    mszCards: ?PWSTR,
+    mszCards: ?[*:0]u16,
     pcchCards: ?*u32,
 ) callconv(.winapi) i32;
 
@@ -1742,22 +1742,22 @@ pub extern "winscard" fn SCardState(
 // TODO: this type is limited to platform 'windows5.1.2600'
 pub extern "winscard" fn SCardStatusA(
     hCard: usize,
-    mszReaderNames: ?PSTR,
+    mszReaderNames: ?[*:0]u8,
     pcchReaderLen: ?*u32,
     pdwState: ?*u32,
     pdwProtocol: ?*u32,
-    pbAtr: ?*u8,
+    pbAtr: ?[*:0]u8,
     pcbAtrLen: ?*u32,
 ) callconv(.winapi) i32;
 
 // TODO: this type is limited to platform 'windows5.1.2600'
 pub extern "winscard" fn SCardStatusW(
     hCard: usize,
-    mszReaderNames: ?PWSTR,
+    mszReaderNames: ?[*:0]u16,
     pcchReaderLen: ?*u32,
     pdwState: ?*u32,
     pdwProtocol: ?*u32,
-    pbAtr: ?*u8,
+    pbAtr: ?[*:0]u8,
     pcbAtrLen: ?*u32,
 ) callconv(.winapi) i32;
 
@@ -1914,7 +1914,7 @@ pub extern "winscard" fn SCardGetDeviceTypeIdW(
 pub extern "winscard" fn SCardGetReaderDeviceInstanceIdA(
     hContext: usize,
     szReaderName: ?[*:0]const u8,
-    szDeviceInstanceId: ?PSTR,
+    szDeviceInstanceId: ?[*:0]u8,
     pcchDeviceInstanceId: ?*u32,
 ) callconv(.winapi) i32;
 
@@ -1922,7 +1922,7 @@ pub extern "winscard" fn SCardGetReaderDeviceInstanceIdA(
 pub extern "winscard" fn SCardGetReaderDeviceInstanceIdW(
     hContext: usize,
     szReaderName: ?[*:0]const u16,
-    szDeviceInstanceId: ?PWSTR,
+    szDeviceInstanceId: ?[*:0]u16,
     pcchDeviceInstanceId: ?*u32,
 ) callconv(.winapi) i32;
 
@@ -1930,7 +1930,7 @@ pub extern "winscard" fn SCardGetReaderDeviceInstanceIdW(
 pub extern "winscard" fn SCardListReadersWithDeviceInstanceIdA(
     hContext: usize,
     szDeviceInstanceId: ?[*:0]const u8,
-    mszReaders: ?PSTR,
+    mszReaders: ?[*:0]u8,
     pcchReaders: ?*u32,
 ) callconv(.winapi) i32;
 
@@ -1938,7 +1938,7 @@ pub extern "winscard" fn SCardListReadersWithDeviceInstanceIdA(
 pub extern "winscard" fn SCardListReadersWithDeviceInstanceIdW(
     hContext: usize,
     szDeviceInstanceId: ?[*:0]const u16,
-    mszReaders: ?PWSTR,
+    mszReaders: ?[*:0]u16,
     pcchReaders: ?*u32,
 ) callconv(.winapi) i32;
 

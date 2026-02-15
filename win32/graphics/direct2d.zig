@@ -5170,15 +5170,15 @@ pub const ID2D1Multithread = extern union {
 };
 
 pub const Matrix4x3F = extern struct {
-    __AnonymousBase_d2d1_1helper_L45_C31: D2D_MATRIX_4X3_F,
+    Base: D2D_MATRIX_4X3_F,
 };
 
 pub const Matrix4x4F = extern struct {
-    __AnonymousBase_d2d1_1helper_L97_C31: D2D_MATRIX_4X4_F,
+    Base: D2D_MATRIX_4X4_F,
 };
 
 pub const Matrix5x4F = extern struct {
-    __AnonymousBase_d2d1_1helper_L472_C31: D2D_MATRIX_5X4_F,
+    Base: D2D_MATRIX_5X4_F,
 };
 
 pub const PD2D1_PROPERTY_SET_FUNCTION = *const fn(

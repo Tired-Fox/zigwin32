@@ -624,6 +624,46 @@ pub const SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR = @as(u32, 1);
 //--------------------------------------------------------------------------------
 // Section: Types (689)
 //--------------------------------------------------------------------------------
+pub const CLUSPROP_RESOURCE_CLASS_INFO = extern struct {
+    Base: CLUSPROP_VALUE,
+    Base2: CLUS_RESOURCE_CLASS_INFO,
+};
+
+pub const CLUSTER_SHARED_VOLUME_RENAME_INPUT = extern struct {
+    Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
+    Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
+};
+
+pub const CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT = extern struct {
+    Base: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
+    Base2: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
+};
+
+pub const CLUSPROP_PARTITION_INFO = extern struct {
+    Base: CLUSPROP_VALUE,
+    Base2: CLUS_PARTITION_INFO,
+};
+
+pub const CLUSPROP_PARTITION_INFO_EX = extern struct {
+    Base: CLUSPROP_VALUE,
+    Base2: CLUS_PARTITION_INFO_EX,
+};
+
+pub const CLUSPROP_PARTITION_INFO_EX2 = extern struct {
+    Base: CLUSPROP_PARTITION_INFO_EX,
+    Base2: CLUS_PARTITION_INFO_EX2,
+};
+
+pub const CLUSPROP_FTSET_INFO = extern struct {
+    Base: CLUSPROP_VALUE,
+    Base2: CLUS_FTSET_INFO,
+};
+
+pub const CLUSPROP_SCSI_ADDRESS = extern struct {
+    Base: CLUSPROP_VALUE,
+    Base2: CLUS_SCSI_ADDRESS,
+};
+
 pub const _HCLUSTER = extern struct {
     placeholder: usize, // TODO: why is this type empty?
 };
@@ -3748,42 +3788,42 @@ pub const CLUSPROP_VALUE = extern struct {
 };
 
 pub const CLUSPROP_BINARY = extern struct {
-    __AnonymousBase_clusapi_L5129_C41: CLUSPROP_VALUE,
+    Base: CLUSPROP_VALUE,
     rgb: [1]u8,
 };
 
 pub const CLUSPROP_WORD = extern struct {
-    __AnonymousBase_clusapi_L5139_C39: CLUSPROP_VALUE,
+    Base: CLUSPROP_VALUE,
     w: u16,
 };
 
 pub const CLUSPROP_DWORD = extern struct {
-    __AnonymousBase_clusapi_L5149_C40: CLUSPROP_VALUE,
+    Base: CLUSPROP_VALUE,
     dw: u32,
 };
 
 pub const CLUSPROP_LONG = extern struct {
-    __AnonymousBase_clusapi_L5159_C39: CLUSPROP_VALUE,
+    Base: CLUSPROP_VALUE,
     l: i32,
 };
 
 pub const CLUSPROP_SZ = extern struct {
-    __AnonymousBase_clusapi_L5169_C37: CLUSPROP_VALUE,
+    Base: CLUSPROP_VALUE,
     sz: [1]u16,
 };
 
 pub const CLUSPROP_ULARGE_INTEGER = extern struct {
-    __AnonymousBase_clusapi_L5186_C14: CLUSPROP_VALUE,
+    Base: CLUSPROP_VALUE,
     li: ULARGE_INTEGER,
 };
 
 pub const CLUSPROP_LARGE_INTEGER = extern struct {
-    __AnonymousBase_clusapi_L5199_C14: CLUSPROP_VALUE,
+    Base: CLUSPROP_VALUE,
     li: LARGE_INTEGER,
 };
 
 pub const CLUSPROP_SECURITY_DESCRIPTOR = extern struct {
-    __AnonymousBase_clusapi_L5211_C54: CLUSPROP_VALUE,
+    Base: CLUSPROP_VALUE,
     Anonymous: extern union {
         sd: SECURITY_DESCRIPTOR_RELATIVE,
         rgbSecurityDescriptor: [1]u8,
@@ -3791,7 +3831,7 @@ pub const CLUSPROP_SECURITY_DESCRIPTOR = extern struct {
 };
 
 pub const CLUSPROP_FILETIME = extern struct {
-    __AnonymousBase_clusapi_L5225_C14: CLUSPROP_VALUE,
+    Base: CLUSPROP_VALUE,
     ft: FILETIME,
 };
 
@@ -3809,13 +3849,8 @@ pub const CLUS_RESOURCE_CLASS_INFO = extern struct {
 };
 
 pub const CLUSPROP_RESOURCE_CLASS = extern struct {
-    __AnonymousBase_clusapi_L5250_C14: CLUSPROP_VALUE,
+    Base: CLUSPROP_VALUE,
     rc: CLUSTER_RESOURCE_CLASS,
-};
-
-pub const CLUSPROP_RESOURCE_CLASS_INFO = extern struct {
-    __AnonymousBase_clusapi_L5261_C14: CLUSPROP_VALUE,
-    __AnonymousBase_clusapi_L5262_C14: CLUS_RESOURCE_CLASS_INFO,
 };
 
 pub const CLUSPROP_REQUIRED_DEPENDENCY = extern union {
@@ -3976,16 +4011,6 @@ pub const CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME = extern struct {
     NewVolumeGuid: [50]u16,
 };
 
-pub const CLUSTER_SHARED_VOLUME_RENAME_INPUT = extern struct {
-    __AnonymousBase_clusapi_L5464_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
-    __AnonymousBase_clusapi_L5465_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME,
-};
-
-pub const CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT = extern struct {
-    __AnonymousBase_clusapi_L5475_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME,
-    __AnonymousBase_clusapi_L5476_C14: CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME,
-};
-
 pub const CLUS_CHKDSK_INFO = extern struct {
     PartitionNumber: u32,
     ChkdskState: u32,
@@ -4004,29 +4029,9 @@ pub const CLUS_SHARED_VOLUME_BACKUP_MODE = extern struct {
     VolumeName: [260]u16,
 };
 
-pub const CLUSPROP_PARTITION_INFO = extern struct {
-    __AnonymousBase_clusapi_L5507_C14: CLUSPROP_VALUE,
-    __AnonymousBase_clusapi_L5508_C14: CLUS_PARTITION_INFO,
-};
-
-pub const CLUSPROP_PARTITION_INFO_EX = extern struct {
-    __AnonymousBase_clusapi_L5519_C14: CLUSPROP_VALUE,
-    __AnonymousBase_clusapi_L5520_C14: CLUS_PARTITION_INFO_EX,
-};
-
-pub const CLUSPROP_PARTITION_INFO_EX2 = extern struct {
-    __AnonymousBase_clusapi_L5533_C14: CLUSPROP_PARTITION_INFO_EX,
-    __AnonymousBase_clusapi_L5534_C14: CLUS_PARTITION_INFO_EX2,
-};
-
 pub const CLUS_FTSET_INFO = extern struct {
     dwRootSignature: u32,
     dwFtType: u32,
-};
-
-pub const CLUSPROP_FTSET_INFO = extern struct {
-    __AnonymousBase_clusapi_L5555_C14: CLUSPROP_VALUE,
-    __AnonymousBase_clusapi_L5556_C14: CLUS_FTSET_INFO,
 };
 
 pub const CLUS_SCSI_ADDRESS = extern struct {
@@ -4039,11 +4044,6 @@ pub const CLUS_SCSI_ADDRESS = extern struct {
         },
         dw: u32,
     },
-};
-
-pub const CLUSPROP_SCSI_ADDRESS = extern struct {
-    __AnonymousBase_clusapi_L5583_C14: CLUSPROP_VALUE,
-    __AnonymousBase_clusapi_L5584_C14: CLUS_SCSI_ADDRESS,
 };
 
 pub const CLUS_NETNAME_VS_TOKEN_INFO = extern struct {

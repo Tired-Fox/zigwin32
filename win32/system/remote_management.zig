@@ -812,7 +812,7 @@ pub const WSMAN_SHELL_STARTUP_INFO_V10 = extern struct {
 };
 
 pub const WSMAN_SHELL_STARTUP_INFO_V11 = extern struct {
-    __AnonymousBase_wsman_L665_C48: WSMAN_SHELL_STARTUP_INFO_V10,
+    Base: WSMAN_SHELL_STARTUP_INFO_V10,
     name: ?[*:0]const u16,
 };
 

@@ -3374,6 +3374,7 @@ pub const PM_OPEN_PROC = *const fn(
 
 pub const PM_COLLECT_PROC = *const fn(
     pValueName: ?PWSTR,
+    // TODO: what to do with BytesParamIndex 2?
     ppData: ?*?*anyopaque,
     pcbTotalBytes: ?*u32,
     pNumObjectTypes: ?*u32,

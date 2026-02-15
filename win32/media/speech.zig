@@ -1637,7 +1637,7 @@ pub const SPPHRASE_50 = extern struct {
 };
 
 pub const SPPHRASE = extern struct {
-    __AnonymousBase_sapi53_L5821_C34: SPPHRASE_50,
+    Base: SPPHRASE_50,
     pSML: ?PWSTR,
     pSemanticErrorInfo: ?*SPSEMANTICERRORINFO,
 };
@@ -5443,7 +5443,7 @@ pub const ISpeechObjectToken = extern union {
             self: *const ISpeechObjectToken,
             ObjectStorageCLSID: ?BSTR,
             KeyName: ?BSTR,
-            DeleteFileA: i16,
+            DeleteFile: i16,
         ) callconv(.winapi) HRESULT,
         IsUISupported: *const fn(
             self: *const ISpeechObjectToken,
@@ -5496,8 +5496,8 @@ pub const ISpeechObjectToken = extern union {
     pub fn GetStorageFileName(self: *const ISpeechObjectToken, ObjectStorageCLSID: ?BSTR, KeyName: ?BSTR, FileName: ?BSTR, Folder: SpeechTokenShellFolder, FilePath: ?*?BSTR) callconv(.@"inline") HRESULT {
         return self.vtable.GetStorageFileName(self, ObjectStorageCLSID, KeyName, FileName, Folder, FilePath);
     }
-    pub fn RemoveStorageFileName(self: *const ISpeechObjectToken, ObjectStorageCLSID: ?BSTR, KeyName: ?BSTR, DeleteFileA: i16) callconv(.@"inline") HRESULT {
-        return self.vtable.RemoveStorageFileName(self, ObjectStorageCLSID, KeyName, DeleteFileA);
+    pub fn RemoveStorageFileName(self: *const ISpeechObjectToken, ObjectStorageCLSID: ?BSTR, KeyName: ?BSTR, DeleteFile: i16) callconv(.@"inline") HRESULT {
+        return self.vtable.RemoveStorageFileName(self, ObjectStorageCLSID, KeyName, DeleteFile);
     }
     pub fn IsUISupported(self: *const ISpeechObjectToken, TypeOfUI: ?BSTR, ExtraData: ?*const VARIANT, Object: ?*IUnknown, Supported: ?*i16) callconv(.@"inline") HRESULT {
         return self.vtable.IsUISupported(self, TypeOfUI, ExtraData, Object, Supported);

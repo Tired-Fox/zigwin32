@@ -43,7 +43,7 @@ pub const MAXLSN = @as(u64, 9223372036854775807);
 pub const DMUS_ERRBASE = @as(u32, 4096);
 
 //--------------------------------------------------------------------------------
-// Section: Types (234)
+// Section: Types (235)
 //--------------------------------------------------------------------------------
 // TODO: this function pointer causes dependency loop problems, so it's stubbed out
 pub const LPEXCEPFINO_DEFERRED_FILLIN = *const fn() callconv(.winapi) void;
@@ -232,6 +232,113 @@ pub const CY = extern union {
     },
     int64: i64,
 };
+
+pub const VARENUM = enum(u16) {
+    EMPTY = 0,
+    NULL = 1,
+    I2 = 2,
+    I4 = 3,
+    R4 = 4,
+    R8 = 5,
+    CY = 6,
+    DATE = 7,
+    BSTR = 8,
+    DISPATCH = 9,
+    ERROR = 10,
+    BOOL = 11,
+    VARIANT = 12,
+    UNKNOWN = 13,
+    DECIMAL = 14,
+    I1 = 16,
+    UI1 = 17,
+    UI2 = 18,
+    UI4 = 19,
+    I8 = 20,
+    UI8 = 21,
+    INT = 22,
+    UINT = 23,
+    VOID = 24,
+    HRESULT = 25,
+    PTR = 26,
+    SAFEARRAY = 27,
+    CARRAY = 28,
+    USERDEFINED = 29,
+    LPSTR = 30,
+    LPWSTR = 31,
+    RECORD = 36,
+    INT_PTR = 37,
+    UINT_PTR = 38,
+    FILETIME = 64,
+    BLOB = 65,
+    STREAM = 66,
+    STORAGE = 67,
+    STREAMED_OBJECT = 68,
+    STORED_OBJECT = 69,
+    BLOB_OBJECT = 70,
+    CF = 71,
+    CLSID = 72,
+    VERSIONED_STREAM = 73,
+    BSTR_BLOB = 4095,
+    VECTOR = 4096,
+    ARRAY = 8192,
+    BYREF = 16384,
+    RESERVED = 32768,
+    ILLEGAL = 65535,
+    pub const ILLEGALMASKED = .BSTR_BLOB;
+    pub const TYPEMASK = .BSTR_BLOB;
+};
+pub const VT_EMPTY = VARENUM.EMPTY;
+pub const VT_NULL = VARENUM.NULL;
+pub const VT_I2 = VARENUM.I2;
+pub const VT_I4 = VARENUM.I4;
+pub const VT_R4 = VARENUM.R4;
+pub const VT_R8 = VARENUM.R8;
+pub const VT_CY = VARENUM.CY;
+pub const VT_DATE = VARENUM.DATE;
+pub const VT_BSTR = VARENUM.BSTR;
+pub const VT_DISPATCH = VARENUM.DISPATCH;
+pub const VT_ERROR = VARENUM.ERROR;
+pub const VT_BOOL = VARENUM.BOOL;
+pub const VT_VARIANT = VARENUM.VARIANT;
+pub const VT_UNKNOWN = VARENUM.UNKNOWN;
+pub const VT_DECIMAL = VARENUM.DECIMAL;
+pub const VT_I1 = VARENUM.I1;
+pub const VT_UI1 = VARENUM.UI1;
+pub const VT_UI2 = VARENUM.UI2;
+pub const VT_UI4 = VARENUM.UI4;
+pub const VT_I8 = VARENUM.I8;
+pub const VT_UI8 = VARENUM.UI8;
+pub const VT_INT = VARENUM.INT;
+pub const VT_UINT = VARENUM.UINT;
+pub const VT_VOID = VARENUM.VOID;
+pub const VT_HRESULT = VARENUM.HRESULT;
+pub const VT_PTR = VARENUM.PTR;
+pub const VT_SAFEARRAY = VARENUM.SAFEARRAY;
+pub const VT_CARRAY = VARENUM.CARRAY;
+pub const VT_USERDEFINED = VARENUM.USERDEFINED;
+pub const VT_LPSTR = VARENUM.LPSTR;
+pub const VT_LPWSTR = VARENUM.LPWSTR;
+pub const VT_RECORD = VARENUM.RECORD;
+pub const VT_INT_PTR = VARENUM.INT_PTR;
+pub const VT_UINT_PTR = VARENUM.UINT_PTR;
+pub const VT_FILETIME = VARENUM.FILETIME;
+pub const VT_BLOB = VARENUM.BLOB;
+pub const VT_STREAM = VARENUM.STREAM;
+pub const VT_STORAGE = VARENUM.STORAGE;
+pub const VT_STREAMED_OBJECT = VARENUM.STREAMED_OBJECT;
+pub const VT_STORED_OBJECT = VARENUM.STORED_OBJECT;
+pub const VT_BLOB_OBJECT = VARENUM.BLOB_OBJECT;
+pub const VT_CF = VARENUM.CF;
+pub const VT_CLSID = VARENUM.CLSID;
+pub const VT_VERSIONED_STREAM = VARENUM.VERSIONED_STREAM;
+pub const VT_BSTR_BLOB = VARENUM.BSTR_BLOB;
+pub const VT_VECTOR = VARENUM.VECTOR;
+pub const VT_ARRAY = VARENUM.ARRAY;
+pub const VT_BYREF = VARENUM.BYREF;
+pub const VT_RESERVED = VARENUM.RESERVED;
+pub const VT_ILLEGAL = VARENUM.ILLEGAL;
+pub const VT_ILLEGALMASKED = VARENUM.BSTR_BLOB;
+pub const VT_TYPEMASK = VARENUM.BSTR_BLOB;
 
 pub const CSPLATFORM = extern struct {
     dwPlatformId: u32,
@@ -2628,7 +2735,7 @@ pub const BIND_OPTS = extern struct {
 };
 
 pub const BIND_OPTS2 = extern struct {
-    __AnonymousBase_objidl_L9017_C36: BIND_OPTS,
+    Base: BIND_OPTS,
     dwTrackFlags: u32,
     dwClassContext: u32,
     locale: u32,
@@ -2636,7 +2743,7 @@ pub const BIND_OPTS2 = extern struct {
 };
 
 pub const BIND_OPTS3 = extern struct {
-    __AnonymousBase_objidl_L9041_C36: BIND_OPTS2,
+    Base: BIND_OPTS2,
     hwnd: ?HWND,
 };
 
@@ -5081,7 +5188,7 @@ pub const SAFEARRAY = extern struct {
 pub const VARIANT = extern struct {
     Anonymous: extern union {
         Anonymous: extern struct {
-            vt: u16,
+            vt: VARENUM,
             wReserved1: u16,
             wReserved2: u16,
             wReserved3: u16,
@@ -5168,7 +5275,7 @@ pub const TYPEDESC = extern struct {
         lpadesc: ?*ARRAYDESC,
         hreftype: u32,
     },
-    vt: u16,
+    vt: VARENUM,
 };
 
 pub const IDLDESC = extern struct {

@@ -764,7 +764,7 @@ pub const CACLSID = extern struct {
 pub const PROPVARIANT = extern struct {
     Anonymous: extern union {
         Anonymous: extern struct {
-            vt: u16,
+            vt: VARENUM,
             wReserved1: u16,
             wReserved2: u16,
             wReserved3: u16,
@@ -859,7 +859,7 @@ pub const PROPSPEC = extern struct {
 pub const STATPROPSTG = extern struct {
     lpwstrName: ?PWSTR,
     propid: u32,
-    vt: u16,
+    vt: VARENUM,
 };
 
 pub const STATPROPSETSTG = extern struct {
@@ -1181,7 +1181,7 @@ pub const OLESTREAM = extern struct {
 
 pub const PROPBAG2 = extern struct {
     dwType: u32,
-    vt: u16,
+    vt: VARENUM,
     cfType: u16,
     dwHint: u32,
     pstrName: ?PWSTR,
@@ -1594,7 +1594,7 @@ pub extern "propsys" fn StgDeserializePropVariant(
 // Section: Unicode Aliases (0)
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
-// Section: Imports (30)
+// Section: Imports (31)
 //--------------------------------------------------------------------------------
 const Guid = @import("../../zig.zig").Guid;
 const BLOB = @import("../../system/com.zig").BLOB;
@@ -1625,6 +1625,7 @@ const STGC = @import("../../system/com.zig").STGC;
 const STGMEDIUM = @import("../../system/com.zig").STGMEDIUM;
 const StorageLayout = @import("../../system/com.zig").StorageLayout;
 const ULARGE_INTEGER = @import("../../foundation.zig").ULARGE_INTEGER;
+const VARENUM = @import("../../system/com.zig").VARENUM;
 const VARIANT = @import("../../system/com.zig").VARIANT;
 
 test {

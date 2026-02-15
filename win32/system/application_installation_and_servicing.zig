@@ -619,6 +619,11 @@ pub const DEFAULT_DISK_ID = @as(u32, 2);
 //--------------------------------------------------------------------------------
 // Section: Types (179)
 //--------------------------------------------------------------------------------
+pub const ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION = extern struct {
+    ElementCount: u32,
+    Elements: ?*COMPATIBILITY_CONTEXT_ELEMENT,
+};
+
 pub const MSIASSEMBLYINFO = enum(u32) {
     NETASSEMBLY = 0,
     WIN32ASSEMBLY = 1,
@@ -5428,11 +5433,6 @@ pub const COMPATIBILITY_CONTEXT_ELEMENT = extern struct {
     Id: Guid,
     Type: ACTCTX_COMPATIBILITY_ELEMENT_TYPE,
     MaxVersionTested: u64,
-};
-
-pub const ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION = extern struct {
-    ElementCount: u32,
-    Elements: [1]COMPATIBILITY_CONTEXT_ELEMENT,
 };
 
 pub const ACTIVATION_CONTEXT_DETAILED_INFORMATION = extern struct {

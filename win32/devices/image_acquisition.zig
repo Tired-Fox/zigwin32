@@ -3089,7 +3089,7 @@ pub const IWiaDrvItem = extern union {
 
 pub const WIA_PROPERTY_INFO = extern struct {
     lAccessFlags: u32,
-    vt: u16,
+    vt: VARENUM,
     ValidVal: extern union {
         Range: extern struct {
             Min: i32,
@@ -3484,7 +3484,7 @@ pub const TWAIN_CAPABILITY = extern struct {
 // Section: Unicode Aliases (0)
 //--------------------------------------------------------------------------------
 //--------------------------------------------------------------------------------
-// Section: Imports (19)
+// Section: Imports (20)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BOOL = @import("../foundation.zig").BOOL;
@@ -3505,6 +3505,7 @@ const PWSTR = @import("../foundation.zig").PWSTR;
 const RECT = @import("../foundation.zig").RECT;
 const STATPROPSETSTG = @import("../system/com/structured_storage.zig").STATPROPSETSTG;
 const STGMEDIUM = @import("../system/com.zig").STGMEDIUM;
+const VARENUM = @import("../system/com.zig").VARENUM;
 
 test {
     // The following '_ = <FuncPtrType>' lines are a workaround for https://github.com/ziglang/zig/issues/4476

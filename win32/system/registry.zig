@@ -1984,6 +1984,7 @@ pub extern "api-ms-win-core-state-helpers-l1-1-0" fn GetRegistryValueWithFallbac
     pwszValue: ?[*:0]const u16,
     dwFlags: u32,
     pdwType: ?*u32,
+    // TODO: what to do with BytesParamIndex 8?
     pvData: ?*anyopaque,
     cbDataIn: u32,
     pcbDataOut: ?*u32,
