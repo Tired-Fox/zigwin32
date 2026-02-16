@@ -2954,7 +2954,7 @@ pub const IDropSource = extern union {
         QueryContinueDrag: *const fn(
             self: *const IDropSource,
             fEscapePressed: BOOL,
-            grfKeyState: u32,
+            grfKeyState: MODIFIERKEYS_FLAGS,
         ) callconv(.winapi) HRESULT,
         GiveFeedback: *const fn(
             self: *const IDropSource,
@@ -2963,7 +2963,7 @@ pub const IDropSource = extern union {
     };
     vtable: *const VTable,
     IUnknown: IUnknown,
-    pub fn QueryContinueDrag(self: *const IDropSource, fEscapePressed: BOOL, grfKeyState: u32) callconv(.@"inline") HRESULT {
+    pub fn QueryContinueDrag(self: *const IDropSource, fEscapePressed: BOOL, grfKeyState: MODIFIERKEYS_FLAGS) callconv(.@"inline") HRESULT {
         return self.vtable.QueryContinueDrag(self, fEscapePressed, grfKeyState);
     }
     pub fn GiveFeedback(self: *const IDropSource, dwEffect: u32) callconv(.@"inline") HRESULT {
@@ -2980,13 +2980,13 @@ pub const IDropTarget = extern union {
         DragEnter: *const fn(
             self: *const IDropTarget,
             pDataObj: ?*IDataObject,
-            grfKeyState: u32,
+            grfKeyState: MODIFIERKEYS_FLAGS,
             pt: POINTL,
             pdwEffect: ?*u32,
         ) callconv(.winapi) HRESULT,
         DragOver: *const fn(
             self: *const IDropTarget,
-            grfKeyState: u32,
+            grfKeyState: MODIFIERKEYS_FLAGS,
             pt: POINTL,
             pdwEffect: ?*u32,
         ) callconv(.winapi) HRESULT,
@@ -2996,23 +2996,23 @@ pub const IDropTarget = extern union {
         Drop: *const fn(
             self: *const IDropTarget,
             pDataObj: ?*IDataObject,
-            grfKeyState: u32,
+            grfKeyState: MODIFIERKEYS_FLAGS,
             pt: POINTL,
             pdwEffect: ?*u32,
         ) callconv(.winapi) HRESULT,
     };
     vtable: *const VTable,
     IUnknown: IUnknown,
-    pub fn DragEnter(self: *const IDropTarget, pDataObj: ?*IDataObject, grfKeyState: u32, pt: POINTL, pdwEffect: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn DragEnter(self: *const IDropTarget, pDataObj: ?*IDataObject, grfKeyState: MODIFIERKEYS_FLAGS, pt: POINTL, pdwEffect: ?*u32) callconv(.@"inline") HRESULT {
         return self.vtable.DragEnter(self, pDataObj, grfKeyState, pt, pdwEffect);
     }
-    pub fn DragOver(self: *const IDropTarget, grfKeyState: u32, pt: POINTL, pdwEffect: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn DragOver(self: *const IDropTarget, grfKeyState: MODIFIERKEYS_FLAGS, pt: POINTL, pdwEffect: ?*u32) callconv(.@"inline") HRESULT {
         return self.vtable.DragOver(self, grfKeyState, pt, pdwEffect);
     }
     pub fn DragLeave(self: *const IDropTarget) callconv(.@"inline") HRESULT {
         return self.vtable.DragLeave(self);
     }
-    pub fn Drop(self: *const IDropTarget, pDataObj: ?*IDataObject, grfKeyState: u32, pt: POINTL, pdwEffect: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn Drop(self: *const IDropTarget, pDataObj: ?*IDataObject, grfKeyState: MODIFIERKEYS_FLAGS, pt: POINTL, pdwEffect: ?*u32) callconv(.@"inline") HRESULT {
         return self.vtable.Drop(self, pDataObj, grfKeyState, pt, pdwEffect);
     }
 };
@@ -9856,7 +9856,7 @@ pub const OleUIUpdateLinks = switch (@import("../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (89)
+// Section: Imports (90)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BOOL = @import("../foundation.zig").BOOL;
@@ -9922,6 +9922,7 @@ const LOGPALETTE = @import("../graphics/gdi.zig").LOGPALETTE;
 const LONG_SIZEDARR = @import("../system/com.zig").LONG_SIZEDARR;
 const LPARAM = @import("../foundation.zig").LPARAM;
 const LRESULT = @import("../foundation.zig").LRESULT;
+const MODIFIERKEYS_FLAGS = @import("../system/system_services.zig").MODIFIERKEYS_FLAGS;
 const MSG = @import("../ui/windows_and_messaging.zig").MSG;
 const OPENFILENAMEA = @import("../ui/controls/dialogs.zig").OPENFILENAMEA;
 const OPENFILENAMEW = @import("../ui/controls/dialogs.zig").OPENFILENAMEW;

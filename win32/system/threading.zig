@@ -1559,7 +1559,7 @@ pub extern "kernel32" fn ReleaseMutex(
 pub extern "kernel32" fn WaitForSingleObject(
     hHandle: ?HANDLE,
     dwMilliseconds: u32,
-) callconv(.winapi) u32;
+) callconv(.winapi) WIN32_ERROR;
 
 // TODO: this type is limited to platform 'windows5.1.2600'
 pub extern "kernel32" fn SleepEx(
@@ -1572,7 +1572,7 @@ pub extern "kernel32" fn WaitForSingleObjectEx(
     hHandle: ?HANDLE,
     dwMilliseconds: u32,
     bAlertable: BOOL,
-) callconv(.winapi) u32;
+) callconv(.winapi) WIN32_ERROR;
 
 // TODO: this type is limited to platform 'windows5.1.2600'
 pub extern "kernel32" fn WaitForMultipleObjectsEx(
@@ -1581,7 +1581,7 @@ pub extern "kernel32" fn WaitForMultipleObjectsEx(
     bWaitAll: BOOL,
     dwMilliseconds: u32,
     bAlertable: BOOL,
-) callconv(.winapi) u32;
+) callconv(.winapi) WIN32_ERROR;
 
 // TODO: this type is limited to platform 'windows5.1.2600'
 pub extern "kernel32" fn CreateMutexA(
@@ -1773,7 +1773,7 @@ pub extern "kernel32" fn WaitForMultipleObjects(
     lpHandles: [*]const ?HANDLE,
     bWaitAll: BOOL,
     dwMilliseconds: u32,
-) callconv(.winapi) u32;
+) callconv(.winapi) WIN32_ERROR;
 
 // TODO: this type is limited to platform 'windows5.1.2600'
 pub extern "kernel32" fn CreateSemaphoreW(
@@ -3410,7 +3410,7 @@ pub const QueryFullProcessImageName = switch (@import("../zig.zig").unicode_mode
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (23)
+// Section: Imports (24)
 //--------------------------------------------------------------------------------
 const Guid = @import("../zig.zig").Guid;
 const BOOL = @import("../foundation.zig").BOOL;
@@ -3435,6 +3435,7 @@ const SLIST_ENTRY = @import("../system/kernel.zig").SLIST_ENTRY;
 const SLIST_HEADER = @import("../system/kernel.zig").SLIST_HEADER;
 const TOKEN_ACCESS_MASK = @import("../security.zig").TOKEN_ACCESS_MASK;
 const UNICODE_STRING = @import("../foundation.zig").UNICODE_STRING;
+const WIN32_ERROR = @import("../foundation.zig").WIN32_ERROR;
 
 test {
     // The following '_ = <FuncPtrType>' lines are a workaround for https://github.com/ziglang/zig/issues/4476

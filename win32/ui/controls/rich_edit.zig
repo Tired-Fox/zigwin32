@@ -2315,7 +2315,7 @@ pub const IRichEditOleCallback = extern union {
         GetDragDropEffect: *const fn(
             self: *const IRichEditOleCallback,
             fDrag: BOOL,
-            grfKeyState: u32,
+            grfKeyState: MODIFIERKEYS_FLAGS,
             pdwEffect: ?*u32,
         ) callconv(.winapi) HRESULT,
         GetContextMenu: *const fn(
@@ -2352,7 +2352,7 @@ pub const IRichEditOleCallback = extern union {
     pub fn GetClipboardData(self: *const IRichEditOleCallback, lpchrg: ?*CHARRANGE, reco: u32, lplpdataobj: ?*?*IDataObject) callconv(.@"inline") HRESULT {
         return self.vtable.GetClipboardData(self, lpchrg, reco, lplpdataobj);
     }
-    pub fn GetDragDropEffect(self: *const IRichEditOleCallback, fDrag: BOOL, grfKeyState: u32, pdwEffect: ?*u32) callconv(.@"inline") HRESULT {
+    pub fn GetDragDropEffect(self: *const IRichEditOleCallback, fDrag: BOOL, grfKeyState: MODIFIERKEYS_FLAGS, pdwEffect: ?*u32) callconv(.@"inline") HRESULT {
         return self.vtable.GetDragDropEffect(self, fDrag, grfKeyState, pdwEffect);
     }
     pub fn GetContextMenu(self: *const IRichEditOleCallback, seltype: RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE, lpoleobj: ?*IOleObject, lpchrg: ?*CHARRANGE, lphmenu: ?*?HMENU) callconv(.@"inline") HRESULT {
@@ -7121,7 +7121,7 @@ pub const FINDTEXTEX = switch (@import("../../zig.zig").unicode_mode) {
     ),
 };
 //--------------------------------------------------------------------------------
-// Section: Imports (44)
+// Section: Imports (45)
 //--------------------------------------------------------------------------------
 const Guid = @import("../../zig.zig").Guid;
 const BOOL = @import("../../foundation.zig").BOOL;
@@ -7154,6 +7154,7 @@ const IStream = @import("../../system/com.zig").IStream;
 const IUnknown = @import("../../system/com.zig").IUnknown;
 const LPARAM = @import("../../foundation.zig").LPARAM;
 const LRESULT = @import("../../foundation.zig").LRESULT;
+const MODIFIERKEYS_FLAGS = @import("../../system/system_services.zig").MODIFIERKEYS_FLAGS;
 const NMHDR = @import("../../ui/controls.zig").NMHDR;
 const OIFI = @import("../../system/ole.zig").OIFI;
 const POINT = @import("../../foundation.zig").POINT;
