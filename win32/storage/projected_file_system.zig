@@ -517,11 +517,11 @@ pub extern "projectedfslib" fn PrjWritePlaceholderInfo2(
 ) callconv(.winapi) HRESULT;
 
 // TODO: this type is limited to platform 'windows10.0.17763'
-// This function from dll 'PROJECTEDFSLIB' is being skipped because it has some sort of issue
+// This function from dll 'PROJECTEDFSLIB.dll' is being skipped because it has some sort of issue
 pub fn PrjUpdateFileIfNeeded() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows10.0.17763'
-// This function from dll 'PROJECTEDFSLIB' is being skipped because it has some sort of issue
+// This function from dll 'PROJECTEDFSLIB.dll' is being skipped because it has some sort of issue
 pub fn PrjDeleteFile() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows10.0.17763'

@@ -1141,7 +1141,7 @@ pub const WSA_ERROR = enum(i32) {
     _NOT_ENOUGH_MEMORY = 8,
     _OPERATION_ABORTED = 995,
     _WAIT_EVENT_0 = 0,
-    _WAIT_IO_COMPLETION = 129,
+    _WAIT_IO_COMPLETION = 192,
     BASEERR = 10000,
     EINTR = 10004,
     EBADF = 10009,
@@ -1648,7 +1648,7 @@ pub const ADDRINFOA = extern struct {
     ai_next: ?*ADDRINFOA,
 };
 
-pub const addrinfoW = extern struct {
+pub const ADDRINFOW = extern struct {
     ai_flags: i32,
     ai_family: i32,
     ai_socktype: i32,
@@ -1656,10 +1656,10 @@ pub const addrinfoW = extern struct {
     ai_addrlen: usize,
     ai_canonname: ?PWSTR,
     ai_addr: ?*SOCKADDR,
-    ai_next: ?*addrinfoW,
+    ai_next: ?*ADDRINFOW,
 };
 
-pub const addrinfoexA = extern struct {
+pub const ADDRINFOEXA = extern struct {
     ai_flags: i32,
     ai_family: i32,
     ai_socktype: i32,
@@ -1670,10 +1670,10 @@ pub const addrinfoexA = extern struct {
     ai_blob: ?*anyopaque,
     ai_bloblen: usize,
     ai_provider: ?*Guid,
-    ai_next: ?*addrinfoexA,
+    ai_next: ?*ADDRINFOEXA,
 };
 
-pub const addrinfoexW = extern struct {
+pub const ADDRINFOEXW = extern struct {
     ai_flags: i32,
     ai_family: i32,
     ai_socktype: i32,
@@ -1684,10 +1684,10 @@ pub const addrinfoexW = extern struct {
     ai_blob: ?*anyopaque,
     ai_bloblen: usize,
     ai_provider: ?*Guid,
-    ai_next: ?*addrinfoexW,
+    ai_next: ?*ADDRINFOEXW,
 };
 
-pub const addrinfoex2A = extern struct {
+pub const ADDRINFOEX2A = extern struct {
     ai_flags: i32,
     ai_family: i32,
     ai_socktype: i32,
@@ -1698,12 +1698,12 @@ pub const addrinfoex2A = extern struct {
     ai_blob: ?*anyopaque,
     ai_bloblen: usize,
     ai_provider: ?*Guid,
-    ai_next: ?*addrinfoex2A,
+    ai_next: ?*ADDRINFOEX2A,
     ai_version: i32,
     ai_fqdn: ?PSTR,
 };
 
-pub const addrinfoex2W = extern struct {
+pub const ADDRINFOEX2W = extern struct {
     ai_flags: i32,
     ai_family: i32,
     ai_socktype: i32,
@@ -1714,12 +1714,12 @@ pub const addrinfoex2W = extern struct {
     ai_blob: ?*anyopaque,
     ai_bloblen: usize,
     ai_provider: ?*Guid,
-    ai_next: ?*addrinfoex2W,
+    ai_next: ?*ADDRINFOEX2W,
     ai_version: i32,
     ai_fqdn: ?PWSTR,
 };
 
-pub const addrinfoex3 = extern struct {
+pub const ADDRINFOEX3 = extern struct {
     ai_flags: i32,
     ai_family: i32,
     ai_socktype: i32,
@@ -1730,13 +1730,13 @@ pub const addrinfoex3 = extern struct {
     ai_blob: ?*anyopaque,
     ai_bloblen: usize,
     ai_provider: ?*Guid,
-    ai_next: ?*addrinfoex3,
+    ai_next: ?*ADDRINFOEX3,
     ai_version: i32,
     ai_fqdn: ?PWSTR,
     ai_interfaceindex: i32,
 };
 
-pub const addrinfoex4 = extern struct {
+pub const ADDRINFOEX4 = extern struct {
     ai_flags: i32,
     ai_family: i32,
     ai_socktype: i32,
@@ -1747,14 +1747,14 @@ pub const addrinfoex4 = extern struct {
     ai_blob: ?*anyopaque,
     ai_bloblen: usize,
     ai_provider: ?*Guid,
-    ai_next: ?*addrinfoex4,
+    ai_next: ?*ADDRINFOEX4,
     ai_version: i32,
     ai_fqdn: ?PWSTR,
     ai_interfaceindex: i32,
     ai_resolutionhandle: ?HANDLE,
 };
 
-pub const addrinfoex5 = extern struct {
+pub const ADDRINFOEX5 = extern struct {
     ai_flags: i32,
     ai_family: i32,
     ai_socktype: i32,
@@ -1765,7 +1765,7 @@ pub const addrinfoex5 = extern struct {
     ai_blob: ?*anyopaque,
     ai_bloblen: usize,
     ai_provider: ?*Guid,
-    ai_next: ?*addrinfoex5,
+    ai_next: ?*ADDRINFOEX5,
     ai_version: i32,
     ai_fqdn: ?PWSTR,
     ai_interfaceindex: i32,
@@ -1783,7 +1783,7 @@ pub const addrinfo_dns_server = extern struct {
     },
 };
 
-pub const addrinfoex6 = extern struct {
+pub const ADDRINFOEX6 = extern struct {
     ai_flags: i32,
     ai_family: i32,
     ai_socktype: i32,
@@ -1794,7 +1794,7 @@ pub const addrinfoex6 = extern struct {
     ai_blob: ?*anyopaque,
     ai_bloblen: usize,
     ai_provider: ?*Guid,
-    ai_next: ?*addrinfoex5,
+    ai_next: ?*ADDRINFOEX5,
     ai_version: i32,
     ai_fqdn: ?PWSTR,
     ai_interfaceindex: i32,
@@ -2281,7 +2281,7 @@ pub const IN_PKTINFO_EX = extern struct {
     scope_id: SCOPE_ID,
 };
 
-pub const in6_pktinfo_ex = extern struct {
+pub const IN6_PKTINFO_EX = extern struct {
     pkt_info: IN6_PKTINFO,
     scope_id: SCOPE_ID,
 };
@@ -4896,7 +4896,7 @@ pub const nd_router_solicit = extern struct {
     nd_rs_hdr: ICMP_MESSAGE,
 };
 
-pub const nd_router_advert = extern struct {
+pub const ND_ROUTER_ADVERT_HEADER = extern struct {
     nd_ra_hdr: ICMP_MESSAGE,
     nd_ra_reachable: u32,
     nd_ra_retransmit: u32,
@@ -4909,12 +4909,12 @@ pub const IPV6_ROUTER_ADVERTISEMENT_FLAGS = extern union {
     Value: u8,
 };
 
-pub const nd_neighbor_solicit = extern struct {
+pub const ND_NEIGHBOR_SOLICIT_HEADER = extern struct {
     nd_ns_hdr: ICMP_MESSAGE,
     nd_ns_target: IN6_ADDR,
 };
 
-pub const nd_neighbor_advert = extern struct {
+pub const ND_NEIGHBOR_ADVERT_HEADER = extern struct {
     nd_na_hdr: ICMP_MESSAGE,
     nd_na_target: IN6_ADDR,
 };
@@ -4927,13 +4927,13 @@ pub const IPV6_NEIGHBOR_ADVERTISEMENT_FLAGS = extern union {
     Value: u32,
 };
 
-pub const nd_redirect = extern struct {
+pub const ND_REDIRECT_HEADER = extern struct {
     nd_rd_hdr: ICMP_MESSAGE,
     nd_rd_target: IN6_ADDR,
     nd_rd_dst: IN6_ADDR,
 };
 
-pub const nd_opt_hdr = extern struct {
+pub const ND_OPTION_HDR = extern struct {
     nd_opt_type: u8,
     nd_opt_len: u8,
 };
@@ -4967,7 +4967,7 @@ pub const ND_OPT_ROUTE_INFO = ND_OPTION_TYPE.ROUTE_INFO;
 pub const ND_OPT_RDNSS = ND_OPTION_TYPE.RDNSS;
 pub const ND_OPT_DNSSL = ND_OPTION_TYPE.DNSSL;
 
-pub const nd_opt_prefix_info = extern struct {
+pub const ND_OPTION_PREFIX_INFO = extern struct {
     nd_opt_pi_type: u8,
     nd_opt_pi_len: u8,
     nd_opt_pi_prefix_len: u8,
@@ -4989,21 +4989,21 @@ pub const nd_opt_prefix_info = extern struct {
     nd_opt_pi_prefix: IN6_ADDR,
 };
 
-pub const nd_opt_rd_hdr = extern struct {
+pub const ND_OPTION_RD_HDR = extern struct {
     nd_opt_rh_type: u8,
     nd_opt_rh_len: u8,
     nd_opt_rh_reserved1: u16,
     nd_opt_rh_reserved2: u32,
 };
 
-pub const nd_opt_mtu = extern struct {
+pub const ND_OPTION_MTU = extern struct {
     nd_opt_mtu_type: u8,
     nd_opt_mtu_len: u8,
     nd_opt_mtu_reserved: u16,
     nd_opt_mtu_mtu: u32,
 };
 
-pub const nd_opt_route_info = extern struct {
+pub const ND_OPTION_ROUTE_INFO = extern struct {
     nd_opt_ri_type: u8,
     nd_opt_ri_len: u8,
     nd_opt_ri_prefix_len: u8,
@@ -5017,14 +5017,14 @@ pub const nd_opt_route_info = extern struct {
     nd_opt_ri_prefix: IN6_ADDR,
 };
 
-pub const nd_opt_rdnss = extern struct {
+pub const ND_OPTION_RDNSS = extern struct {
     nd_opt_rdnss_type: u8,
     nd_opt_rdnss_len: u8,
     nd_opt_rdnss_reserved: u16,
     nd_opt_rdnss_lifetime: u32,
 };
 
-pub const nd_opt_dnssl = extern struct {
+pub const ND_OPTION_DNSSL = extern struct {
     nd_opt_dnssl_type: u8,
     nd_opt_dnssl_len: u8,
     nd_opt_dnssl_reserved: u16,
@@ -6765,8 +6765,8 @@ pub extern "ws2_32" fn getaddrinfo(
 pub extern "ws2_32" fn GetAddrInfoW(
     pNodeName: ?[*:0]const u16,
     pServiceName: ?[*:0]const u16,
-    pHints: ?*const addrinfoW,
-    ppResult: ?*?*addrinfoW,
+    pHints: ?*const ADDRINFOW,
+    ppResult: ?*?*ADDRINFOW,
 ) callconv(.winapi) i32;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
@@ -6775,8 +6775,8 @@ pub extern "ws2_32" fn GetAddrInfoExA(
     pServiceName: ?[*:0]const u8,
     dwNameSpace: u32,
     lpNspId: ?*Guid,
-    hints: ?*const addrinfoexA,
-    ppResult: ?*?*addrinfoexA,
+    hints: ?*const ADDRINFOEXA,
+    ppResult: ?*?*ADDRINFOEXA,
     timeout: ?*timeval,
     lpOverlapped: ?*OVERLAPPED,
     lpCompletionRoutine: ?LPLOOKUPSERVICE_COMPLETION_ROUTINE,
@@ -6789,8 +6789,8 @@ pub extern "ws2_32" fn GetAddrInfoExW(
     pServiceName: ?[*:0]const u16,
     dwNameSpace: u32,
     lpNspId: ?*Guid,
-    hints: ?*const addrinfoexW,
-    ppResult: ?*?*addrinfoexW,
+    hints: ?*const ADDRINFOEXW,
+    ppResult: ?*?*ADDRINFOEXW,
     timeout: ?*timeval,
     lpOverlapped: ?*OVERLAPPED,
     lpCompletionRoutine: ?LPLOOKUPSERVICE_COMPLETION_ROUTINE,
@@ -6846,17 +6846,17 @@ pub extern "ws2_32" fn freeaddrinfo(
 
 // TODO: this type is limited to platform 'windows8.1'
 pub extern "ws2_32" fn FreeAddrInfoW(
-    pAddrInfo: ?*addrinfoW,
+    pAddrInfo: ?*ADDRINFOW,
 ) callconv(.winapi) void;
 
 // TODO: this type is limited to platform 'windows8.1'
 pub extern "ws2_32" fn FreeAddrInfoEx(
-    pAddrInfoEx: ?*addrinfoexA,
+    pAddrInfoEx: ?*ADDRINFOEXA,
 ) callconv(.winapi) void;
 
 // TODO: this type is limited to platform 'windows8.1'
 pub extern "ws2_32" fn FreeAddrInfoExW(
-    pAddrInfoEx: ?*addrinfoexW,
+    pAddrInfoEx: ?*ADDRINFOEXW,
 ) callconv(.winapi) void;
 
 // TODO: this type is limited to platform 'windows8.1'
@@ -7013,20 +7013,27 @@ pub extern "ws2_32" fn WSCWriteNameSpaceOrder32(
 
 
 //--------------------------------------------------------------------------------
-// Section: Unicode Aliases (48)
+// Section: Unicode Aliases (49)
 //--------------------------------------------------------------------------------
-pub const addrinfoex = switch (@import("../zig.zig").unicode_mode) {
-    .ansi => @This().addrinfoexA,
-    .wide => @This().addrinfoexW,
+pub const ADDRINFO = switch (@import("../zig.zig").unicode_mode) {
+    .ansi => @This().ADDRINFOA,
+    .wide => @This().ADDRINFOW,
     .unspecified => if (@import("builtin").is_test) void else @compileError(
-        "'addrinfoex' requires that UNICODE be set to true or false in the root module",
+        "'ADDRINFO' requires that UNICODE be set to true or false in the root module",
     ),
 };
-pub const addrinfoex2 = switch (@import("../zig.zig").unicode_mode) {
-    .ansi => @This().addrinfoex2A,
-    .wide => @This().addrinfoex2W,
+pub const ADDRINFOEX = switch (@import("../zig.zig").unicode_mode) {
+    .ansi => @This().ADDRINFOEXA,
+    .wide => @This().ADDRINFOEXW,
     .unspecified => if (@import("builtin").is_test) void else @compileError(
-        "'addrinfoex2' requires that UNICODE be set to true or false in the root module",
+        "'ADDRINFOEX' requires that UNICODE be set to true or false in the root module",
+    ),
+};
+pub const ADDRINFOEX2 = switch (@import("../zig.zig").unicode_mode) {
+    .ansi => @This().ADDRINFOEX2A,
+    .wide => @This().ADDRINFOEX2W,
+    .unspecified => if (@import("builtin").is_test) void else @compileError(
+        "'ADDRINFOEX2' requires that UNICODE be set to true or false in the root module",
     ),
 };
 pub const WSAPROTOCOL_INFO = switch (@import("../zig.zig").unicode_mode) {

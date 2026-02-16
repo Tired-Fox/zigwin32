@@ -867,7 +867,7 @@ pub const IMLOperatorShapeInferrer = extern union {
 pub const MLOperatorAttribute = extern struct {
     name: ?[*:0]const u8,
     type: MLOperatorAttributeType,
-    required: bool,
+    required: u8,
 };
 
 pub const MLOperatorAttributeNameValue = extern struct {

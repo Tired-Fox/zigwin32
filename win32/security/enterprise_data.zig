@@ -259,7 +259,7 @@ pub const SRPHOSTING_VERSION = enum(i32) {
 pub const SRPHOSTING_VERSION1 = SRPHOSTING_VERSION.@"1";
 
 pub const FILE_UNPROTECT_OPTIONS = extern struct {
-    audit: bool,
+    audit: u8,
 };
 
 

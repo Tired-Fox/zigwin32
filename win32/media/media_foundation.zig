@@ -30183,7 +30183,7 @@ pub extern "evr" fn MFCreateVideoSampleAllocator(
 ) callconv(.winapi) HRESULT;
 
 // TODO: this type is limited to platform 'windows6.1'
-// This function from dll 'MFPlay' is being skipped because it has some sort of issue
+// This function from dll 'MFPlay.dll' is being skipped because it has some sort of issue
 pub fn MFPCreateMediaPlayer() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows10.0.19041'

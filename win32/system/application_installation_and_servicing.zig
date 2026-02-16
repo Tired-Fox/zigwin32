@@ -6141,11 +6141,11 @@ pub extern "msi" fn MsiGetComponentPathW(
 ) callconv(.winapi) INSTALLSTATE;
 
 // TODO: this type is limited to platform 'windows8.0'
-// This function from dll 'msi' is being skipped because it has some sort of issue
+// This function from dll 'msi.dll' is being skipped because it has some sort of issue
 pub fn MsiGetComponentPathExA() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows8.0'
-// This function from dll 'msi' is being skipped because it has some sort of issue
+// This function from dll 'msi.dll' is being skipped because it has some sort of issue
 pub fn MsiGetComponentPathExW() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows8.0'

@@ -29644,7 +29644,7 @@ pub const ScriptDebugEventInformation = extern struct {
     EventSpanEnd: ScriptDebugPosition,
     u: extern union {
         ExceptionInformation: extern struct {
-            IsUncaught: bool,
+            IsUncaught: u8,
         },
         BreakpointInformation: extern struct {
             BreakpointId: u64,
@@ -42536,10 +42536,10 @@ pub extern "dbghelp" fn SymSetSearchPathW(
     SearchPathA: ?[*:0]const u16,
 ) callconv(.winapi) BOOL;
 
-// This function from dll 'dbghelp' is being skipped because it has some sort of issue
+// This function from dll 'dbghelp.dll' is being skipped because it has some sort of issue
 pub fn SymLoadModuleEx() void { @panic("this function is not working"); }
 
-// This function from dll 'dbghelp' is being skipped because it has some sort of issue
+// This function from dll 'dbghelp.dll' is being skipped because it has some sort of issue
 pub fn SymLoadModuleExW() void { @panic("this function is not working"); }
 
 pub extern "dbghelp" fn SymUnloadModule64(

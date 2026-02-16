@@ -4674,7 +4674,7 @@ pub extern "authz" fn AuthzInitializeResourceManager(
 ) callconv(.winapi) BOOL;
 
 // TODO: this type is limited to platform 'windows8.0'
-// This function from dll 'AUTHZ' is being skipped because it has some sort of issue
+// This function from dll 'AUTHZ.dll' is being skipped because it has some sort of issue
 pub fn AuthzInitializeResourceManagerEx() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows8.0'
@@ -5249,11 +5249,11 @@ pub extern "advapi32" fn BuildTrusteeWithObjectsAndSidW(
 ) callconv(.winapi) void;
 
 // TODO: this type is limited to platform 'windows5.1.2600'
-// This function from dll 'ADVAPI32' is being skipped because it has some sort of issue
+// This function from dll 'ADVAPI32.dll' is being skipped because it has some sort of issue
 pub fn BuildTrusteeWithObjectsAndNameA() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows5.1.2600'
-// This function from dll 'ADVAPI32' is being skipped because it has some sort of issue
+// This function from dll 'ADVAPI32.dll' is being skipped because it has some sort of issue
 pub fn BuildTrusteeWithObjectsAndNameW() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows5.1.2600'

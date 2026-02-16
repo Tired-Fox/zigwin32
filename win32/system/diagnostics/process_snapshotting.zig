@@ -489,7 +489,7 @@ pub extern "kernel32" fn PssWalkSnapshot(
 ) callconv(.winapi) u32;
 
 // TODO: this type is limited to platform 'windows8.1'
-// This function from dll 'KERNEL32' is being skipped because it has some sort of issue
+// This function from dll 'KERNEL32.dll' is being skipped because it has some sort of issue
 pub fn PssDuplicateSnapshot() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows8.1'

@@ -9740,7 +9740,7 @@ pub extern "ncrypt" fn NCryptFreeBuffer(
 ) callconv(.winapi) HRESULT;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
-// This function from dll 'ncrypt' is being skipped because it has some sort of issue
+// This function from dll 'ncrypt.dll' is being skipped because it has some sort of issue
 pub fn NCryptOpenKey() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows6.0.6000'
@@ -9878,7 +9878,7 @@ pub extern "ncrypt" fn NCryptIsKeyHandle(
 ) callconv(.winapi) BOOL;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
-// This function from dll 'ncrypt' is being skipped because it has some sort of issue
+// This function from dll 'ncrypt.dll' is being skipped because it has some sort of issue
 pub fn NCryptTranslateHandle() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows6.0.6000'
@@ -11019,7 +11019,7 @@ pub extern "crypt32" fn CryptSignCertificate(
 ) callconv(.winapi) BOOL;
 
 // TODO: this type is limited to platform 'windows5.1.2600'
-// This function from dll 'CRYPT32' is being skipped because it has some sort of issue
+// This function from dll 'CRYPT32.dll' is being skipped because it has some sort of issue
 pub fn CryptSignAndEncodeCertificate() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows5.1.2600'

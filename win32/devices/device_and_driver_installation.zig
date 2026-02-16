@@ -6214,21 +6214,21 @@ pub extern "cfgmgr32" fn CM_Connect_MachineW(
 
 pub extern "cfgmgr32" fn CM_Create_DevNodeA(
     pdnDevInst: ?*u32,
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     dnParent: u32,
     ulFlags: u32,
 ) callconv(.winapi) CONFIGRET;
 
 pub extern "cfgmgr32" fn CM_Create_DevNodeW(
     pdnDevInst: ?*u32,
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     dnParent: u32,
     ulFlags: u32,
 ) callconv(.winapi) CONFIGRET;
 
 pub extern "cfgmgr32" fn CM_Create_DevNode_ExA(
     pdnDevInst: ?*u32,
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     dnParent: u32,
     ulFlags: u32,
     hMachine: isize,
@@ -6236,7 +6236,7 @@ pub extern "cfgmgr32" fn CM_Create_DevNode_ExA(
 
 pub extern "cfgmgr32" fn CM_Create_DevNode_ExW(
     pdnDevInst: ?*u32,
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     dnParent: u32,
     ulFlags: u32,
     hMachine: isize,
@@ -6839,7 +6839,7 @@ pub extern "cfgmgr32" fn CM_Get_Hardware_Profile_Info_ExW(
 
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "cfgmgr32" fn CM_Get_HW_Prof_FlagsA(
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     ulHardwareProfile: u32,
     pulValue: ?*u32,
     ulFlags: u32,
@@ -6847,7 +6847,7 @@ pub extern "cfgmgr32" fn CM_Get_HW_Prof_FlagsA(
 
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "cfgmgr32" fn CM_Get_HW_Prof_FlagsW(
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     ulHardwareProfile: u32,
     pulValue: ?*u32,
     ulFlags: u32,
@@ -6855,7 +6855,7 @@ pub extern "cfgmgr32" fn CM_Get_HW_Prof_FlagsW(
 
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "cfgmgr32" fn CM_Get_HW_Prof_Flags_ExA(
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     ulHardwareProfile: u32,
     pulValue: ?*u32,
     ulFlags: u32,
@@ -6864,7 +6864,7 @@ pub extern "cfgmgr32" fn CM_Get_HW_Prof_Flags_ExA(
 
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "cfgmgr32" fn CM_Get_HW_Prof_Flags_ExW(
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     ulHardwareProfile: u32,
     pulValue: ?*u32,
     ulFlags: u32,
@@ -6909,7 +6909,7 @@ pub extern "cfgmgr32" fn CM_Get_Device_Interface_Alias_ExW(
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "cfgmgr32" fn CM_Get_Device_Interface_ListA(
     InterfaceClassGuid: ?*Guid,
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     Buffer: [*]u8,
     BufferLen: u32,
     ulFlags: u32,
@@ -6918,7 +6918,7 @@ pub extern "cfgmgr32" fn CM_Get_Device_Interface_ListA(
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "cfgmgr32" fn CM_Get_Device_Interface_ListW(
     InterfaceClassGuid: ?*Guid,
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     Buffer: [*]u16,
     BufferLen: u32,
     ulFlags: u32,
@@ -6926,7 +6926,7 @@ pub extern "cfgmgr32" fn CM_Get_Device_Interface_ListW(
 
 pub extern "cfgmgr32" fn CM_Get_Device_Interface_List_ExA(
     InterfaceClassGuid: ?*Guid,
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     Buffer: [*]u8,
     BufferLen: u32,
     ulFlags: u32,
@@ -6935,7 +6935,7 @@ pub extern "cfgmgr32" fn CM_Get_Device_Interface_List_ExA(
 
 pub extern "cfgmgr32" fn CM_Get_Device_Interface_List_ExW(
     InterfaceClassGuid: ?*Guid,
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     Buffer: [*]u16,
     BufferLen: u32,
     ulFlags: u32,
@@ -6946,7 +6946,7 @@ pub extern "cfgmgr32" fn CM_Get_Device_Interface_List_ExW(
 pub extern "cfgmgr32" fn CM_Get_Device_Interface_List_SizeA(
     pulLen: ?*u32,
     InterfaceClassGuid: ?*Guid,
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     ulFlags: u32,
 ) callconv(.winapi) CONFIGRET;
 
@@ -6954,14 +6954,14 @@ pub extern "cfgmgr32" fn CM_Get_Device_Interface_List_SizeA(
 pub extern "cfgmgr32" fn CM_Get_Device_Interface_List_SizeW(
     pulLen: ?*u32,
     InterfaceClassGuid: ?*Guid,
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     ulFlags: u32,
 ) callconv(.winapi) CONFIGRET;
 
 pub extern "cfgmgr32" fn CM_Get_Device_Interface_List_Size_ExA(
     pulLen: ?*u32,
     InterfaceClassGuid: ?*Guid,
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     ulFlags: u32,
     hMachine: isize,
 ) callconv(.winapi) CONFIGRET;
@@ -6969,7 +6969,7 @@ pub extern "cfgmgr32" fn CM_Get_Device_Interface_List_Size_ExA(
 pub extern "cfgmgr32" fn CM_Get_Device_Interface_List_Size_ExW(
     pulLen: ?*u32,
     InterfaceClassGuid: ?*Guid,
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     ulFlags: u32,
     hMachine: isize,
 ) callconv(.winapi) CONFIGRET;
@@ -7145,20 +7145,20 @@ pub extern "cfgmgr32" fn CM_Invert_Range_List(
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "cfgmgr32" fn CM_Locate_DevNodeA(
     pdnDevInst: ?*u32,
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     ulFlags: u32,
 ) callconv(.winapi) CONFIGRET;
 
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "cfgmgr32" fn CM_Locate_DevNodeW(
     pdnDevInst: ?*u32,
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     ulFlags: u32,
 ) callconv(.winapi) CONFIGRET;
 
 pub extern "cfgmgr32" fn CM_Locate_DevNode_ExA(
     pdnDevInst: ?*u32,
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     ulFlags: u32,
     hMachine: isize,
 ) callconv(.winapi) CONFIGRET;
@@ -7166,7 +7166,7 @@ pub extern "cfgmgr32" fn CM_Locate_DevNode_ExA(
 // TODO: this type is limited to platform 'windows5.0'
 pub extern "cfgmgr32" fn CM_Locate_DevNode_ExW(
     pdnDevInst: ?*u32,
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     ulFlags: u32,
     hMachine: isize,
 ) callconv(.winapi) CONFIGRET;
@@ -7695,21 +7695,21 @@ pub extern "cfgmgr32" fn CM_Request_Eject_PC_Ex(
 ) callconv(.winapi) CONFIGRET;
 
 pub extern "cfgmgr32" fn CM_Set_HW_Prof_FlagsA(
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     ulConfig: u32,
     ulValue: u32,
     ulFlags: u32,
 ) callconv(.winapi) CONFIGRET;
 
 pub extern "cfgmgr32" fn CM_Set_HW_Prof_FlagsW(
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     ulConfig: u32,
     ulValue: u32,
     ulFlags: u32,
 ) callconv(.winapi) CONFIGRET;
 
 pub extern "cfgmgr32" fn CM_Set_HW_Prof_Flags_ExA(
-    pDeviceID: ?*i8,
+    pDeviceID: ?PSTR,
     ulConfig: u32,
     ulValue: u32,
     ulFlags: u32,
@@ -7717,7 +7717,7 @@ pub extern "cfgmgr32" fn CM_Set_HW_Prof_Flags_ExA(
 ) callconv(.winapi) CONFIGRET;
 
 pub extern "cfgmgr32" fn CM_Set_HW_Prof_Flags_ExW(
-    pDeviceID: ?*u16,
+    pDeviceID: ?PWSTR,
     ulConfig: u32,
     ulValue: u32,
     ulFlags: u32,

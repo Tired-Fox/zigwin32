@@ -1377,7 +1377,7 @@ pub extern "qwave" fn QOSAddSocketToFlow(
 ) callconv(.winapi) BOOL;
 
 // TODO: this type is limited to platform 'windows6.0.6000'
-// This function from dll 'qwave' is being skipped because it has some sort of issue
+// This function from dll 'qwave.dll' is being skipped because it has some sort of issue
 pub fn QOSRemoveSocketFromFlow() void { @panic("this function is not working"); }
 
 // TODO: this type is limited to platform 'windows6.0.6000'

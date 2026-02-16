@@ -2241,10 +2241,10 @@ pub extern "esent" fn JetStopBackupInstance(
     instance: JET_INSTANCE,
 ) callconv(.winapi) i32;
 
-// This function from dll 'ESENT' is being skipped because it has some sort of issue
+// This function from dll 'ESENT.dll' is being skipped because it has some sort of issue
 pub fn JetSetSystemParameterA() void { @panic("this function is not working"); }
 
-// This function from dll 'ESENT' is being skipped because it has some sort of issue
+// This function from dll 'ESENT.dll' is being skipped because it has some sort of issue
 pub fn JetSetSystemParameterW() void { @panic("this function is not working"); }
 
 pub extern "esent" fn JetGetSystemParameterA(
