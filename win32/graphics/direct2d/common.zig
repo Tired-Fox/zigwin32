@@ -285,6 +285,7 @@ pub const D2D1_FILL_MODE_WINDING = D2D1_FILL_MODE.WINDING;
 pub const D2D1_FILL_MODE_FORCE_DWORD = D2D1_FILL_MODE.FORCE_DWORD;
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SimplifiedGeometrySink_Value = Guid.initString("2cd9069e-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1SimplifiedGeometrySink = &IID_ID2D1SimplifiedGeometrySink_Value;
 pub const ID2D1SimplifiedGeometrySink = extern union {

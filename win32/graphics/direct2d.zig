@@ -851,6 +851,7 @@ pub const D2D1_FACTORY_OPTIONS = extern struct {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Resource_Value = Guid.initString("2cd90691-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1Resource = &IID_ID2D1Resource_Value;
 pub const ID2D1Resource = extern union {
@@ -869,6 +870,7 @@ pub const ID2D1Resource = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Image_Value = Guid.initString("65019f75-8da2-497c-b32c-dfa34e48ede6");
 pub const IID_ID2D1Image = &IID_ID2D1Image_Value;
 pub const ID2D1Image = extern union {
@@ -881,6 +883,7 @@ pub const ID2D1Image = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Bitmap_Value = Guid.initString("a2296057-ea42-4099-983b-539fb6505426");
 pub const IID_ID2D1Bitmap = &IID_ID2D1Bitmap_Value;
 pub const ID2D1Bitmap = extern union {
@@ -947,6 +950,7 @@ pub const ID2D1Bitmap = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1GradientStopCollection_Value = Guid.initString("2cd906a7-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1GradientStopCollection = &IID_ID2D1GradientStopCollection_Value;
 pub const ID2D1GradientStopCollection = extern union {
@@ -985,6 +989,7 @@ pub const ID2D1GradientStopCollection = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Brush_Value = Guid.initString("2cd906a8-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1Brush = &IID_ID2D1Brush_Value;
 pub const ID2D1Brush = extern union {
@@ -1024,6 +1029,7 @@ pub const ID2D1Brush = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1BitmapBrush_Value = Guid.initString("2cd906aa-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1BitmapBrush = &IID_ID2D1BitmapBrush_Value;
 pub const ID2D1BitmapBrush = extern union {
@@ -1090,6 +1096,7 @@ pub const ID2D1BitmapBrush = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SolidColorBrush_Value = Guid.initString("2cd906a9-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1SolidColorBrush = &IID_ID2D1SolidColorBrush_Value;
 pub const ID2D1SolidColorBrush = extern union {
@@ -1116,6 +1123,7 @@ pub const ID2D1SolidColorBrush = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1LinearGradientBrush_Value = Guid.initString("2cd906ab-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1LinearGradientBrush = &IID_ID2D1LinearGradientBrush_Value;
 pub const ID2D1LinearGradientBrush = extern union {
@@ -1162,6 +1170,7 @@ pub const ID2D1LinearGradientBrush = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1RadialGradientBrush_Value = Guid.initString("2cd906ac-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1RadialGradientBrush = &IID_ID2D1RadialGradientBrush_Value;
 pub const ID2D1RadialGradientBrush = extern union {
@@ -1234,6 +1243,7 @@ pub const ID2D1RadialGradientBrush = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1StrokeStyle_Value = Guid.initString("2cd9069d-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1StrokeStyle = &IID_ID2D1StrokeStyle_Value;
 pub const ID2D1StrokeStyle = extern union {
@@ -1302,6 +1312,7 @@ pub const ID2D1StrokeStyle = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Geometry_Value = Guid.initString("2cd906a1-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1Geometry = &IID_ID2D1Geometry_Value;
 pub const ID2D1Geometry = extern union {
@@ -1444,6 +1455,7 @@ pub const ID2D1Geometry = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1RectangleGeometry_Value = Guid.initString("2cd906a2-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1RectangleGeometry = &IID_ID2D1RectangleGeometry_Value;
 pub const ID2D1RectangleGeometry = extern union {
@@ -1464,6 +1476,7 @@ pub const ID2D1RectangleGeometry = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1RoundedRectangleGeometry_Value = Guid.initString("2cd906a3-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1RoundedRectangleGeometry = &IID_ID2D1RoundedRectangleGeometry_Value;
 pub const ID2D1RoundedRectangleGeometry = extern union {
@@ -1484,6 +1497,7 @@ pub const ID2D1RoundedRectangleGeometry = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1EllipseGeometry_Value = Guid.initString("2cd906a4-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1EllipseGeometry = &IID_ID2D1EllipseGeometry_Value;
 pub const ID2D1EllipseGeometry = extern union {
@@ -1504,6 +1518,7 @@ pub const ID2D1EllipseGeometry = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1GeometryGroup_Value = Guid.initString("2cd906a6-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1GeometryGroup = &IID_ID2D1GeometryGroup_Value;
 pub const ID2D1GeometryGroup = extern union {
@@ -1537,6 +1552,7 @@ pub const ID2D1GeometryGroup = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1TransformedGeometry_Value = Guid.initString("2cd906bb-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1TransformedGeometry = &IID_ID2D1TransformedGeometry_Value;
 pub const ID2D1TransformedGeometry = extern union {
@@ -1564,6 +1580,7 @@ pub const ID2D1TransformedGeometry = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1GeometrySink_Value = Guid.initString("2cd9069f-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1GeometrySink = &IID_ID2D1GeometrySink_Value;
 pub const ID2D1GeometrySink = extern union {
@@ -1612,6 +1629,7 @@ pub const ID2D1GeometrySink = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1TessellationSink_Value = Guid.initString("2cd906c1-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1TessellationSink = &IID_ID2D1TessellationSink_Value;
 pub const ID2D1TessellationSink = extern union {
@@ -1637,6 +1655,7 @@ pub const ID2D1TessellationSink = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1PathGeometry_Value = Guid.initString("2cd906a5-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1PathGeometry = &IID_ID2D1PathGeometry_Value;
 pub const ID2D1PathGeometry = extern union {
@@ -1678,6 +1697,7 @@ pub const ID2D1PathGeometry = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Mesh_Value = Guid.initString("2cd906c2-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1Mesh = &IID_ID2D1Mesh_Value;
 pub const ID2D1Mesh = extern union {
@@ -1697,6 +1717,7 @@ pub const ID2D1Mesh = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Layer_Value = Guid.initString("2cd9069b-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1Layer = &IID_ID2D1Layer_Value;
 pub const ID2D1Layer = extern union {
@@ -1715,6 +1736,7 @@ pub const ID2D1Layer = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DrawingStateBlock_Value = Guid.initString("28506e39-ebf6-46a1-bb47-fd85565ab957");
 pub const IID_ID2D1DrawingStateBlock = &IID_ID2D1DrawingStateBlock_Value;
 pub const ID2D1DrawingStateBlock = extern union {
@@ -1755,6 +1777,7 @@ pub const ID2D1DrawingStateBlock = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1RenderTarget_Value = Guid.initString("2cd90694-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1RenderTarget = &IID_ID2D1RenderTarget_Value;
 pub const ID2D1RenderTarget = extern union {
@@ -2208,6 +2231,7 @@ pub const ID2D1RenderTarget = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1BitmapRenderTarget_Value = Guid.initString("2cd90695-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1BitmapRenderTarget = &IID_ID2D1BitmapRenderTarget_Value;
 pub const ID2D1BitmapRenderTarget = extern union {
@@ -2228,6 +2252,7 @@ pub const ID2D1BitmapRenderTarget = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1HwndRenderTarget_Value = Guid.initString("2cd90698-12e2-11dc-9fed-001143a055f9");
 pub const IID_ID2D1HwndRenderTarget = &IID_ID2D1HwndRenderTarget_Value;
 pub const ID2D1HwndRenderTarget = extern union {
@@ -2260,6 +2285,7 @@ pub const ID2D1HwndRenderTarget = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1GdiInteropRenderTarget_Value = Guid.initString("e0db51c3-6f77-4bae-b3d5-e47509b35838");
 pub const IID_ID2D1GdiInteropRenderTarget = &IID_ID2D1GdiInteropRenderTarget_Value;
 pub const ID2D1GdiInteropRenderTarget = extern union {
@@ -2286,6 +2312,7 @@ pub const ID2D1GdiInteropRenderTarget = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DCRenderTarget_Value = Guid.initString("1c51bc64-de61-46fd-9899-63a5d8f03950");
 pub const IID_ID2D1DCRenderTarget = &IID_ID2D1DCRenderTarget_Value;
 pub const ID2D1DCRenderTarget = extern union {
@@ -2307,6 +2334,7 @@ pub const ID2D1DCRenderTarget = extern union {
 };
 
 // TODO: this type is limited to platform 'windows6.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Factory_Value = Guid.initString("06152247-6f50-465a-9245-118bfd3b6007");
 pub const IID_ID2D1Factory = &IID_ID2D1Factory_Value;
 pub const ID2D1Factory = extern union {
@@ -3905,6 +3933,7 @@ pub const D2D1_CREATION_PROPERTIES = extern struct {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1GdiMetafileSink_Value = Guid.initString("82237326-8111-4f7c-bcf4-b5c1175564fe");
 pub const IID_ID2D1GdiMetafileSink = &IID_ID2D1GdiMetafileSink_Value;
 pub const ID2D1GdiMetafileSink = extern union {
@@ -3925,6 +3954,7 @@ pub const ID2D1GdiMetafileSink = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1GdiMetafile_Value = Guid.initString("2f543dc3-cfc1-4211-864f-cfd91c6f3395");
 pub const IID_ID2D1GdiMetafile = &IID_ID2D1GdiMetafile_Value;
 pub const ID2D1GdiMetafile = extern union {
@@ -3951,6 +3981,7 @@ pub const ID2D1GdiMetafile = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1CommandSink_Value = Guid.initString("54d7898a-a061-40a7-bec7-e465bcba2c4f");
 pub const IID_ID2D1CommandSink = &IID_ID2D1CommandSink_Value;
 pub const ID2D1CommandSink = extern union {
@@ -4167,6 +4198,7 @@ pub const ID2D1CommandSink = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1CommandList_Value = Guid.initString("b4f34a19-2383-4d76-94f6-ec343657c3dc");
 pub const IID_ID2D1CommandList = &IID_ID2D1CommandList_Value;
 pub const ID2D1CommandList = extern union {
@@ -4193,6 +4225,7 @@ pub const ID2D1CommandList = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1PrintControl_Value = Guid.initString("2c1d867d-c290-41c8-ae7e-34a98702e9a5");
 pub const IID_ID2D1PrintControl = &IID_ID2D1PrintControl_Value;
 pub const ID2D1PrintControl = extern union {
@@ -4221,6 +4254,7 @@ pub const ID2D1PrintControl = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1ImageBrush_Value = Guid.initString("fe9e984d-3f95-407c-b5db-cb94d4e8f87c");
 pub const IID_ID2D1ImageBrush = &IID_ID2D1ImageBrush_Value;
 pub const ID2D1ImageBrush = extern union {
@@ -4301,6 +4335,7 @@ pub const ID2D1ImageBrush = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1BitmapBrush1_Value = Guid.initString("41343a53-e41a-49a2-91cd-21793bbb62e5");
 pub const IID_ID2D1BitmapBrush1 = &IID_ID2D1BitmapBrush1_Value;
 pub const ID2D1BitmapBrush1 = extern union {
@@ -4328,6 +4363,7 @@ pub const ID2D1BitmapBrush1 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1StrokeStyle1_Value = Guid.initString("10a72a66-e91c-43f4-993f-ddf4b82b0b4a");
 pub const IID_ID2D1StrokeStyle1 = &IID_ID2D1StrokeStyle1_Value;
 pub const ID2D1StrokeStyle1 = extern union {
@@ -4347,6 +4383,7 @@ pub const ID2D1StrokeStyle1 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1PathGeometry1_Value = Guid.initString("62baa2d2-ab54-41b7-b872-787e0106a421");
 pub const IID_ID2D1PathGeometry1 = &IID_ID2D1PathGeometry1_Value;
 pub const ID2D1PathGeometry1 = extern union {
@@ -4372,6 +4409,7 @@ pub const ID2D1PathGeometry1 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Properties_Value = Guid.initString("483473d7-cd46-4f9d-9d3a-3112aa80159d");
 pub const IID_ID2D1Properties = &IID_ID2D1Properties_Value;
 pub const ID2D1Properties = extern union {
@@ -4474,6 +4512,7 @@ pub const ID2D1Properties = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Effect_Value = Guid.initString("28211a43-7d89-476f-8181-2d6159b220ad");
 pub const IID_ID2D1Effect = &IID_ID2D1Effect_Value;
 pub const ID2D1Effect = extern union {
@@ -4523,6 +4562,7 @@ pub const ID2D1Effect = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Bitmap1_Value = Guid.initString("a898a84c-3873-4588-b08b-ebbf978df041");
 pub const IID_ID2D1Bitmap1 = &IID_ID2D1Bitmap1_Value;
 pub const ID2D1Bitmap1 = extern union {
@@ -4571,6 +4611,7 @@ pub const ID2D1Bitmap1 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1ColorContext_Value = Guid.initString("1c4820bb-5771-4518-a581-2fe4dd0ec657");
 pub const IID_ID2D1ColorContext = &IID_ID2D1ColorContext_Value;
 pub const ID2D1ColorContext = extern union {
@@ -4603,6 +4644,7 @@ pub const ID2D1ColorContext = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1GradientStopCollection1_Value = Guid.initString("ae1572f4-5dd0-4777-998b-9279472ae63b");
 pub const IID_ID2D1GradientStopCollection1 = &IID_ID2D1GradientStopCollection1_Value;
 pub const ID2D1GradientStopCollection1 = extern union {
@@ -4648,6 +4690,7 @@ pub const ID2D1GradientStopCollection1 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DrawingStateBlock1_Value = Guid.initString("689f1f85-c72e-4e33-8f19-85754efd5ace");
 pub const IID_ID2D1DrawingStateBlock1 = &IID_ID2D1DrawingStateBlock1_Value;
 pub const ID2D1DrawingStateBlock1 = extern union {
@@ -4675,6 +4718,7 @@ pub const ID2D1DrawingStateBlock1 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DeviceContext_Value = Guid.initString("e8f7fe7a-191c-466d-ad95-975678bda998");
 pub const IID_ID2D1DeviceContext = &IID_ID2D1DeviceContext_Value;
 pub const ID2D1DeviceContext = extern union {
@@ -4990,6 +5034,7 @@ pub const ID2D1DeviceContext = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Device_Value = Guid.initString("47dd575d-ac05-4cdd-8049-9b02cd16f44c");
 pub const IID_ID2D1Device = &IID_ID2D1Device_Value;
 pub const ID2D1Device = extern union {
@@ -5040,6 +5085,7 @@ pub const ID2D1Device = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Factory1_Value = Guid.initString("bb12d362-daee-4b9a-aa1d-14ba401cfa1f");
 pub const IID_ID2D1Factory1 = &IID_ID2D1Factory1_Value;
 pub const ID2D1Factory1 = extern union {
@@ -5141,6 +5187,7 @@ pub const ID2D1Factory1 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Multithread_Value = Guid.initString("31e6e7bc-e0ff-4d46-8c64-a0a8c41c15d3");
 pub const IID_ID2D1Multithread = &IID_ID2D1Multithread_Value;
 pub const ID2D1Multithread = extern union {
@@ -5579,6 +5626,7 @@ pub const D2D1_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS = extern struct {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1VertexBuffer_Value = Guid.initString("9b8b1336-00a5-4668-92b7-ced5d8bf9b7b");
 pub const IID_ID2D1VertexBuffer = &IID_ID2D1VertexBuffer_Value;
 pub const ID2D1VertexBuffer = extern union {
@@ -5604,6 +5652,7 @@ pub const ID2D1VertexBuffer = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1ResourceTexture_Value = Guid.initString("688d15c3-02b0-438d-b13a-d1b44c32c39a");
 pub const IID_ID2D1ResourceTexture = &IID_ID2D1ResourceTexture_Value;
 pub const ID2D1ResourceTexture = extern union {
@@ -5627,6 +5676,7 @@ pub const ID2D1ResourceTexture = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1RenderInfo_Value = Guid.initString("519ae1bd-d19a-420d-b849-364f594776b7");
 pub const IID_ID2D1RenderInfo = &IID_ID2D1RenderInfo_Value;
 pub const ID2D1RenderInfo = extern union {
@@ -5668,6 +5718,7 @@ pub const ID2D1RenderInfo = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DrawInfo_Value = Guid.initString("693ce632-7f2f-45de-93fe-18d88b37aa21");
 pub const IID_ID2D1DrawInfo = &IID_ID2D1DrawInfo_Value;
 pub const ID2D1DrawInfo = extern union {
@@ -5723,6 +5774,7 @@ pub const ID2D1DrawInfo = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1ComputeInfo_Value = Guid.initString("5598b14b-9fd7-48b7-9bdb-8f0964eb38bc");
 pub const IID_ID2D1ComputeInfo = &IID_ID2D1ComputeInfo_Value;
 pub const ID2D1ComputeInfo = extern union {
@@ -5758,6 +5810,7 @@ pub const ID2D1ComputeInfo = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1TransformNode_Value = Guid.initString("b2efe1e7-729f-4102-949f-505fa21bf666");
 pub const IID_ID2D1TransformNode = &IID_ID2D1TransformNode_Value;
 pub const ID2D1TransformNode = extern union {
@@ -5775,6 +5828,7 @@ pub const ID2D1TransformNode = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1TransformGraph_Value = Guid.initString("13d29038-c3e6-4034-9081-13b53a417992");
 pub const IID_ID2D1TransformGraph = &IID_ID2D1TransformGraph_Value;
 pub const ID2D1TransformGraph = extern union {
@@ -5851,6 +5905,7 @@ pub const ID2D1TransformGraph = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Transform_Value = Guid.initString("ef1a287d-342a-4f76-8fdb-da0d6ea9f92b");
 pub const IID_ID2D1Transform = &IID_ID2D1Transform_Value;
 pub const ID2D1Transform = extern union {
@@ -5892,6 +5947,7 @@ pub const ID2D1Transform = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DrawTransform_Value = Guid.initString("36bfdcb6-9739-435d-a30d-a653beff6a6f");
 pub const IID_ID2D1DrawTransform = &IID_ID2D1DrawTransform_Value;
 pub const ID2D1DrawTransform = extern union {
@@ -5912,6 +5968,7 @@ pub const ID2D1DrawTransform = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1ComputeTransform_Value = Guid.initString("0d85573c-01e3-4f7d-bfd9-0d60608bf3c3");
 pub const IID_ID2D1ComputeTransform = &IID_ID2D1ComputeTransform_Value;
 pub const ID2D1ComputeTransform = extern union {
@@ -5942,6 +5999,7 @@ pub const ID2D1ComputeTransform = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1AnalysisTransform_Value = Guid.initString("0359dc30-95e6-4568-9055-27720d130e93");
 pub const IID_ID2D1AnalysisTransform = &IID_ID2D1AnalysisTransform_Value;
 pub const ID2D1AnalysisTransform = extern union {
@@ -5961,6 +6019,7 @@ pub const ID2D1AnalysisTransform = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SourceTransform_Value = Guid.initString("db1800dd-0c34-4cf9-be90-31cc0a5653e1");
 pub const IID_ID2D1SourceTransform = &IID_ID2D1SourceTransform_Value;
 pub const ID2D1SourceTransform = extern union {
@@ -5990,6 +6049,7 @@ pub const ID2D1SourceTransform = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1ConcreteTransform_Value = Guid.initString("1a799d8a-69f7-4e4c-9fed-437ccc6684cc");
 pub const IID_ID2D1ConcreteTransform = &IID_ID2D1ConcreteTransform_Value;
 pub const ID2D1ConcreteTransform = extern union {
@@ -6017,6 +6077,7 @@ pub const ID2D1ConcreteTransform = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1BlendTransform_Value = Guid.initString("63ac0b32-ba44-450f-8806-7f4ca1ff2f1b");
 pub const IID_ID2D1BlendTransform = &IID_ID2D1BlendTransform_Value;
 pub const ID2D1BlendTransform = extern union {
@@ -6044,6 +6105,7 @@ pub const ID2D1BlendTransform = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1BorderTransform_Value = Guid.initString("4998735c-3a19-473c-9781-656847e3a347");
 pub const IID_ID2D1BorderTransform = &IID_ID2D1BorderTransform_Value;
 pub const ID2D1BorderTransform = extern union {
@@ -6083,6 +6145,7 @@ pub const ID2D1BorderTransform = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1OffsetTransform_Value = Guid.initString("3fe6adea-7643-4f53-bd14-a0ce63f24042");
 pub const IID_ID2D1OffsetTransform = &IID_ID2D1OffsetTransform_Value;
 pub const ID2D1OffsetTransform = extern union {
@@ -6107,6 +6170,7 @@ pub const ID2D1OffsetTransform = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1BoundsAdjustmentTransform_Value = Guid.initString("90f732e2-5092-4606-a819-8651970baccd");
 pub const IID_ID2D1BoundsAdjustmentTransform = &IID_ID2D1BoundsAdjustmentTransform_Value;
 pub const ID2D1BoundsAdjustmentTransform = extern union {
@@ -6133,6 +6197,7 @@ pub const ID2D1BoundsAdjustmentTransform = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1EffectImpl_Value = Guid.initString("a248fd3f-3e6c-4e63-9f03-7f68ecc91db9");
 pub const IID_ID2D1EffectImpl = &IID_ID2D1EffectImpl_Value;
 pub const ID2D1EffectImpl = extern union {
@@ -6166,6 +6231,7 @@ pub const ID2D1EffectImpl = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.0'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1EffectContext_Value = Guid.initString("3d9f916b-27dc-4ad7-b4f1-64945340f563");
 pub const IID_ID2D1EffectContext = &IID_ID2D1EffectContext_Value;
 pub const ID2D1EffectContext = extern union {
@@ -6665,6 +6731,7 @@ pub const D2D1_RENDERING_PRIORITY_LOW = D2D1_RENDERING_PRIORITY.LOW;
 pub const D2D1_RENDERING_PRIORITY_FORCE_DWORD = D2D1_RENDERING_PRIORITY.FORCE_DWORD;
 
 // TODO: this type is limited to platform 'windows8.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1GeometryRealization_Value = Guid.initString("a16907d7-bc02-4801-99e8-8cf7f485f774");
 pub const IID_ID2D1GeometryRealization = &IID_ID2D1GeometryRealization_Value;
 pub const ID2D1GeometryRealization = extern union {
@@ -6677,6 +6744,7 @@ pub const ID2D1GeometryRealization = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DeviceContext1_Value = Guid.initString("d37f57e4-6908-459f-a199-e72f24f79987");
 pub const IID_ID2D1DeviceContext1 = &IID_ID2D1DeviceContext1_Value;
 pub const ID2D1DeviceContext1 = extern union {
@@ -6719,6 +6787,7 @@ pub const ID2D1DeviceContext1 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Device1_Value = Guid.initString("d21768e1-23a4-4823-a14b-7c3eba85d658");
 pub const IID_ID2D1Device1 = &IID_ID2D1Device1_Value;
 pub const ID2D1Device1 = extern union {
@@ -6753,6 +6822,7 @@ pub const ID2D1Device1 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Factory2_Value = Guid.initString("94f81a73-9212-4376-9c58-b16a3a0d3992");
 pub const IID_ID2D1Factory2 = &IID_ID2D1Factory2_Value;
 pub const ID2D1Factory2 = extern union {
@@ -6774,6 +6844,7 @@ pub const ID2D1Factory2 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1CommandSink1_Value = Guid.initString("9eb767fd-4269-4467-b8c2-eb30cb305743");
 pub const IID_ID2D1CommandSink1 = &IID_ID2D1CommandSink1_Value;
 pub const ID2D1CommandSink1 = extern union {
@@ -7015,6 +7086,7 @@ pub const D2D1_SVG_VIEWBOX = extern struct {
     height: f32,
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SvgAttribute_Value = Guid.initString("c9cdb0dd-f8c9-4e70-b7c2-301c80292c5e");
 pub const IID_ID2D1SvgAttribute = &IID_ID2D1SvgAttribute_Value;
 pub const ID2D1SvgAttribute = extern union {
@@ -7040,6 +7112,7 @@ pub const ID2D1SvgAttribute = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SvgPaint_Value = Guid.initString("d59bab0a-68a2-455b-a5dc-9eb2854e2490");
 pub const IID_ID2D1SvgPaint = &IID_ID2D1SvgPaint_Value;
 pub const ID2D1SvgPaint = extern union {
@@ -7100,6 +7173,7 @@ pub const ID2D1SvgPaint = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SvgStrokeDashArray_Value = Guid.initString("f1c0ca52-92a3-4f00-b4ce-f35691efd9d9");
 pub const IID_ID2D1SvgStrokeDashArray = &IID_ID2D1SvgStrokeDashArray_Value;
 pub const ID2D1SvgStrokeDashArray = extern union {
@@ -7163,6 +7237,7 @@ pub const ID2D1SvgStrokeDashArray = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SvgPointCollection_Value = Guid.initString("9dbe4c0d-3572-4dd9-9825-5530813bb712");
 pub const IID_ID2D1SvgPointCollection = &IID_ID2D1SvgPointCollection_Value;
 pub const ID2D1SvgPointCollection = extern union {
@@ -7206,6 +7281,7 @@ pub const ID2D1SvgPointCollection = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SvgPathData_Value = Guid.initString("c095e4f4-bb98-43d6-9745-4d1b84ec9888");
 pub const IID_ID2D1SvgPathData = &IID_ID2D1SvgPathData_Value;
 pub const ID2D1SvgPathData = extern union {
@@ -7288,6 +7364,7 @@ pub const ID2D1SvgPathData = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SvgElement_Value = Guid.initString("ac7b67a6-183e-49c1-a823-0ebe40b0db29");
 pub const IID_ID2D1SvgElement = &IID_ID2D1SvgElement_Value;
 pub const ID2D1SvgElement = extern union {
@@ -7538,6 +7615,7 @@ pub const ID2D1SvgElement = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SvgDocument_Value = Guid.initString("86b88e4d-afa4-4d7b-88e4-68a51c4a0aec");
 pub const IID_ID2D1SvgDocument = &IID_ID2D1SvgDocument_Value;
 pub const ID2D1SvgDocument = extern union {
@@ -8056,6 +8134,7 @@ pub const D2D1_COLOR_CONTEXT_TYPE_SIMPLE = D2D1_COLOR_CONTEXT_TYPE.SIMPLE;
 pub const D2D1_COLOR_CONTEXT_TYPE_DXGI = D2D1_COLOR_CONTEXT_TYPE.DXGI;
 pub const D2D1_COLOR_CONTEXT_TYPE_FORCE_DWORD = D2D1_COLOR_CONTEXT_TYPE.FORCE_DWORD;
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1InkStyle_Value = Guid.initString("bae8b344-23fc-4071-8cb5-d05d6f073848");
 pub const IID_ID2D1InkStyle = &IID_ID2D1InkStyle_Value;
 pub const ID2D1InkStyle = extern union {
@@ -8094,6 +8173,7 @@ pub const ID2D1InkStyle = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Ink_Value = Guid.initString("b499923b-7029-478f-a8b3-432c7c5f5312");
 pub const IID_ID2D1Ink = &IID_ID2D1Ink_Value;
 pub const ID2D1Ink = extern union {
@@ -8184,6 +8264,7 @@ pub const ID2D1Ink = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1GradientMesh_Value = Guid.initString("f292e401-c050-4cde-83d7-04962d3b23c2");
 pub const IID_ID2D1GradientMesh = &IID_ID2D1GradientMesh_Value;
 pub const ID2D1GradientMesh = extern union {
@@ -8211,6 +8292,7 @@ pub const ID2D1GradientMesh = extern union {
 };
 
 // TODO: this type is limited to platform 'windows10.0.10240'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1ImageSource_Value = Guid.initString("c9b664e5-74a1-4378-9ac2-eefc37a3f4d8");
 pub const IID_ID2D1ImageSource = &IID_ID2D1ImageSource_Value;
 pub const ID2D1ImageSource = extern union {
@@ -8236,6 +8318,7 @@ pub const ID2D1ImageSource = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1ImageSourceFromWic_Value = Guid.initString("77395441-1c8f-4555-8683-f50dab0fe792");
 pub const IID_ID2D1ImageSourceFromWic = &IID_ID2D1ImageSourceFromWic_Value;
 pub const ID2D1ImageSourceFromWic = extern union {
@@ -8270,6 +8353,7 @@ pub const ID2D1ImageSourceFromWic = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1TransformedImageSource_Value = Guid.initString("7f1f79e5-2796-416c-8f55-700f911445e5");
 pub const IID_ID2D1TransformedImageSource = &IID_ID2D1TransformedImageSource_Value;
 pub const ID2D1TransformedImageSource = extern union {
@@ -8296,6 +8380,7 @@ pub const ID2D1TransformedImageSource = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1LookupTable3D_Value = Guid.initString("53dd9855-a3b0-4d5b-82e1-26e25c5e5797");
 pub const IID_ID2D1LookupTable3D = &IID_ID2D1LookupTable3D_Value;
 pub const ID2D1LookupTable3D = extern union {
@@ -8308,6 +8393,7 @@ pub const ID2D1LookupTable3D = extern union {
 };
 
 // TODO: this type is limited to platform 'windows10.0.10240'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DeviceContext2_Value = Guid.initString("394ea6a3-0c34-4321-950b-6ca20f0be6c7");
 pub const IID_ID2D1DeviceContext2 = &IID_ID2D1DeviceContext2_Value;
 pub const ID2D1DeviceContext2 = extern union {
@@ -8422,6 +8508,7 @@ pub const ID2D1DeviceContext2 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Device2_Value = Guid.initString("a44472e1-8dfb-4e60-8492-6e2861c9ca8b");
 pub const IID_ID2D1Device2 = &IID_ID2D1Device2_Value;
 pub const ID2D1Device2 = extern union {
@@ -8457,6 +8544,7 @@ pub const ID2D1Device2 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Factory3_Value = Guid.initString("0869759f-4f00-413f-b03e-2bda45404d0f");
 pub const IID_ID2D1Factory3 = &IID_ID2D1Factory3_Value;
 pub const ID2D1Factory3 = extern union {
@@ -8479,6 +8567,7 @@ pub const ID2D1Factory3 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows8.1'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1CommandSink2_Value = Guid.initString("3bab440e-417e-47df-a2e2-bc0be6a00916");
 pub const IID_ID2D1CommandSink2 = &IID_ID2D1CommandSink2_Value;
 pub const ID2D1CommandSink2 = extern union {
@@ -8517,6 +8606,7 @@ pub const ID2D1CommandSink2 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows10.0.10240'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1GdiMetafile1_Value = Guid.initString("2e69f9e8-dd3f-4bf9-95ba-c04f49d788df");
 pub const IID_ID2D1GdiMetafile1 = &IID_ID2D1GdiMetafile1_Value;
 pub const ID2D1GdiMetafile1 = extern union {
@@ -8545,6 +8635,7 @@ pub const ID2D1GdiMetafile1 = extern union {
 };
 
 // TODO: this type is limited to platform 'windows10.0.10240'
+// This COM type is Agile, not sure what that means
 const IID_ID2D1GdiMetafileSink1_Value = Guid.initString("fd0ecb6b-91e6-411e-8655-395e760f91b4");
 pub const IID_ID2D1GdiMetafileSink1 = &IID_ID2D1GdiMetafileSink1_Value;
 pub const ID2D1GdiMetafileSink1 = extern union {
@@ -8566,6 +8657,7 @@ pub const ID2D1GdiMetafileSink1 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SpriteBatch_Value = Guid.initString("4dc583bf-3a10-438a-8722-e9765224f1f1");
 pub const IID_ID2D1SpriteBatch = &IID_ID2D1SpriteBatch_Value;
 pub const ID2D1SpriteBatch = extern union {
@@ -8632,6 +8724,7 @@ pub const ID2D1SpriteBatch = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DeviceContext3_Value = Guid.initString("235a7496-8351-414c-bcd4-6672ab2d8e00");
 pub const IID_ID2D1DeviceContext3 = &IID_ID2D1DeviceContext3_Value;
 pub const ID2D1DeviceContext3 = extern union {
@@ -8666,6 +8759,7 @@ pub const ID2D1DeviceContext3 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Device3_Value = Guid.initString("852f2087-802c-4037-ab60-ff2e7ee6fc01");
 pub const IID_ID2D1Device3 = &IID_ID2D1Device3_Value;
 pub const ID2D1Device3 = extern union {
@@ -8688,6 +8782,7 @@ pub const ID2D1Device3 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Factory4_Value = Guid.initString("bd4ec2d2-0662-4bee-ba8e-6f29f032e096");
 pub const IID_ID2D1Factory4 = &IID_ID2D1Factory4_Value;
 pub const ID2D1Factory4 = extern union {
@@ -8710,6 +8805,7 @@ pub const ID2D1Factory4 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1CommandSink3_Value = Guid.initString("18079135-4cf3-4868-bc8e-06067e6d242d");
 pub const IID_ID2D1CommandSink3 = &IID_ID2D1CommandSink3_Value;
 pub const ID2D1CommandSink3 = extern union {
@@ -8735,6 +8831,7 @@ pub const ID2D1CommandSink3 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1SvgGlyphStyle_Value = Guid.initString("af671749-d241-4db8-8e41-dcc2e5c1a438");
 pub const IID_ID2D1SvgGlyphStyle = &IID_ID2D1SvgGlyphStyle_Value;
 pub const ID2D1SvgGlyphStyle = extern union {
@@ -8788,6 +8885,7 @@ pub const ID2D1SvgGlyphStyle = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DeviceContext4_Value = Guid.initString("8c427831-3d90-4476-b647-c4fae349e4db");
 pub const IID_ID2D1DeviceContext4 = &IID_ID2D1DeviceContext4_Value;
 pub const ID2D1DeviceContext4 = extern union {
@@ -8895,6 +8993,7 @@ pub const ID2D1DeviceContext4 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Device4_Value = Guid.initString("d7bdb159-5683-4a46-bc9c-72dc720b858b");
 pub const IID_ID2D1Device4 = &IID_ID2D1Device4_Value;
 pub const ID2D1Device4 = extern union {
@@ -8931,6 +9030,7 @@ pub const ID2D1Device4 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Factory5_Value = Guid.initString("c4349994-838e-4b0f-8cab-44997d9eeacc");
 pub const IID_ID2D1Factory5 = &IID_ID2D1Factory5_Value;
 pub const ID2D1Factory5 = extern union {
@@ -8954,6 +9054,7 @@ pub const ID2D1Factory5 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1CommandSink4_Value = Guid.initString("c78a6519-40d6-4218-b2de-beeeb744bb3e");
 pub const IID_ID2D1CommandSink4 = &IID_ID2D1CommandSink4_Value;
 pub const ID2D1CommandSink4 = extern union {
@@ -8975,6 +9076,7 @@ pub const ID2D1CommandSink4 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1ColorContext1_Value = Guid.initString("1ab42875-c57f-4be9-bd85-9cd78d6f55ee");
 pub const IID_ID2D1ColorContext1 = &IID_ID2D1ColorContext1_Value;
 pub const ID2D1ColorContext1 = extern union {
@@ -9006,6 +9108,7 @@ pub const ID2D1ColorContext1 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DeviceContext5_Value = Guid.initString("7836d248-68cc-4df6-b9e8-de991bf62eb7");
 pub const IID_ID2D1DeviceContext5 = &IID_ID2D1DeviceContext5_Value;
 pub const ID2D1DeviceContext5 = extern union {
@@ -9055,6 +9158,7 @@ pub const ID2D1DeviceContext5 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Device5_Value = Guid.initString("d55ba0a4-6405-4694-aef5-08ee1a4358b4");
 pub const IID_ID2D1Device5 = &IID_ID2D1Device5_Value;
 pub const ID2D1Device5 = extern union {
@@ -9079,6 +9183,7 @@ pub const ID2D1Device5 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Factory6_Value = Guid.initString("f9976f46-f642-44c1-97ca-da32ea2a2635");
 pub const IID_ID2D1Factory6 = &IID_ID2D1Factory6_Value;
 pub const ID2D1Factory6 = extern union {
@@ -9103,6 +9208,7 @@ pub const ID2D1Factory6 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1CommandSink5_Value = Guid.initString("7047dd26-b1e7-44a7-959a-8349e2144fa8");
 pub const IID_ID2D1CommandSink5 = &IID_ID2D1CommandSink5_Value;
 pub const ID2D1CommandSink5 = extern union {
@@ -9129,6 +9235,7 @@ pub const ID2D1CommandSink5 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1DeviceContext6_Value = Guid.initString("985f7e37-4ed0-4a19-98a3-15b0edfde306");
 pub const IID_ID2D1DeviceContext6 = &IID_ID2D1DeviceContext6_Value;
 pub const ID2D1DeviceContext6 = extern union {
@@ -9158,6 +9265,7 @@ pub const ID2D1DeviceContext6 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Device6_Value = Guid.initString("7bfef914-2d75-4bad-be87-e18ddb077b6d");
 pub const IID_ID2D1Device6 = &IID_ID2D1Device6_Value;
 pub const ID2D1Device6 = extern union {
@@ -9183,6 +9291,7 @@ pub const ID2D1Device6 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1Factory7_Value = Guid.initString("bdc2bdd3-b96c-4de6-bdf7-99d4745454de");
 pub const IID_ID2D1Factory7 = &IID_ID2D1Factory7_Value;
 pub const ID2D1Factory7 = extern union {
@@ -9208,6 +9317,7 @@ pub const ID2D1Factory7 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1EffectContext1_Value = Guid.initString("84ab595a-fc81-4546-bacd-e8ef4d8abe7a");
 pub const IID_ID2D1EffectContext1 = &IID_ID2D1EffectContext1_Value;
 pub const ID2D1EffectContext1 = extern union {
@@ -9231,6 +9341,7 @@ pub const ID2D1EffectContext1 = extern union {
     }
 };
 
+// This COM type is Agile, not sure what that means
 const IID_ID2D1EffectContext2_Value = Guid.initString("577ad2a0-9fc7-4dda-8b18-dab810140052");
 pub const IID_ID2D1EffectContext2 = &IID_ID2D1EffectContext2_Value;
 pub const ID2D1EffectContext2 = extern union {

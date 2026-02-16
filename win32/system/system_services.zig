@@ -3157,7 +3157,7 @@ pub const GUID_DEVINTERFACE_DMP = Guid.initString("25b4e268-2a05-496e-803b-26683
 pub const GUID_DEVINTERFACE_DMS = Guid.initString("c96037ae-a558-4470-b432-115a31b85553");
 
 //--------------------------------------------------------------------------------
-// Section: Types (260)
+// Section: Types (259)
 //--------------------------------------------------------------------------------
 pub const ALERT_SYSTEM_SEV = enum(u32) {
     INFORMATIONAL = 1,
@@ -3319,50 +3319,6 @@ pub const ATF_FLAGS = packed struct(u32) {
 };
 pub const ATF_TIMEOUTON = ATF_FLAGS{ .TIMEOUTON = 1 };
 pub const ATF_ONOFFFEEDBACK = ATF_FLAGS{ .ONOFFFEEDBACK = 1 };
-
-pub const CHOOSECOLOR_FLAGS = packed struct(u32) {
-    RGBINIT: u1 = 0,
-    FULLOPEN: u1 = 0,
-    PREVENTFULLOPEN: u1 = 0,
-    SHOWHELP: u1 = 0,
-    ENABLEHOOK: u1 = 0,
-    ENABLETEMPLATE: u1 = 0,
-    ENABLETEMPLATEHANDLE: u1 = 0,
-    SOLIDCOLOR: u1 = 0,
-    ANYCOLOR: u1 = 0,
-    _9: u1 = 0,
-    _10: u1 = 0,
-    _11: u1 = 0,
-    _12: u1 = 0,
-    _13: u1 = 0,
-    _14: u1 = 0,
-    _15: u1 = 0,
-    _16: u1 = 0,
-    _17: u1 = 0,
-    _18: u1 = 0,
-    _19: u1 = 0,
-    _20: u1 = 0,
-    _21: u1 = 0,
-    _22: u1 = 0,
-    _23: u1 = 0,
-    _24: u1 = 0,
-    _25: u1 = 0,
-    _26: u1 = 0,
-    _27: u1 = 0,
-    _28: u1 = 0,
-    _29: u1 = 0,
-    _30: u1 = 0,
-    _31: u1 = 0,
-};
-pub const CC_RGBINIT = CHOOSECOLOR_FLAGS{ .RGBINIT = 1 };
-pub const CC_FULLOPEN = CHOOSECOLOR_FLAGS{ .FULLOPEN = 1 };
-pub const CC_PREVENTFULLOPEN = CHOOSECOLOR_FLAGS{ .PREVENTFULLOPEN = 1 };
-pub const CC_SHOWHELP = CHOOSECOLOR_FLAGS{ .SHOWHELP = 1 };
-pub const CC_ENABLEHOOK = CHOOSECOLOR_FLAGS{ .ENABLEHOOK = 1 };
-pub const CC_ENABLETEMPLATE = CHOOSECOLOR_FLAGS{ .ENABLETEMPLATE = 1 };
-pub const CC_ENABLETEMPLATEHANDLE = CHOOSECOLOR_FLAGS{ .ENABLETEMPLATEHANDLE = 1 };
-pub const CC_SOLIDCOLOR = CHOOSECOLOR_FLAGS{ .SOLIDCOLOR = 1 };
-pub const CC_ANYCOLOR = CHOOSECOLOR_FLAGS{ .ANYCOLOR = 1 };
 
 pub const CLIPBOARD_FORMATS = enum(u32) {
     TEXT = 1,
