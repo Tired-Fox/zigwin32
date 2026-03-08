@@ -891,13 +891,16 @@ pub const ID2D1Bitmap = extern union {
         base: ID2D1Image.VTable,
         GetSize: *const fn(
             self: *const ID2D1Bitmap,
-        ) callconv(.winapi) D2D_SIZE_F,
+            __return_ptr: *D2D_SIZE_F,
+        ) callconv(.winapi) *D2D_SIZE_F,
         GetPixelSize: *const fn(
             self: *const ID2D1Bitmap,
-        ) callconv(.winapi) D2D_SIZE_U,
+            __return_ptr: *D2D_SIZE_U,
+        ) callconv(.winapi) *D2D_SIZE_U,
         GetPixelFormat: *const fn(
             self: *const ID2D1Bitmap,
-        ) callconv(.winapi) D2D1_PIXEL_FORMAT,
+            __return_ptr: *D2D1_PIXEL_FORMAT,
+        ) callconv(.winapi) *D2D1_PIXEL_FORMAT,
         GetDpi: *const fn(
             self: *const ID2D1Bitmap,
             dpiX: ?*f32,
@@ -927,13 +930,19 @@ pub const ID2D1Bitmap = extern union {
     ID2D1Resource: ID2D1Resource,
     IUnknown: IUnknown,
     pub fn GetSize(self: *const ID2D1Bitmap) callconv(.@"inline") D2D_SIZE_F {
-        return self.vtable.GetSize(self);
+        var __result: D2D_SIZE_F = undefined;
+        _ = self.vtable.GetSize(self, &__result);
+        return __result;
     }
     pub fn GetPixelSize(self: *const ID2D1Bitmap) callconv(.@"inline") D2D_SIZE_U {
-        return self.vtable.GetPixelSize(self);
+        var __result: D2D_SIZE_U = undefined;
+        _ = self.vtable.GetPixelSize(self, &__result);
+        return __result;
     }
     pub fn GetPixelFormat(self: *const ID2D1Bitmap) callconv(.@"inline") D2D1_PIXEL_FORMAT {
-        return self.vtable.GetPixelFormat(self);
+        var __result: D2D1_PIXEL_FORMAT = undefined;
+        _ = self.vtable.GetPixelFormat(self, &__result);
+        return __result;
     }
     pub fn GetDpi(self: *const ID2D1Bitmap, dpiX: ?*f32, dpiY: ?*f32) callconv(.@"inline") void {
         return self.vtable.GetDpi(self, dpiX, dpiY);
@@ -1108,7 +1117,8 @@ pub const ID2D1SolidColorBrush = extern union {
         ) callconv(.winapi) void,
         GetColor: *const fn(
             self: *const ID2D1SolidColorBrush,
-        ) callconv(.winapi) D2D_COLOR_F,
+            __return_ptr: *D2D_COLOR_F,
+        ) callconv(.winapi) *D2D_COLOR_F,
     };
     vtable: *const VTable,
     ID2D1Brush: ID2D1Brush,
@@ -1118,7 +1128,9 @@ pub const ID2D1SolidColorBrush = extern union {
         return self.vtable.SetColor(self, color);
     }
     pub fn GetColor(self: *const ID2D1SolidColorBrush) callconv(.@"inline") D2D_COLOR_F {
-        return self.vtable.GetColor(self);
+        var __result: D2D_COLOR_F = undefined;
+        _ = self.vtable.GetColor(self, &__result);
+        return __result;
     }
 };
 
@@ -1139,10 +1151,12 @@ pub const ID2D1LinearGradientBrush = extern union {
         ) callconv(.winapi) void,
         GetStartPoint: *const fn(
             self: *const ID2D1LinearGradientBrush,
-        ) callconv(.winapi) D2D_POINT_2F,
+            __return_ptr: *D2D_POINT_2F,
+        ) callconv(.winapi) *D2D_POINT_2F,
         GetEndPoint: *const fn(
             self: *const ID2D1LinearGradientBrush,
-        ) callconv(.winapi) D2D_POINT_2F,
+            __return_ptr: *D2D_POINT_2F,
+        ) callconv(.winapi) *D2D_POINT_2F,
         GetGradientStopCollection: *const fn(
             self: *const ID2D1LinearGradientBrush,
             gradientStopCollection: ?*?*ID2D1GradientStopCollection,
@@ -1159,10 +1173,14 @@ pub const ID2D1LinearGradientBrush = extern union {
         return self.vtable.SetEndPoint(self, endPoint);
     }
     pub fn GetStartPoint(self: *const ID2D1LinearGradientBrush) callconv(.@"inline") D2D_POINT_2F {
-        return self.vtable.GetStartPoint(self);
+        var __result: D2D_POINT_2F = undefined;
+        _ = self.vtable.GetStartPoint(self, &__result);
+        return __result;
     }
     pub fn GetEndPoint(self: *const ID2D1LinearGradientBrush) callconv(.@"inline") D2D_POINT_2F {
-        return self.vtable.GetEndPoint(self);
+        var __result: D2D_POINT_2F = undefined;
+        _ = self.vtable.GetEndPoint(self, &__result);
+        return __result;
     }
     pub fn GetGradientStopCollection(self: *const ID2D1LinearGradientBrush, gradientStopCollection: ?*?*ID2D1GradientStopCollection) callconv(.@"inline") void {
         return self.vtable.GetGradientStopCollection(self, gradientStopCollection);
@@ -1194,10 +1212,12 @@ pub const ID2D1RadialGradientBrush = extern union {
         ) callconv(.winapi) void,
         GetCenter: *const fn(
             self: *const ID2D1RadialGradientBrush,
-        ) callconv(.winapi) D2D_POINT_2F,
+            __return_ptr: *D2D_POINT_2F,
+        ) callconv(.winapi) *D2D_POINT_2F,
         GetGradientOriginOffset: *const fn(
             self: *const ID2D1RadialGradientBrush,
-        ) callconv(.winapi) D2D_POINT_2F,
+            __return_ptr: *D2D_POINT_2F,
+        ) callconv(.winapi) *D2D_POINT_2F,
         GetRadiusX: *const fn(
             self: *const ID2D1RadialGradientBrush,
         ) callconv(.winapi) f32,
@@ -1226,10 +1246,14 @@ pub const ID2D1RadialGradientBrush = extern union {
         return self.vtable.SetRadiusY(self, radiusY);
     }
     pub fn GetCenter(self: *const ID2D1RadialGradientBrush) callconv(.@"inline") D2D_POINT_2F {
-        return self.vtable.GetCenter(self);
+        var __result: D2D_POINT_2F = undefined;
+        _ = self.vtable.GetCenter(self, &__result);
+        return __result;
     }
     pub fn GetGradientOriginOffset(self: *const ID2D1RadialGradientBrush) callconv(.@"inline") D2D_POINT_2F {
-        return self.vtable.GetGradientOriginOffset(self);
+        var __result: D2D_POINT_2F = undefined;
+        _ = self.vtable.GetGradientOriginOffset(self, &__result);
+        return __result;
     }
     pub fn GetRadiusX(self: *const ID2D1RadialGradientBrush) callconv(.@"inline") f32 {
         return self.vtable.GetRadiusX(self);
@@ -1725,13 +1749,16 @@ pub const ID2D1Layer = extern union {
         base: ID2D1Resource.VTable,
         GetSize: *const fn(
             self: *const ID2D1Layer,
-        ) callconv(.winapi) D2D_SIZE_F,
+            __return_ptr: *D2D_SIZE_F,
+        ) callconv(.winapi) *D2D_SIZE_F,
     };
     vtable: *const VTable,
     ID2D1Resource: ID2D1Resource,
     IUnknown: IUnknown,
     pub fn GetSize(self: *const ID2D1Layer) callconv(.@"inline") D2D_SIZE_F {
-        return self.vtable.GetSize(self);
+        var __result: D2D_SIZE_F = undefined;
+        _ = self.vtable.GetSize(self, &__result);
+        return __result;
     }
 };
 
@@ -2041,7 +2068,8 @@ pub const ID2D1RenderTarget = extern union {
         ) callconv(.winapi) HRESULT,
         GetPixelFormat: *const fn(
             self: *const ID2D1RenderTarget,
-        ) callconv(.winapi) D2D1_PIXEL_FORMAT,
+            __return_ptr: *D2D1_PIXEL_FORMAT,
+        ) callconv(.winapi) *D2D1_PIXEL_FORMAT,
         SetDpi: *const fn(
             self: *const ID2D1RenderTarget,
             dpiX: f32,
@@ -2054,10 +2082,12 @@ pub const ID2D1RenderTarget = extern union {
         ) callconv(.winapi) void,
         GetSize: *const fn(
             self: *const ID2D1RenderTarget,
-        ) callconv(.winapi) D2D_SIZE_F,
+            __return_ptr: *D2D_SIZE_F,
+        ) callconv(.winapi) *D2D_SIZE_F,
         GetPixelSize: *const fn(
             self: *const ID2D1RenderTarget,
-        ) callconv(.winapi) D2D_SIZE_U,
+            __return_ptr: *D2D_SIZE_U,
+        ) callconv(.winapi) *D2D_SIZE_U,
         GetMaximumBitmapSize: *const fn(
             self: *const ID2D1RenderTarget,
         ) callconv(.winapi) u32,
@@ -2208,7 +2238,9 @@ pub const ID2D1RenderTarget = extern union {
         return self.vtable.EndDraw(self, tag1, tag2);
     }
     pub fn GetPixelFormat(self: *const ID2D1RenderTarget) callconv(.@"inline") D2D1_PIXEL_FORMAT {
-        return self.vtable.GetPixelFormat(self);
+        var __result: D2D1_PIXEL_FORMAT = undefined;
+        _ = self.vtable.GetPixelFormat(self, &__result);
+        return __result;
     }
     pub fn SetDpi(self: *const ID2D1RenderTarget, dpiX: f32, dpiY: f32) callconv(.@"inline") void {
         return self.vtable.SetDpi(self, dpiX, dpiY);
@@ -2217,10 +2249,14 @@ pub const ID2D1RenderTarget = extern union {
         return self.vtable.GetDpi(self, dpiX, dpiY);
     }
     pub fn GetSize(self: *const ID2D1RenderTarget) callconv(.@"inline") D2D_SIZE_F {
-        return self.vtable.GetSize(self);
+        var __result: D2D_SIZE_F = undefined;
+        _ = self.vtable.GetSize(self, &__result);
+        return __result;
     }
     pub fn GetPixelSize(self: *const ID2D1RenderTarget) callconv(.@"inline") D2D_SIZE_U {
-        return self.vtable.GetPixelSize(self);
+        var __result: D2D_SIZE_U = undefined;
+        _ = self.vtable.GetPixelSize(self, &__result);
+        return __result;
     }
     pub fn GetMaximumBitmapSize(self: *const ID2D1RenderTarget) callconv(.@"inline") u32 {
         return self.vtable.GetMaximumBitmapSize(self);
@@ -6157,7 +6193,8 @@ pub const ID2D1OffsetTransform = extern union {
         ) callconv(.winapi) void,
         GetOffset: *const fn(
             self: *const ID2D1OffsetTransform,
-        ) callconv(.winapi) POINT,
+            __return_ptr: *POINT,
+        ) callconv(.winapi) *POINT,
     };
     vtable: *const VTable,
     ID2D1TransformNode: ID2D1TransformNode,
@@ -6166,7 +6203,9 @@ pub const ID2D1OffsetTransform = extern union {
         return self.vtable.SetOffset(self, offset);
     }
     pub fn GetOffset(self: *const ID2D1OffsetTransform) callconv(.@"inline") POINT {
-        return self.vtable.GetOffset(self);
+        var __result: POINT = undefined;
+        _ = self.vtable.GetOffset(self, &__result);
+        return __result;
     }
 };
 
@@ -7627,7 +7666,8 @@ pub const ID2D1SvgDocument = extern union {
         ) callconv(.winapi) HRESULT,
         GetViewportSize: *const fn(
             self: *const ID2D1SvgDocument,
-        ) callconv(.winapi) D2D_SIZE_F,
+            __return_ptr: *D2D_SIZE_F,
+        ) callconv(.winapi) *D2D_SIZE_F,
         SetRoot: *const fn(
             self: *const ID2D1SvgDocument,
             root: ?*ID2D1SvgElement,
@@ -7686,7 +7726,9 @@ pub const ID2D1SvgDocument = extern union {
         return self.vtable.SetViewportSize(self, viewportSize);
     }
     pub fn GetViewportSize(self: *const ID2D1SvgDocument) callconv(.@"inline") D2D_SIZE_F {
-        return self.vtable.GetViewportSize(self);
+        var __result: D2D_SIZE_F = undefined;
+        _ = self.vtable.GetViewportSize(self, &__result);
+        return __result;
     }
     pub fn SetRoot(self: *const ID2D1SvgDocument, root: ?*ID2D1SvgElement) callconv(.@"inline") HRESULT {
         return self.vtable.SetRoot(self, root);
@@ -8185,7 +8227,8 @@ pub const ID2D1Ink = extern union {
         ) callconv(.winapi) void,
         GetStartPoint: *const fn(
             self: *const ID2D1Ink,
-        ) callconv(.winapi) D2D1_INK_POINT,
+            __return_ptr: *D2D1_INK_POINT,
+        ) callconv(.winapi) *D2D1_INK_POINT,
         AddSegments: *const fn(
             self: *const ID2D1Ink,
             segments: [*]const D2D1_INK_BEZIER_SEGMENT,
@@ -8235,7 +8278,9 @@ pub const ID2D1Ink = extern union {
         return self.vtable.SetStartPoint(self, startPoint);
     }
     pub fn GetStartPoint(self: *const ID2D1Ink) callconv(.@"inline") D2D1_INK_POINT {
-        return self.vtable.GetStartPoint(self);
+        var __result: D2D1_INK_POINT = undefined;
+        _ = self.vtable.GetStartPoint(self, &__result);
+        return __result;
     }
     pub fn AddSegments(self: *const ID2D1Ink, segments: [*]const D2D1_INK_BEZIER_SEGMENT, segmentsCount: u32) callconv(.@"inline") HRESULT {
         return self.vtable.AddSegments(self, segments, segmentsCount);

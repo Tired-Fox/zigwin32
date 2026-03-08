@@ -2011,7 +2011,8 @@ pub const IDMLDispatchable = extern union {
         base: IDMLPageable.VTable,
         GetBindingProperties: *const fn(
             self: *const IDMLDispatchable,
-        ) callconv(.winapi) DML_BINDING_PROPERTIES,
+            __return_ptr: *DML_BINDING_PROPERTIES,
+        ) callconv(.winapi) *DML_BINDING_PROPERTIES,
     };
     vtable: *const VTable,
     IDMLPageable: IDMLPageable,
@@ -2019,7 +2020,9 @@ pub const IDMLDispatchable = extern union {
     IDMLObject: IDMLObject,
     IUnknown: IUnknown,
     pub fn GetBindingProperties(self: *const IDMLDispatchable) callconv(.@"inline") DML_BINDING_PROPERTIES {
-        return self.vtable.GetBindingProperties(self);
+        var __result: DML_BINDING_PROPERTIES = undefined;
+        _ = self.vtable.GetBindingProperties(self, &__result);
+        return __result;
     }
 };
 

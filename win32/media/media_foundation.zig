@@ -2826,7 +2826,8 @@ pub const ID3D12VideoDecoderHeap = extern union {
         base: ID3D12Pageable.VTable,
         GetDesc: *const fn(
             self: *const ID3D12VideoDecoderHeap,
-        ) callconv(.winapi) D3D12_VIDEO_DECODER_HEAP_DESC,
+            __return_ptr: *D3D12_VIDEO_DECODER_HEAP_DESC,
+        ) callconv(.winapi) *D3D12_VIDEO_DECODER_HEAP_DESC,
     };
     vtable: *const VTable,
     ID3D12Pageable: ID3D12Pageable,
@@ -2834,7 +2835,9 @@ pub const ID3D12VideoDecoderHeap = extern union {
     ID3D12Object: ID3D12Object,
     IUnknown: IUnknown,
     pub fn GetDesc(self: *const ID3D12VideoDecoderHeap) callconv(.@"inline") D3D12_VIDEO_DECODER_HEAP_DESC {
-        return self.vtable.GetDesc(self);
+        var __result: D3D12_VIDEO_DECODER_HEAP_DESC = undefined;
+        _ = self.vtable.GetDesc(self, &__result);
+        return __result;
     }
 };
 
@@ -2897,7 +2900,8 @@ pub const ID3D12VideoDecoder = extern union {
         base: ID3D12Pageable.VTable,
         GetDesc: *const fn(
             self: *const ID3D12VideoDecoder,
-        ) callconv(.winapi) D3D12_VIDEO_DECODER_DESC,
+            __return_ptr: *D3D12_VIDEO_DECODER_DESC,
+        ) callconv(.winapi) *D3D12_VIDEO_DECODER_DESC,
     };
     vtable: *const VTable,
     ID3D12Pageable: ID3D12Pageable,
@@ -2905,7 +2909,9 @@ pub const ID3D12VideoDecoder = extern union {
     ID3D12Object: ID3D12Object,
     IUnknown: IUnknown,
     pub fn GetDesc(self: *const ID3D12VideoDecoder) callconv(.@"inline") D3D12_VIDEO_DECODER_DESC {
-        return self.vtable.GetDesc(self);
+        var __result: D3D12_VIDEO_DECODER_DESC = undefined;
+        _ = self.vtable.GetDesc(self, &__result);
+        return __result;
     }
 };
 
@@ -3309,7 +3315,8 @@ pub const ID3D12VideoProcessor = extern union {
         ) callconv(.winapi) HRESULT,
         GetOutputStreamDesc: *const fn(
             self: *const ID3D12VideoProcessor,
-        ) callconv(.winapi) D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
+            __return_ptr: *D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
+        ) callconv(.winapi) *D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
     };
     vtable: *const VTable,
     ID3D12Pageable: ID3D12Pageable,
@@ -3326,7 +3333,9 @@ pub const ID3D12VideoProcessor = extern union {
         return self.vtable.GetInputStreamDescs(self, NumInputStreamDescs, pInputStreamDescs);
     }
     pub fn GetOutputStreamDesc(self: *const ID3D12VideoProcessor) callconv(.@"inline") D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
-        return self.vtable.GetOutputStreamDesc(self);
+        var __result: D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC = undefined;
+        _ = self.vtable.GetOutputStreamDesc(self, &__result);
+        return __result;
     }
 };
 
@@ -4077,7 +4086,8 @@ pub const ID3D12VideoMotionEstimator = extern union {
         base: ID3D12Pageable.VTable,
         GetDesc: *const fn(
             self: *const ID3D12VideoMotionEstimator,
-        ) callconv(.winapi) D3D12_VIDEO_MOTION_ESTIMATOR_DESC,
+            __return_ptr: *D3D12_VIDEO_MOTION_ESTIMATOR_DESC,
+        ) callconv(.winapi) *D3D12_VIDEO_MOTION_ESTIMATOR_DESC,
         GetProtectedResourceSession: *const fn(
             self: *const ID3D12VideoMotionEstimator,
             riid: ?*const Guid,
@@ -4090,7 +4100,9 @@ pub const ID3D12VideoMotionEstimator = extern union {
     ID3D12Object: ID3D12Object,
     IUnknown: IUnknown,
     pub fn GetDesc(self: *const ID3D12VideoMotionEstimator) callconv(.@"inline") D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
-        return self.vtable.GetDesc(self);
+        var __result: D3D12_VIDEO_MOTION_ESTIMATOR_DESC = undefined;
+        _ = self.vtable.GetDesc(self, &__result);
+        return __result;
     }
     pub fn GetProtectedResourceSession(self: *const ID3D12VideoMotionEstimator, riid: ?*const Guid, ppProtectedSession: ?**anyopaque) callconv(.@"inline") HRESULT {
         return self.vtable.GetProtectedResourceSession(self, riid, ppProtectedSession);
@@ -4114,7 +4126,8 @@ pub const ID3D12VideoMotionVectorHeap = extern union {
         base: ID3D12Pageable.VTable,
         GetDesc: *const fn(
             self: *const ID3D12VideoMotionVectorHeap,
-        ) callconv(.winapi) D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC,
+            __return_ptr: *D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC,
+        ) callconv(.winapi) *D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC,
         GetProtectedResourceSession: *const fn(
             self: *const ID3D12VideoMotionVectorHeap,
             riid: ?*const Guid,
@@ -4127,7 +4140,9 @@ pub const ID3D12VideoMotionVectorHeap = extern union {
     ID3D12Object: ID3D12Object,
     IUnknown: IUnknown,
     pub fn GetDesc(self: *const ID3D12VideoMotionVectorHeap) callconv(.@"inline") D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
-        return self.vtable.GetDesc(self);
+        var __result: D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC = undefined;
+        _ = self.vtable.GetDesc(self, &__result);
+        return __result;
     }
     pub fn GetProtectedResourceSession(self: *const ID3D12VideoMotionVectorHeap, riid: ?*const Guid, ppProtectedSession: ?**anyopaque) callconv(.@"inline") HRESULT {
         return self.vtable.GetProtectedResourceSession(self, riid, ppProtectedSession);
@@ -4633,7 +4648,8 @@ pub const ID3D12VideoExtensionCommand = extern union {
         base: ID3D12Pageable.VTable,
         GetDesc: *const fn(
             self: *const ID3D12VideoExtensionCommand,
-        ) callconv(.winapi) D3D12_VIDEO_EXTENSION_COMMAND_DESC,
+            __return_ptr: *D3D12_VIDEO_EXTENSION_COMMAND_DESC,
+        ) callconv(.winapi) *D3D12_VIDEO_EXTENSION_COMMAND_DESC,
         GetProtectedResourceSession: *const fn(
             self: *const ID3D12VideoExtensionCommand,
             riid: ?*const Guid,
@@ -4646,7 +4662,9 @@ pub const ID3D12VideoExtensionCommand = extern union {
     ID3D12Object: ID3D12Object,
     IUnknown: IUnknown,
     pub fn GetDesc(self: *const ID3D12VideoExtensionCommand) callconv(.@"inline") D3D12_VIDEO_EXTENSION_COMMAND_DESC {
-        return self.vtable.GetDesc(self);
+        var __result: D3D12_VIDEO_EXTENSION_COMMAND_DESC = undefined;
+        _ = self.vtable.GetDesc(self, &__result);
+        return __result;
     }
     pub fn GetProtectedResourceSession(self: *const ID3D12VideoExtensionCommand, riid: ?*const Guid, ppProtectedSession: ?**anyopaque) callconv(.@"inline") HRESULT {
         return self.vtable.GetProtectedResourceSession(self, riid, ppProtectedSession);

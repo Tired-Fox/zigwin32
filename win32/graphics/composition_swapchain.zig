@@ -384,7 +384,8 @@ pub const IIndependentFlipFramePresentStatistics = extern union {
         base: IPresentStatistics.VTable,
         GetOutputAdapterLUID: *const fn(
             self: *const IIndependentFlipFramePresentStatistics,
-        ) callconv(.winapi) LUID,
+            __return_ptr: *LUID,
+        ) callconv(.winapi) *LUID,
         GetOutputVidPnSourceId: *const fn(
             self: *const IIndependentFlipFramePresentStatistics,
         ) callconv(.winapi) u32,
@@ -393,16 +394,20 @@ pub const IIndependentFlipFramePresentStatistics = extern union {
         ) callconv(.winapi) usize,
         GetDisplayedTime: *const fn(
             self: *const IIndependentFlipFramePresentStatistics,
-        ) callconv(.winapi) SystemInterruptTime,
+            __return_ptr: *SystemInterruptTime,
+        ) callconv(.winapi) *SystemInterruptTime,
         GetPresentDuration: *const fn(
             self: *const IIndependentFlipFramePresentStatistics,
-        ) callconv(.winapi) SystemInterruptTime,
+            __return_ptr: *SystemInterruptTime,
+        ) callconv(.winapi) *SystemInterruptTime,
     };
     vtable: *const VTable,
     IPresentStatistics: IPresentStatistics,
     IUnknown: IUnknown,
     pub fn GetOutputAdapterLUID(self: *const IIndependentFlipFramePresentStatistics) callconv(.@"inline") LUID {
-        return self.vtable.GetOutputAdapterLUID(self);
+        var __result: LUID = undefined;
+        _ = self.vtable.GetOutputAdapterLUID(self, &__result);
+        return __result;
     }
     pub fn GetOutputVidPnSourceId(self: *const IIndependentFlipFramePresentStatistics) callconv(.@"inline") u32 {
         return self.vtable.GetOutputVidPnSourceId(self);
@@ -411,10 +416,14 @@ pub const IIndependentFlipFramePresentStatistics = extern union {
         return self.vtable.GetContentTag(self);
     }
     pub fn GetDisplayedTime(self: *const IIndependentFlipFramePresentStatistics) callconv(.@"inline") SystemInterruptTime {
-        return self.vtable.GetDisplayedTime(self);
+        var __result: SystemInterruptTime = undefined;
+        _ = self.vtable.GetDisplayedTime(self, &__result);
+        return __result;
     }
     pub fn GetPresentDuration(self: *const IIndependentFlipFramePresentStatistics) callconv(.@"inline") SystemInterruptTime {
-        return self.vtable.GetPresentDuration(self);
+        var __result: SystemInterruptTime = undefined;
+        _ = self.vtable.GetPresentDuration(self, &__result);
+        return __result;
     }
 };
 
